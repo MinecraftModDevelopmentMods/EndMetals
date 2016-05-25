@@ -1,0 +1,44 @@
+tile.end_coal_ore.name=End Coal Ore
+tile.end_diamond_ore.name=End Diamond Ore
+tile.end_emerald_ore.name=End Emerald Ore
+tile.end_gold_ore.name=End Gold Ore
+tile.end_iron_ore.name=End Iron Ore
+tile.end_lapis_ore.name=End Lapis Ore
+tile.end_redstone_ore.name=End Redstone Ore
+
+tile.end_antimony_ore.name=End Antimony Ore
+tile.end_bismuth_ore.name=End Bismuth Ore
+tile.end_copper_ore.name=End Copper Ore
+tile.end_lead_ore.name=End Lead Ore
+tile.end_mercury_ore.name=End Mercury Ore
+tile.end_nickel_ore.name=End Nickel Ore
+tile.end_platinum_ore.name=End Platinum Ore
+tile.end_silver_ore.name=End Silver Ore
+tile.end_tin_ore.name=End Tin Ore
+tile.end_zinc_ore.name=End Zinc Ore
+
+tile.end_aluminum_ore.name=End Aluminum Ore
+tile.end_cadmium_ore.name=End Cadmium Ore
+tile.end_chromium_ore.name=End Chromium Ore
+tile.end_iridium_ore.name=End Iridium Ore
+tile.end_magnesium_ore.name=End Magnesium Ore
+tile.end_manganese_ore.name=End Manganese Ore
+tile.end_osmium_ore.name=End Osmium Ore
+tile.end_plutonium_ore.name=End Plutonium Ore
+tile.end_rutile_ore.name=End Rutile Ore
+tile.end_tantalum_ore.name=End Tantalum Ore
+tile.end_titanium_ore.name=End Titanium Ore
+tile.end_tungsten_ore.name=End Tungsten Ore
+tile.end_uranium_ore.name=End Uranium Ore
+tile.end_zirconium_ore.name=End Zirconium Ore
+
+item.end_sword.name=End Sword
+item.end_pickaxe.name=End Pickaxe
+item.end_axe.name=End Axe
+item.end_hoe.name=End Hoe
+item.end_spade.name=End Shovel
+
+item.end_helmet.name=End Helmet
+item.end_chestplate.name=End Chestplate
+item.end_leggings.name=End Leggings
+item.end_boots.name=End Boots

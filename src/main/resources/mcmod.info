@@ -1,0 +1,16 @@
+[
+ {
+   "modid": "endmetals",
+   "name": "End Metals",
+   "description": "End Metals is an Addon for the mod Base Metals, it expands it to bring its ores to the End dimension.",
+   "version": "${version}",
+   "mcversion": "${mcversion}",
+   "url": "",
+   "updateUrl": "",
+   "authorList": ["jriwanek", "Knoxhack"],
+   "credits": "",
+   "logoFile": "",
+   "screenshots": [],
+   "dependencies": []
+ }
+]
