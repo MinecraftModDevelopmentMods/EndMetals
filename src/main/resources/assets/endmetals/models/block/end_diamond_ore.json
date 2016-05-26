@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "endmetals:blocks/end_diamond_ore"
+    }
+}

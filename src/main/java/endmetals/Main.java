@@ -93,6 +93,6 @@ public class Main {
 		Main.proxy.postInit(event);
 	}
 
-	@SidedProxy(clientSide="com.knoxhack.nethermetals.ClientProxy", serverSide="com.knoxhack.nethermetals.ServerProxy")
+	@SidedProxy(clientSide="endmetals.ClientProxy", serverSide="endmetals.ServerProxy")
 	public static CommonProxy proxy;
 }
