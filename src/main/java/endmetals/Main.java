@@ -26,7 +26,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 		name = Main.MODNAME,
 		version = Main.VERSION,
 		dependencies = "required-after:Forge;after:basemetals;after:modernmetals",
-		acceptedMinecraftVersions = "1.8.9,)",
+		acceptedMinecraftVersions = "1.9,)",
 		updateJSON = "https://raw.githubusercontent.com/jriwanek/End-Metals/master/update.json")
 
 public class Main {
@@ -36,7 +36,7 @@ public class Main {
 
 	public static final String MODID = "endmetals";
 	public static final String MODNAME = "End Metals";
-	public static final String VERSION = "1.0.0";
+	public static final String VERSION = "1.0.1";
 
 	/** All ore-spawn files discovered in the ore-spawn folder */
 	public static final List<Path> oreSpawnConfigFiles = new LinkedList<>();

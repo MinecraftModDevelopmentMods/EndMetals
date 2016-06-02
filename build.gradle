@@ -34,7 +34,7 @@ allprojects {
     targetCompatibility = 1.8
 }
 
-version = "1.0.0"
+version = "1.0.1"
 group= "endmetals" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "EndMetals_1.9"
 
