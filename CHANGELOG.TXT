@@ -1,1 +1,3 @@
-Added a config file for vanilla ores
+(1.0.4)
+
+Added a config file for vanilla ores (hotfix)
