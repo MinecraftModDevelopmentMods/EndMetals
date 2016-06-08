@@ -34,12 +34,12 @@ allprojects {
     targetCompatibility = 1.8
 }
 
-version = "1.0.1"
+version = "1.0.2"
 group= "endmetals" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "EndMetals_1.9"
 
 minecraft {
-    version = "1.9-12.16.1.1907"
+    version = "1.9-12.16.1.1938-1.9.0"
     runDir = "run"
     
     mappings = "stable_24"
