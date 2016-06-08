@@ -47,7 +47,11 @@ public class Main {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		INSTANCE = this;
-
+		
+        // vanilla config loader
+        ConfigHandler.startConfig(event);
+		
+		
 		// load config
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();

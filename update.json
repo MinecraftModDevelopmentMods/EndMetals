@@ -16,6 +16,12 @@
     "1.0.1": "Add missing textures"
     "1.0.0": "Initial Release",
   },
+  "1.9.4": {
+    "1.0.1": "Added a config file for vanilla ores"
+  },
+  "1.9": {
+    "1.0.1": "Added a config file for vanilla ores",
+  },
   "1.8.9": {
     "1.0.1": "Add missing textures"
     "1.0.0": "Initial Release"
