@@ -17,14 +17,13 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 public class WorldGen implements IWorldGenerator {
 
-	private WorldGenerator gen_end_coal_ore;			// Generates Coal Ore (used in Nether)
-	private WorldGenerator gen_end_diamond_ore;		// Generates Diamond Ore (used in Nether)
-	private WorldGenerator gen_end_emerald_ore;		// Generates Emerald Ore (used in Nether)
-	private WorldGenerator gen_end_gold_ore;			// Generates Gold Ore (used in Nether)
-	private WorldGenerator gen_end_iron_ore;			// Generates Iron Ore (used in Nether)
-	private WorldGenerator gen_end_lapis_ore;		// Generates Lapis Ore (used in Nether)
-	private WorldGenerator gen_end_redstone_ore;		// Generates Redstone Ore (used in Nether)
-
+	private WorldGenerator gen_end_coal_ore;		// Generates Coal Ore (used in End)
+	private WorldGenerator gen_end_diamond_ore;		// Generates Diamond Ore (used in End)
+	private WorldGenerator gen_end_emerald_ore;		// Generates Emerald Ore (used in End)
+	private WorldGenerator gen_end_gold_ore;		// Generates Gold Ore (used in End)
+	private WorldGenerator gen_end_iron_ore;		// Generates Iron Ore (used in End)
+	private WorldGenerator gen_end_lapis_ore;		// Generates Lapis Ore (used in End)
+	private WorldGenerator gen_end_redstone_ore;	// Generates Redstone Ore (used in End)
 
 	public WorldGen() {
 

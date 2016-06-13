@@ -56,7 +56,7 @@ End Ores spawn only in the End
 Check us on Github: https://github.com/jriwanek/End-Metals
 
 #### ( Discord ):
-We have a Discord server!  You can join with the following invite link: <Link goes here>
+We have a Discord server!  You can join with the following invite link: https://discord.gg/0zDmvoH5AXIG1hgU
  
 #### ( Modpacks ):
 Feel free to use it as long as you give credits and a link to this page.

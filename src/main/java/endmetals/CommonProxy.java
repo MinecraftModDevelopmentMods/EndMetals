@@ -2,8 +2,8 @@ package endmetals;
 
 import endmetals.blocks.ModBlocks;
 import endmetals.crafting.ModCrafting;
-
 import endmetals.world.WorldGen;
+
 import org.apache.logging.log4j.Logger;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -24,17 +24,11 @@ public class CommonProxy {
 
 	private static final Logger logger = FMLLog.getLogger();
 	
-	
-	
 	public void postInit(FMLPostInitializationEvent event) {
 
 	}
-	
-	
 
-	public void info(String s)
-
-	{
+	public void info(String s) {
 		logger.info(s);	
 	}
 
@@ -42,18 +36,5 @@ public class CommonProxy {
 	{
 		logger.error(s);
 	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
+
