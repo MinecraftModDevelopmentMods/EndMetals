@@ -11,8 +11,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public final class ModCrafting {
 
 	public static void initCrafting() {
-		// Vanilla
 
+		// Vanilla
 		GameRegistry.addSmelting(ModBlocks.endcoalOre, new ItemStack(Blocks.COAL_ORE, 2), 1.0f);
 		GameRegistry.addSmelting(ModBlocks.enddiamondOre, new ItemStack(Blocks.DIAMOND_ORE, 2), 1.0f);
 		GameRegistry.addSmelting(ModBlocks.endemeraldOre, new ItemStack(Blocks.EMERALD_ORE, 2), 1.0f); 
