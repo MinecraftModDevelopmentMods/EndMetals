@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import endmetals.Main;
+
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockDoor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.ItemBlock;
@@ -91,8 +91,8 @@ public final class ModBlocks {
 		endtungstenOre = createOre("tungsten", 4.0f, 15.0f);
 		enduraniumOre = createOre("uranium", 4.0f, 15.0f);
 		endzirconiumOre = createOre("zirconium", 4.0f, 15.0f);
-}
-	
+	}
+
 	private static Block addBlock(Block block, String name) {
 		ResourceLocation location = new ResourceLocation(Main.MODID, name);
 		block.setRegistryName(location);
@@ -113,9 +113,8 @@ public final class ModBlocks {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static void registerItemRenders(FMLInitializationEvent event){
+	public static void registerItemRenders(FMLInitializationEvent event) {
 		for(String name : allBlocks.keySet()){
-			if(allBlocks.get(name) instanceof BlockDoor) continue;// do not add door blocks
 			Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
 			.register(net.minecraft.item.Item.getItemFromBlock(allBlocks.get(name)), 0, 
 				new ModelResourceLocation(new ResourceLocation(Main.MODID, name), "inventory"));

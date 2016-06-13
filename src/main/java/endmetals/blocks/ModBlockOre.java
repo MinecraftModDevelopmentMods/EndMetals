@@ -7,7 +7,7 @@ public class ModBlockOre extends BlockOre {
 
 	protected ModBlockOre(float Hardness, float Resistance) {
 		super();
-		
+
 		this.setHarvestLevel("pickaxe", 1);
 		this.setHardness(4.0f);
 		this.setResistance(15.0f);

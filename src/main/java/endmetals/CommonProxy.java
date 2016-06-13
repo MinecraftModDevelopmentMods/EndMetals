@@ -22,11 +22,11 @@ public class CommonProxy {
 		GameRegistry.registerWorldGenerator(new WorldGen(), 0);
 	}
 
-	private static final Logger logger = FMLLog.getLogger();
-	
 	public void postInit(FMLPostInitializationEvent event) {
 
 	}
+
+	private static final Logger logger = FMLLog.getLogger();
 
 	public void info(String s) {
 		logger.info(s);	

@@ -35,8 +35,6 @@ public class WorldGen implements IWorldGenerator {
 		this.gen_end_iron_ore = new WorldGenMinable(ModBlocks.endironOre.getDefaultState(), ConfigHandler.getEndIronOreSpawnProb(), BlockMatcher.forBlock(Blocks.END_STONE));
 		this.gen_end_lapis_ore = new WorldGenMinable(ModBlocks.endlapisOre.getDefaultState(), ConfigHandler.getEndLapisOreSpawnProb(), BlockMatcher.forBlock(Blocks.END_STONE));
 		this.gen_end_redstone_ore = new WorldGenMinable(ModBlocks.endredstoneOre.getDefaultState(), ConfigHandler.getEndRedstoneOreSpawnProb(), BlockMatcher.forBlock(Blocks.END_STONE));
-	    
-
 	}
 
 	@Override
@@ -56,8 +54,6 @@ public class WorldGen implements IWorldGenerator {
 			this.runGenerator(this.gen_end_iron_ore, world, random, chunkX, chunkZ, 5, 0, 200);
 			this.runGenerator(this.gen_end_lapis_ore, world, random, chunkX, chunkZ, 5, 0, 200);
 			this.runGenerator(this.gen_end_redstone_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-
-
 			break;
 		}
 	}
