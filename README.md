@@ -1,4 +1,4 @@
-###End Metals
+###End Metals [![Build Status](https://travis-ci.org/jriwanek/Nether-Metals.svg?branch=master)](https://travis-ci.org/jriwanek/Nether-Metals)
 
 #### ( Info ) :
 

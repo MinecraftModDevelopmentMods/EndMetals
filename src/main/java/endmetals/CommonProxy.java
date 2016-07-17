@@ -2,39 +2,45 @@ package endmetals;
 
 import endmetals.blocks.ModBlocks;
 import endmetals.crafting.ModCrafting;
+import endmetals.utils.JSONHandler;
 import endmetals.world.WorldGen;
 
-import org.apache.logging.log4j.Logger;
-import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
+/**
+ * 
+ * @author Jasmine Iwanek
+ * @author Knoxhack
+ *
+ */
 public class CommonProxy {
 
+	/**
+	 * 
+	 * @param event event
+	 */
 	public void preInit(FMLPreInitializationEvent event) {
 		ModBlocks.createBlocks();
 	}
 
+	/**
+	 * 
+	 * @param event event
+	 */
 	public void init(FMLInitializationEvent event) {
-		ModCrafting.initCrafting();
+		JSONHandler.init();
+		ModCrafting.init();
 		GameRegistry.registerWorldGenerator(new WorldGen(), 0);
 	}
 
+	/**
+	 * 
+	 * @param event event
+	 */
 	public void postInit(FMLPostInitializationEvent event) {
 
 	}
-
-	private static final Logger logger = FMLLog.getLogger();
-
-	public void info(String s) {
-		logger.info(s);	
-	}
-
-	public void error(String s)
-	{
-		logger.error(s);
-	}
 }
-

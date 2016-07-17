@@ -1,5 +1,10 @@
 package endmetals.data;
-
+/**
+ * 
+ * @author Jasmine Iwanek
+ * @author Knoxhack
+ *
+ */
 public class DataConstants {
 	public static final String bmOreSpawnJSON = "{"
 + "\n	\"dimensions\":["
@@ -58,14 +63,14 @@ public class DataConstants {
 + "\n					\"minHeight\":0,"
 + "\n					\"maxHeight\":96"
 + "\n				},"
-+ "\n				{"
-+ "\n					\"blockID\":\"endmetals:end_platinum_ore\","
-+ "\n					\"size\":8,"
-+ "\n					\"variation\":4,"
-+ "\n					\"frequency\":10,"
-+ "\n					\"minHeight\":0,"
-+ "\n					\"maxHeight\":32"
-+ "\n				},"
+//+ "\n				{"
+//+ "\n					\"blockID\":\"endmetals:end_platinum_ore\","
+//+ "\n					\"size\":8,"
+//+ "\n					\"variation\":4,"
+//+ "\n					\"frequency\":10,"
+//+ "\n					\"minHeight\":0,"
+//+ "\n					\"maxHeight\":32"
+//+ "\n				},"
 + "\n				{"
 + "\n					\"blockID\":\"endmetals:end_silver_ore\","
 + "\n					\"size\":8,"
@@ -94,6 +99,7 @@ public class DataConstants {
 + "\n		}"
 + "\n	]"
 + "\n}";
+
 	public static final String mmOreSpawnJSON = "{"
 + "\n	\"dimensions\":["
 + "\n		{"

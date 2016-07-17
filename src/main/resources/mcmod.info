@@ -5,7 +5,7 @@
    "description": "End Metals is an Addon for the mod Base Metals, it expands it to bring its ores to the End dimension.",
    "version": "${version}",
    "mcversion": "${mcversion}",
-   "url": "",
+   "url": "http://minecraft.curseforge.com/projects/end-metals",
    "updateUrl": "",
    "authorList": ["jriwanek", "Knoxhack"],
    "credits": "",
