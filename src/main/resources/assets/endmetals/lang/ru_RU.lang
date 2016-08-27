@@ -1,0 +1,44 @@
+coal=Энд Угольная Руда
+diamond=Энд Алмазная Руда
+emerald=Энд Изумрудная Руда
+gold=Энд Золотая Руда
+iron=Энд Железная Руда
+lapis=Энд Лазуритовая Руда
+redstone=Энд Редстоуновая Руда
+
+antimony=Энд Сурьмяная Руда
+bismuth=Энд Висмутовая Руда
+copper=Энд Медная Руда
+lead=Энд Свинцовая Руда
+mercury=Энд Меркуриевая Руда
+nickel=Энд Никелевая Руда
+platinum=Энд Платиновая Руда
+silver=Энд Серебряная Руда
+tin=Энд Оловянная Руда
+zinc=Энд Цинковая Руда
+
+aluminum=Энд Алюминиевая Руда
+cadmium=Энд Кадмиевая Руда
+chromium=Энд Хромная Руда
+iridium=Энд Иридиевая Руда
+magnesium=Энд Магниевая Руда
+manganese=Энд Марганцевая Руда
+osmium=Энд Осмиевая Руда
+plutonium=Энд Плутониевая Руда
+rutile=Энд Рутиловая Руда
+tantalum=Энд Танталовая Руда
+titanium=Энд Титановая Руда
+tungsten=Энд Вольфрамовая Руда
+uranium=Энд Урановая Руда
+zirconium=Энд Циркониевая Руда
+
+item.end_sword.name=Энд Меч
+item.end_pickaxe.name=Энд Кирка
+item.end_axe.name=Энд Топор
+item.end_hoe.name=Энд Мотыга
+item.end_spade.name=Энд Лопата
+
+item.end_helmet.name=Энд Шлем
+item.end_chestplate.name=Энд Нагрудник
+item.end_leggings.name=Энд Штаны
+item.end_boots.name=Энд Ботинки
