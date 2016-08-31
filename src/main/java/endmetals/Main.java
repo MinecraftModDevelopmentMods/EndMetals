@@ -56,28 +56,31 @@ public class Main {
 		config.load();
 
 		oreSpawnFolder = Paths.get(event.getSuggestedConfigurationFile().toPath().getParent().toString(),"orespawn");
-		// Base Metals
-		if(Loader.isModLoaded("basemetals")) {
-			Path bmoreSpawnFile = Paths.get(oreSpawnFolder.toString(),MODID+"-bmores"+".json");
-			if(Files.exists(bmoreSpawnFile) == false){
-				try {
-					Files.createDirectories(bmoreSpawnFile.getParent());
-					Files.write(bmoreSpawnFile, Arrays.asList(DataConstants.bmOreSpawnJSON.split("\n")), Charset.forName("UTF-8"));
-				} catch (IOException e) {
-					FMLLog.severe(MODID+": Error: Failed to write file "+bmoreSpawnFile);
+		if(ConfigHandler.requireOreSpawn) {
+			// Base Metals
+
+			if(Loader.isModLoaded("basemetals")) {
+				Path bmoreSpawnFile = Paths.get(oreSpawnFolder.toString(),MODID+"-bmores"+".json");
+				if(Files.exists(bmoreSpawnFile) == false){
+					try {
+						Files.createDirectories(bmoreSpawnFile.getParent());
+						Files.write(bmoreSpawnFile, Arrays.asList(DataConstants.bmOreSpawnJSON.split("\n")), Charset.forName("UTF-8"));
+					} catch (IOException e) {
+						FMLLog.severe(MODID+": Error: Failed to write file "+bmoreSpawnFile);
+					}
 				}
 			}
-		}
 
-		// Modern Metals
-		if(Loader.isModLoaded("modernmetals")) {
-			Path mmoreSpawnFile = Paths.get(oreSpawnFolder.toString(),MODID+"-mmores"+".json");
-			if(Files.exists(mmoreSpawnFile) == false){
-				try {
-					Files.createDirectories(mmoreSpawnFile.getParent());
-					Files.write(mmoreSpawnFile, Arrays.asList(DataConstants.mmOreSpawnJSON.split("\n")), Charset.forName("UTF-8"));
-				} catch (IOException e) {
-					FMLLog.severe(MODID+": Error: Failed to write file "+mmoreSpawnFile);
+			// Modern Metals
+			if(Loader.isModLoaded("modernmetals")) {
+				Path mmoreSpawnFile = Paths.get(oreSpawnFolder.toString(),MODID+"-mmores"+".json");
+				if(Files.exists(mmoreSpawnFile) == false){
+					try {
+						Files.createDirectories(mmoreSpawnFile.getParent());
+						Files.write(mmoreSpawnFile, Arrays.asList(DataConstants.mmOreSpawnJSON.split("\n")), Charset.forName("UTF-8"));
+					} catch (IOException e) {
+						FMLLog.severe(MODID+": Error: Failed to write file "+mmoreSpawnFile);
+					}
 				}
 			}
 		}

@@ -12,6 +12,8 @@ public class ConfigHandler {
 	
 	private static final String orespawnProbComment = "Spawn Probability\nSet to zero to disable ore spawning of this type";
 
+	public static boolean requireOreSpawn = true;
+	
 	private static int ironoreSpawnProb = 0;
 	private static int diamondoreSpawnProb = 0;
 	private static int redstoneoreSpawnProb = 0;
@@ -32,6 +34,10 @@ public class ConfigHandler {
 		try {
 			config.addCustomCategoryComment(Configuration.CATEGORY_GENERAL, comments);
 
+			requireOreSpawn = config.getBoolean("using_orespawn", "options", requireOreSpawn,
+					"If false, then Base Metals will not require DrCyano's Ore Spawn mod. \n" +
+					"Set to false if using another mod to manually handle ore generation.");
+			
 			ironoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndIronOreSpawnProb", 14, orespawnProbComment).getInt();
 			diamondoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndDiamondOreSpawnProb", 5, orespawnProbComment).getInt();
 			redstoneoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndRedstoneOreSpawnProb", 12, orespawnProbComment).getInt();
