@@ -1,6 +1,7 @@
 package endmetals.crafting;
 
 import cyano.basemetals.registry.CrusherRecipeRegistry;
+import dank.modularity.framework.common.init.FrameworkContent;
 import endmetals.blocks.ModBlocks;
 
 import net.minecraft.init.Blocks;
@@ -21,6 +22,16 @@ public final class ModCrafting {
 		GameRegistry.addSmelting(ModBlocks.endlapisOre, new ItemStack(Blocks.LAPIS_ORE, 2), 1.0f);
 		GameRegistry.addSmelting(ModBlocks.endredstoneOre, new ItemStack(Blocks.REDSTONE_ORE, 2), 1.0f);
 
+		
+		if(Loader.isModLoaded("modularity")) {
+			GameRegistry.addSmelting(ModBlocks.endcopperOre, new ItemStack(FrameworkContent.resourceOre, 2 , 0), 1.0f);
+			GameRegistry.addSmelting(ModBlocks.endleadOre, new ItemStack(FrameworkContent.resourceOre, 2 , 3), 1.0f);
+			GameRegistry.addSmelting(ModBlocks.endsilverOre, new ItemStack(FrameworkContent.resourceOre, 2 , 2), 1.0f);
+			GameRegistry.addSmelting(ModBlocks.endtinOre, new ItemStack(FrameworkContent.resourceOre, 2 , 1), 1.0f);
+
+			}
+		
+		
 		// Vanilla BM Hammer Compat
 		if(Loader.isModLoaded("basemetals")) {
 			CrusherRecipeRegistry.addNewCrusherRecipe(ModBlocks.endcoalOre, new ItemStack(Blocks.COAL_ORE, 2));
