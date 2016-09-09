@@ -7,20 +7,20 @@ public class ConfigHandler {
 
 	public static Configuration config;
 
-	private static final String comments = Main.MODNAME + " Config\n For End Metals \n"
+	private static final String COMMENTS = Main.MODNAME + " Config\n For End Metals \n"
 			+ " For End Metals " + Main.VERSION;
 	
-	private static final String orespawnProbComment = "Spawn Probability\nSet to zero to disable ore spawning of this type";
+	private static final String ORE_SPAWN_PROB_COMMENT = "Spawn Probability\nSet to zero to disable ore spawning of this type";
 
 	public static boolean requireOreSpawn = true;
 	
-	private static int ironoreSpawnProb = 0;
-	private static int diamondoreSpawnProb = 0;
-	private static int redstoneoreSpawnProb = 0;
-	private static int goldoreSpawnProb = 0;
-	private static int emeraldoreSpawnProb = 0;
-	private static int coaloreSpawnProb = 0;
-	private static int lapisoreSpawnProb = 0;
+	private static int ironOreSpawnProb = 0;
+	private static int diamondOreSpawnProb = 0;
+	private static int redstoneOreSpawnProb = 0;
+	private static int goldOreSpawnProb = 0;
+	private static int emeraldOreSpawnProb = 0;
+	private static int coalOreSpawnProb = 0;
+	private static int lapisOreSpawnProb = 0;
 
 	public static void startConfig(FMLPreInitializationEvent event)
 	{
@@ -32,27 +32,27 @@ public class ConfigHandler {
 	public static void updateConfigInfo()
 	{
 		try {
-			config.addCustomCategoryComment(Configuration.CATEGORY_GENERAL, comments);
+			config.addCustomCategoryComment(Configuration.CATEGORY_GENERAL, COMMENTS);
 
 			requireOreSpawn = config.getBoolean("using_orespawn", "options", requireOreSpawn,
 					"If false, then Base Metals will not require DrCyano's Ore Spawn mod. \n" +
 					"Set to false if using another mod to manually handle ore generation.");
 			
-			ironoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndIronOreSpawnProb", 14, orespawnProbComment).getInt();
-			diamondoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndDiamondOreSpawnProb", 5, orespawnProbComment).getInt();
-			redstoneoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndRedstoneOreSpawnProb", 12, orespawnProbComment).getInt();
-			lapisoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndLapisOreSpawnProb", 8, orespawnProbComment).getInt();
-			emeraldoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndEmeraldOreSpawnProb", 5, orespawnProbComment).getInt();
-			goldoreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndGoldOreSpawnProb", 8, orespawnProbComment).getInt();
-			coaloreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndCoalOreSpawnProb", 16, orespawnProbComment).getInt();
+			ironOreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndIronOreSpawnProb", 14, ORE_SPAWN_PROB_COMMENT).getInt();
+			diamondOreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndDiamondOreSpawnProb", 5, ORE_SPAWN_PROB_COMMENT).getInt();
+			redstoneOreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndRedstoneOreSpawnProb", 12, ORE_SPAWN_PROB_COMMENT).getInt();
+			lapisOreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndLapisOreSpawnProb", 8, ORE_SPAWN_PROB_COMMENT).getInt();
+			emeraldOreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndEmeraldOreSpawnProb", 5, ORE_SPAWN_PROB_COMMENT).getInt();
+			goldOreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndGoldOreSpawnProb", 8, ORE_SPAWN_PROB_COMMENT).getInt();
+			coalOreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndCoalOreSpawnProb", 16, ORE_SPAWN_PROB_COMMENT).getInt();
 
-			config.get(Configuration.CATEGORY_GENERAL, "EndIronOreSpawnProb", 14, orespawnProbComment).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "EndDiamondOreSpawnProb", 5, orespawnProbComment).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "EndRedstoneOreSpawnProb", 12, orespawnProbComment).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "EndEmeraldOreSpawnProb", 5, orespawnProbComment).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "EndGoldOreSpawnProb", 8, orespawnProbComment).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "EndLapisOreSpawnProb", 8, orespawnProbComment).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "EndCoalOreSpawnProb", 16, orespawnProbComment).getInt();
+			config.get(Configuration.CATEGORY_GENERAL, "EndIronOreSpawnProb", 14, ORE_SPAWN_PROB_COMMENT).getInt();
+			config.get(Configuration.CATEGORY_GENERAL, "EndDiamondOreSpawnProb", 5, ORE_SPAWN_PROB_COMMENT).getInt();
+			config.get(Configuration.CATEGORY_GENERAL, "EndRedstoneOreSpawnProb", 12, ORE_SPAWN_PROB_COMMENT).getInt();
+			config.get(Configuration.CATEGORY_GENERAL, "EndEmeraldOreSpawnProb", 5, ORE_SPAWN_PROB_COMMENT).getInt();
+			config.get(Configuration.CATEGORY_GENERAL, "EndGoldOreSpawnProb", 8, ORE_SPAWN_PROB_COMMENT).getInt();
+			config.get(Configuration.CATEGORY_GENERAL, "EndLapisOreSpawnProb", 8, ORE_SPAWN_PROB_COMMENT).getInt();
+			config.get(Configuration.CATEGORY_GENERAL, "EndCoalOreSpawnProb", 16, ORE_SPAWN_PROB_COMMENT).getInt();
 		} catch (Exception e) {
 			Main.proxy.info("failed to load or read the config file");
 		} finally {
@@ -63,30 +63,30 @@ public class ConfigHandler {
 	}
 
 	public static int getEndIronOreSpawnProb() {
-		return ironoreSpawnProb;
+		return ironOreSpawnProb;
 	}
 
 	public static int getEndDiamondOreSpawnProb() {
-		return diamondoreSpawnProb;
+		return diamondOreSpawnProb;
 	}
 
 	public static int getEndGoldOreSpawnProb() {
-		return goldoreSpawnProb;
+		return goldOreSpawnProb;
 	}
 
 	public static int getEndCoalOreSpawnProb() {
-		return coaloreSpawnProb;
+		return coalOreSpawnProb;
 	}
 
 	public static int getEndEmeraldOreSpawnProb() {
-		return emeraldoreSpawnProb;
+		return emeraldOreSpawnProb;
 	}
 
 	public static int getEndRedstoneOreSpawnProb() {
-		return redstoneoreSpawnProb;
+		return redstoneOreSpawnProb;
 	}
 
 	public static int getEndLapisOreSpawnProb() {
-		return lapisoreSpawnProb;
+		return lapisOreSpawnProb;
 	}
 }

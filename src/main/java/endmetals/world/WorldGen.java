@@ -17,24 +17,24 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 public class WorldGen implements IWorldGenerator {
 
-	private WorldGenerator gen_end_coal_ore;		// Generates Coal Ore (used in End)
-	private WorldGenerator gen_end_diamond_ore;		// Generates Diamond Ore (used in End)
-	private WorldGenerator gen_end_emerald_ore;		// Generates Emerald Ore (used in End)
-	private WorldGenerator gen_end_gold_ore;		// Generates Gold Ore (used in End)
-	private WorldGenerator gen_end_iron_ore;		// Generates Iron Ore (used in End)
-	private WorldGenerator gen_end_lapis_ore;		// Generates Lapis Ore (used in End)
-	private WorldGenerator gen_end_redstone_ore;	// Generates Redstone Ore (used in End)
+	private WorldGenerator gen_coal_ore;		// Generates Coal Ore (used in End)
+	private WorldGenerator gen_diamond_ore;		// Generates Diamond Ore (used in End)
+	private WorldGenerator gen_emerald_ore;		// Generates Emerald Ore (used in End)
+	private WorldGenerator gen_gold_ore;		// Generates Gold Ore (used in End)
+	private WorldGenerator gen_iron_ore;		// Generates Iron Ore (used in End)
+	private WorldGenerator gen_lapis_ore;		// Generates Lapis Ore (used in End)
+	private WorldGenerator gen_redstone_ore;	// Generates Redstone Ore (used in End)
 
 	public WorldGen() {
 
 		// Vanilla
-		this.gen_end_coal_ore = new WorldGenMinable(ModBlocks.endcoalOre.getDefaultState(), ConfigHandler.getEndCoalOreSpawnProb(), BlockMatcher.forBlock(Blocks.END_STONE));
-		this.gen_end_diamond_ore = new WorldGenMinable(ModBlocks.enddiamondOre.getDefaultState(), ConfigHandler.getEndDiamondOreSpawnProb(), BlockMatcher.forBlock(Blocks.END_STONE));
-		this.gen_end_emerald_ore = new WorldGenMinable(ModBlocks.endemeraldOre.getDefaultState(), ConfigHandler.getEndEmeraldOreSpawnProb(), BlockMatcher.forBlock(Blocks.END_STONE));
-		this.gen_end_gold_ore = new WorldGenMinable(ModBlocks.endgoldOre.getDefaultState(), ConfigHandler.getEndGoldOreSpawnProb(), BlockMatcher.forBlock(Blocks.END_STONE));
-		this.gen_end_iron_ore = new WorldGenMinable(ModBlocks.endironOre.getDefaultState(), ConfigHandler.getEndIronOreSpawnProb(), BlockMatcher.forBlock(Blocks.END_STONE));
-		this.gen_end_lapis_ore = new WorldGenMinable(ModBlocks.endlapisOre.getDefaultState(), ConfigHandler.getEndLapisOreSpawnProb(), BlockMatcher.forBlock(Blocks.END_STONE));
-		this.gen_end_redstone_ore = new WorldGenMinable(ModBlocks.endredstoneOre.getDefaultState(), ConfigHandler.getEndRedstoneOreSpawnProb(), BlockMatcher.forBlock(Blocks.END_STONE));
+		this.gen_coal_ore = new WorldGenMinable(ModBlocks.coal_ore.getDefaultState(), ConfigHandler.getEndCoalOreSpawnProb(), BlockMatcher.forBlock(Blocks.END_STONE));
+		this.gen_diamond_ore = new WorldGenMinable(ModBlocks.diamond_ore.getDefaultState(), ConfigHandler.getEndDiamondOreSpawnProb(), BlockMatcher.forBlock(Blocks.END_STONE));
+		this.gen_emerald_ore = new WorldGenMinable(ModBlocks.emerald_ore.getDefaultState(), ConfigHandler.getEndEmeraldOreSpawnProb(), BlockMatcher.forBlock(Blocks.END_STONE));
+		this.gen_gold_ore = new WorldGenMinable(ModBlocks.gold_ore.getDefaultState(), ConfigHandler.getEndGoldOreSpawnProb(), BlockMatcher.forBlock(Blocks.END_STONE));
+		this.gen_iron_ore = new WorldGenMinable(ModBlocks.iron_ore.getDefaultState(), ConfigHandler.getEndIronOreSpawnProb(), BlockMatcher.forBlock(Blocks.END_STONE));
+		this.gen_lapis_ore = new WorldGenMinable(ModBlocks.lapis_ore.getDefaultState(), ConfigHandler.getEndLapisOreSpawnProb(), BlockMatcher.forBlock(Blocks.END_STONE));
+		this.gen_redstone_ore = new WorldGenMinable(ModBlocks.redstone_ore.getDefaultState(), ConfigHandler.getEndRedstoneOreSpawnProb(), BlockMatcher.forBlock(Blocks.END_STONE));
 	}
 
 	@Override
@@ -47,13 +47,13 @@ public class WorldGen implements IWorldGenerator {
 			break;
 		case 1: // End
 			// Vanilla
-			this.runGenerator(this.gen_end_coal_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_end_diamond_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_end_emerald_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_end_gold_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_end_iron_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_end_lapis_ore, world, random, chunkX, chunkZ, 5, 0, 200);
-			this.runGenerator(this.gen_end_redstone_ore, world, random, chunkX, chunkZ, 5, 0, 200);
+			this.runGenerator(this.gen_coal_ore, world, random, chunkX, chunkZ, 5, 0, 200);
+			this.runGenerator(this.gen_diamond_ore, world, random, chunkX, chunkZ, 5, 0, 200);
+			this.runGenerator(this.gen_emerald_ore, world, random, chunkX, chunkZ, 5, 0, 200);
+			this.runGenerator(this.gen_gold_ore, world, random, chunkX, chunkZ, 5, 0, 200);
+			this.runGenerator(this.gen_iron_ore, world, random, chunkX, chunkZ, 5, 0, 200);
+			this.runGenerator(this.gen_lapis_ore, world, random, chunkX, chunkZ, 5, 0, 200);
+			this.runGenerator(this.gen_redstone_ore, world, random, chunkX, chunkZ, 5, 0, 200);
 			break;
 		}
 	}

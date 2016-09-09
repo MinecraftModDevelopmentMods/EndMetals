@@ -61,10 +61,10 @@ public class Main {
 
 			if(Loader.isModLoaded("basemetals")) {
 				Path bmoreSpawnFile = Paths.get(oreSpawnFolder.toString(),MODID+"-bmores"+".json");
-				if(Files.exists(bmoreSpawnFile) == false){
+				if(!Files.exists(bmoreSpawnFile)) {
 					try {
 						Files.createDirectories(bmoreSpawnFile.getParent());
-						Files.write(bmoreSpawnFile, Arrays.asList(DataConstants.bmOreSpawnJSON.split("\n")), Charset.forName("UTF-8"));
+						Files.write(bmoreSpawnFile, Arrays.asList(DataConstants.BM_ORESPAWN_JSON.split("\n")), Charset.forName("UTF-8"));
 					} catch (IOException e) {
 						FMLLog.severe(MODID+": Error: Failed to write file "+bmoreSpawnFile);
 					}
@@ -74,10 +74,10 @@ public class Main {
 			// Modern Metals
 			if(Loader.isModLoaded("modernmetals")) {
 				Path mmoreSpawnFile = Paths.get(oreSpawnFolder.toString(),MODID+"-mmores"+".json");
-				if(Files.exists(mmoreSpawnFile) == false){
+				if(!Files.exists(mmoreSpawnFile)) {
 					try {
 						Files.createDirectories(mmoreSpawnFile.getParent());
-						Files.write(mmoreSpawnFile, Arrays.asList(DataConstants.mmOreSpawnJSON.split("\n")), Charset.forName("UTF-8"));
+						Files.write(mmoreSpawnFile, Arrays.asList(DataConstants.MM_ORESPAWN_JSON.split("\n")), Charset.forName("UTF-8"));
 					} catch (IOException e) {
 						FMLLog.severe(MODID+": Error: Failed to write file "+mmoreSpawnFile);
 					}
