@@ -46,7 +46,15 @@ minecraft {
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
+repositories {
+    maven {
+        name "ilexiconn"
+        url "http://maven.ilexiconn.net/"
+    }
+}
+
 dependencies {
+    compile "mmd:orespawn:2.0.0.4-1.10.2:dev"
     compile files(
         'libs/BaseMetals_1.10.2-2.4.0.11.jar',
         'libs/ModernMetals-0.11.0.jar',
