@@ -39,7 +39,7 @@ group= "endmetals" // http://maven.apache.org/guides/mini/guide-naming-conventio
 archivesBaseName = "EndMetals-1.10"
 
 minecraft {
-    version = "1.10.2-12.18.1.2065"
+    version = "1.10.2-12.18.1.2011"
     runDir = "run"
     
     mappings = "stable_24"
