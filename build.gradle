@@ -36,7 +36,7 @@ allprojects {
 
 version = "1.2"
 group= "endmetals" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "EndMetals-1.10"
+archivesBaseName = "EndMetals-1.10.2"
 
 minecraft {
     version = "1.10.2-12.18.1.2011"

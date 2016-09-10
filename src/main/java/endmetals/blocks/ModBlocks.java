@@ -17,7 +17,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public final class ModBlocks {
 
-	private static final Map<String,Block> allBlocks = new HashMap<>();
+	private static final Map<String, Block> allBlocks = new HashMap<>();
 
 	public static Block coal_ore;
 	public static Block diamond_ore;
@@ -109,15 +109,15 @@ public final class ModBlocks {
 	}
 
 	private static Block createOre(String name, float Hardness, float Resistance) {
-		return addBlock(new ModBlockOre(Hardness, Resistance), "end_"+name+"_ore");
+		return addBlock(new ModBlockOre(Hardness, Resistance), "end_" + name + "_ore");
 	}
 
 	@SideOnly(Side.CLIENT)
 	public static void registerItemRenders(FMLInitializationEvent event) {
-		for(String name : allBlocks.keySet()){
-			Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-			.register(net.minecraft.item.Item.getItemFromBlock(allBlocks.get(name)), 0, 
-				new ModelResourceLocation(new ResourceLocation(Main.MODID, name), "inventory"));
+		for (final String name : allBlocks.keySet()) {
+			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(
+					net.minecraft.item.Item.getItemFromBlock(allBlocks.get(name)), 0,
+					new ModelResourceLocation(new ResourceLocation(Main.MODID, name), "inventory"));
 		}
 	}
 }

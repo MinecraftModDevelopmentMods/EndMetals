@@ -5,6 +5,7 @@ import endmetals.crafting.ModCrafting;
 import endmetals.world.WorldGen;
 
 import org.apache.logging.log4j.Logger;
+
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -12,6 +13,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
+
+	private static final Logger logger = FMLLog.getLogger();
 
 	public void preInit(FMLPreInitializationEvent event) {
 		ModBlocks.createBlocks();
@@ -23,18 +26,14 @@ public class CommonProxy {
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {
-		// 
+		//
 	}
-
-	private static final Logger logger = FMLLog.getLogger();
 
 	public void info(String s) {
-		logger.info(s);	
+		logger.info(s);
 	}
 
-	public void error(String s)
-	{
+	public void error(String s) {
 		logger.error(s);
 	}
 }
-

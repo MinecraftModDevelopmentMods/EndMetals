@@ -21,13 +21,10 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(
-		modid = Main.MODID,
-		name = Main.MODNAME,
-		version = Main.VERSION,
+@Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION,
 		dependencies = "required-after:Forge;after:modularity;after:modernmetals;after:basemetals",
-		acceptedMinecraftVersions = "1.9,)",
-		updateJSON = "https://raw.githubusercontent.com/jriwanek/End-Metals/master/update.json")
+		acceptedMinecraftVersions = "1.10.2,)",
+		updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/EndMetals/master/update.json")
 
 public class Main {
 
@@ -39,51 +36,48 @@ public class Main {
 	public static final String VERSION = "1.2";
 
 	/** All ore-spawn files discovered in the ore-spawn folder */
-	public static final List<Path> oreSpawnConfigFiles = new LinkedList<>();
-
-	/** location of ore-spawn files */
-	public static Path oreSpawnFolder = null;
+	// public static final List<Path> oreSpawnConfigFiles = new LinkedList<>();
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		INSTANCE = this;
 
 		// vanilla config loader
-        ConfigHandler.startConfig(event);
+		ConfigHandler.startConfig(event);
 
 		// load config
-		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
+		final Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
 
-		oreSpawnFolder = Paths.get(event.getSuggestedConfigurationFile().toPath().getParent().toString(),"orespawn");
-		if(ConfigHandler.requireOreSpawn) {
+		final Path oreSpawnFolder = Paths.get(event.getSuggestedConfigurationFile().toPath().getParent().toString(), "orespawn");
+		if (ConfigHandler.requireOreSpawn) {
 			// Base Metals
-
-			if(Loader.isModLoaded("basemetals")) {
-				Path bmoreSpawnFile = Paths.get(oreSpawnFolder.toString(),MODID+"-bmores"+".json");
-				if(!Files.exists(bmoreSpawnFile)) {
+			if (Loader.isModLoaded("basemetals")) {
+				final Path bmoreSpawnFile = Paths.get(oreSpawnFolder.toString(), MODID + "-bmores" + ".json");
+				if (!Files.exists(bmoreSpawnFile)) {
 					try {
 						Files.createDirectories(bmoreSpawnFile.getParent());
 						Files.write(bmoreSpawnFile, Arrays.asList(DataConstants.BM_ORESPAWN_JSON.split("\n")), Charset.forName("UTF-8"));
 					} catch (IOException e) {
-						FMLLog.severe(MODID+": Error: Failed to write file "+bmoreSpawnFile);
+						FMLLog.severe(MODID + ": Error: Failed to write file " + bmoreSpawnFile);
 					}
 				}
 			}
 
 			// Modern Metals
-			if(Loader.isModLoaded("modernmetals")) {
-				Path mmoreSpawnFile = Paths.get(oreSpawnFolder.toString(),MODID+"-mmores"+".json");
-				if(!Files.exists(mmoreSpawnFile)) {
+			if (Loader.isModLoaded("modernmetals")) {
+				final Path mmoreSpawnFile = Paths.get(oreSpawnFolder.toString(), MODID + "-mmores" + ".json");
+				if (!Files.exists(mmoreSpawnFile)) {
 					try {
 						Files.createDirectories(mmoreSpawnFile.getParent());
 						Files.write(mmoreSpawnFile, Arrays.asList(DataConstants.MM_ORESPAWN_JSON.split("\n")), Charset.forName("UTF-8"));
 					} catch (IOException e) {
-						FMLLog.severe(MODID+": Error: Failed to write file "+mmoreSpawnFile);
+						FMLLog.severe(MODID + ": Error: Failed to write file " + mmoreSpawnFile);
 					}
 				}
 			}
 		}
+
 		config.save();
 
 		Main.proxy.preInit(event);
