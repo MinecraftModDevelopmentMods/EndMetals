@@ -17,80 +17,80 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public final class ModBlocks {
 
-	private static final Map<String,Block> allBlocks = new HashMap<>();
+	private static final Map<String, Block> allBlocks = new HashMap<>();
 
-	public static Block endcoalOre;
-	public static Block enddiamondOre;
-	public static Block endemeraldOre;
-	public static Block endgoldOre;
-	public static Block endironOre;
-	public static Block endlapisOre;
-	public static Block endredstoneOre;
+	public static Block coal_ore;
+	public static Block diamond_ore;
+	public static Block emerald_ore;
+	public static Block gold_ore;
+	public static Block iron_ore;
+	public static Block lapis_ore;
+	public static Block redstone_ore;
 
-	public static Block endantimonyOre;
-	public static Block endbismuthOre;
-	public static Block endcopperOre;
-	public static Block endleadOre;
-	public static Block endmercuryOre;
-	public static Block endnickelOre;
-	public static Block endplatinumOre;
-	public static Block endsilverOre;
-	public static Block endtinOre;
-	public static Block endzincOre;
+	public static Block antimony_ore;
+	public static Block bismuth_ore;
+	public static Block copper_ore;
+	public static Block lead_ore;
+	public static Block mercury_ore;
+	public static Block nickel_ore;
+	public static Block platinum_ore;
+	public static Block silver_ore;
+	public static Block tin_ore;
+	public static Block zinc_ore;
 
-	public static Block endaluminumOre;
-	public static Block endcadmiumOre;
-	public static Block endchromiumOre;
-	public static Block endiridiumOre;
-	public static Block endmagnesiumOre;
-	public static Block endmanganeseOre;
-	public static Block endosmiumOre;
-	public static Block endplutoniumOre;
-	public static Block endrutileOre;
-	public static Block endtantalumOre;
-	public static Block endtitaniumOre;
-	public static Block endtungstenOre;
-	public static Block enduraniumOre;
-	public static Block endzirconiumOre;
+	public static Block aluminum_ore;
+	public static Block cadmium_ore;
+	public static Block chromium_ore;
+	public static Block iridium_ore;
+	public static Block magnesium_ore;
+	public static Block manganese_ore;
+	public static Block osmium_ore;
+	public static Block plutonium_ore;
+	public static Block rutile_ore;
+	public static Block tantalum_ore;
+	public static Block titanium_ore;
+	public static Block tungsten_ore;
+	public static Block uranium_ore;
+	public static Block zirconium_ore;
 
 	public static void createBlocks() {
 
 		// Vanilla
-		endcoalOre = createOre("coal", 4.0f, 15.0f);
-		enddiamondOre = createOre("diamond", 15.0f, 20.0f);
-		endemeraldOre = createOre("emerald", 4.0f, 15.0f);
-		endgoldOre = createOre("gold", 10.0f, 15.0f);
-		endironOre = createOre("iron", 4.0f, 15.0f);
-		endlapisOre = createOre("lapis", 4.0f, 15.0f);
-		endredstoneOre = createOre("redstone", 4.0f, 15.0f);
+		coal_ore = createOre("coal", 4.0f, 15.0f);
+		diamond_ore = createOre("diamond", 15.0f, 20.0f);
+		emerald_ore = createOre("emerald", 4.0f, 15.0f);
+		gold_ore = createOre("gold", 10.0f, 15.0f);
+		iron_ore = createOre("iron", 4.0f, 15.0f);
+		lapis_ore = createOre("lapis", 4.0f, 15.0f);
+		redstone_ore = createOre("redstone", 4.0f, 15.0f);
 
 		// Base Metals
-		endantimonyOre = createOre("antimony", 4.0f, 15.0f);
-		endbismuthOre = createOre("bismuth", 4.0f, 15.0f);
-		endcopperOre = createOre("copper", 4.0f, 15.0f);
-		endleadOre = createOre("lead", 4.0f, 15.0f);
-		endmercuryOre = createOre("mercury", 4.0f, 15.0f);
-		endnickelOre = createOre("nickel", 4.0f, 15.0f);
-		endplatinumOre = createOre("platinum", 4.0f, 15.0f);
-		endsilverOre = createOre("silver", 10.0f, 15.0f);
-		endtinOre = createOre("tin", 4.0f, 15.0f);
-		endzincOre = createOre("zinc", 4.0f, 15.0f);
+		antimony_ore = createOre("antimony", 4.0f, 15.0f);
+		bismuth_ore = createOre("bismuth", 4.0f, 15.0f);
+		copper_ore = createOre("copper", 4.0f, 15.0f);
+		lead_ore = createOre("lead", 4.0f, 15.0f);
+		mercury_ore = createOre("mercury", 4.0f, 15.0f);
+		nickel_ore = createOre("nickel", 4.0f, 15.0f);
+		platinum_ore = createOre("platinum", 4.0f, 15.0f);
+		silver_ore = createOre("silver", 10.0f, 15.0f);
+		tin_ore = createOre("tin", 4.0f, 15.0f);
+		zinc_ore = createOre("zinc", 4.0f, 15.0f);
 
 		// Modern Metals
-		endaluminumOre = createOre("aluminum", 4.0f, 15.0f);
-		endcadmiumOre = createOre("cadmium", 4.0f, 15.0f);
-		endchromiumOre = createOre("chromium", 4.0f, 15.0f);
-		endiridiumOre = createOre("iridium", 4.0f, 15.0f);
-		endmagnesiumOre = createOre("magnesium", 4.0f, 15.0f);
-		endmanganeseOre = createOre("manganese", 4.0f, 15.0f);
-		endosmiumOre = createOre("osmium", 4.0f, 15.0f);
-		endplutoniumOre = createOre("plutonium", 4.0f, 15.0f);
-		endrutileOre = createOre("rutile", 4.0f, 15.0f);
-		endtantalumOre = createOre("tantalum", 4.0f, 15.0f);
-		endtitaniumOre = createOre("titanium", 4.0f, 15.0f);
-		endtungstenOre = createOre("tungsten", 4.0f, 15.0f);
-		enduraniumOre = createOre("uranium", 4.0f, 15.0f);
-		endzirconiumOre = createOre("zirconium", 4.0f, 15.0f);
+		aluminum_ore = createOre("aluminum", 4.0f, 15.0f);
+		cadmium_ore = createOre("cadmium", 4.0f, 15.0f);
+		chromium_ore = createOre("chromium", 4.0f, 15.0f);
+		iridium_ore = createOre("iridium", 4.0f, 15.0f);
+		magnesium_ore = createOre("magnesium", 4.0f, 15.0f);
+		manganese_ore = createOre("manganese", 4.0f, 15.0f);
+		osmium_ore = createOre("osmium", 4.0f, 15.0f);
+		plutonium_ore = createOre("plutonium", 4.0f, 15.0f);
+		rutile_ore = createOre("rutile", 4.0f, 15.0f);
+		tantalum_ore = createOre("tantalum", 4.0f, 15.0f);
+		titanium_ore = createOre("titanium", 4.0f, 15.0f);
+		tungsten_ore = createOre("tungsten", 4.0f, 15.0f);
+		uranium_ore = createOre("uranium", 4.0f, 15.0f);
+		zirconium_ore = createOre("zirconium", 4.0f, 15.0f);
 	}
 
 	private static Block addBlock(Block block, String name) {
@@ -109,15 +109,15 @@ public final class ModBlocks {
 	}
 
 	private static Block createOre(String name, float Hardness, float Resistance) {
-		return addBlock(new ModBlockOre(Hardness, Resistance), "end_"+name+"_ore");
+		return addBlock(new ModBlockOre(Hardness, Resistance), "end_" + name + "_ore");
 	}
 
 	@SideOnly(Side.CLIENT)
 	public static void registerItemRenders(FMLInitializationEvent event) {
-		for(String name : allBlocks.keySet()){
-			Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-			.register(net.minecraft.item.Item.getItemFromBlock(allBlocks.get(name)), 0, 
-				new ModelResourceLocation(new ResourceLocation(Main.MODID, name), "inventory"));
+		for (final String name : allBlocks.keySet()) {
+			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(
+					net.minecraft.item.Item.getItemFromBlock(allBlocks.get(name)), 0,
+					new ModelResourceLocation(new ResourceLocation(Main.MODID, name), "inventory"));
 		}
 	}
 }

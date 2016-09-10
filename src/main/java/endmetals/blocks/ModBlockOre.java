@@ -9,8 +9,8 @@ public class ModBlockOre extends BlockOre {
 		super();
 
 		this.setHarvestLevel("pickaxe", 1);
-		this.setHardness(4.0f);
-		this.setResistance(15.0f);
+		this.setHardness(Hardness);
+		this.setResistance(Resistance);
 		this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 	}
 }
