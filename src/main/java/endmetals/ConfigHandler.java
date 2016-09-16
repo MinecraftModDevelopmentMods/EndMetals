@@ -44,10 +44,6 @@ public class ConfigHandler {
 			goldOreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndGoldOreSpawnProb",          8, ORE_SPAWN_PROB_COMMENT).getInt();
 			coalOreSpawnProb = config.get(Configuration.CATEGORY_GENERAL, "EndCoalOreSpawnProb",         16, ORE_SPAWN_PROB_COMMENT).getInt();
 
-
-
-
-
 			config.get(Configuration.CATEGORY_GENERAL, "EndIronOreSpawnProb",     14, ORE_SPAWN_PROB_COMMENT).getInt();
 			config.get(Configuration.CATEGORY_GENERAL, "EndDiamondOreSpawnProb",   5, ORE_SPAWN_PROB_COMMENT).getInt();
 			config.get(Configuration.CATEGORY_GENERAL, "EndRedstoneOreSpawnProb", 12, ORE_SPAWN_PROB_COMMENT).getInt();
