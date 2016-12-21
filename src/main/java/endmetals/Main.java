@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 
 import endmetals.data.DataConstants;
+import endmetals.proxy.CommonProxy;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Loader;

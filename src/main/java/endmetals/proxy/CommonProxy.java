@@ -1,4 +1,4 @@
-package endmetals;
+package endmetals.proxy;
 
 import endmetals.blocks.ModBlocks;
 import endmetals.crafting.ModCrafting;
