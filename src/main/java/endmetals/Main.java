@@ -6,8 +6,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 import endmetals.data.DataConstants;
 import net.minecraftforge.common.config.Configuration;
@@ -18,6 +16,7 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -80,6 +79,8 @@ public class Main {
 
 		config.save();
 
+		FMLInterModComms.sendFunctionMessage("orespawn", "api", "mmd.orespawn.EndMetalsOreSpawn");
+		
 		Main.proxy.preInit(event);
 	}
 
