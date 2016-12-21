@@ -2,7 +2,7 @@ package mmd.orespawn;
 
 import com.google.common.base.Function;
 
-import endmetals.blocks.ModBlocks;
+import mmd.endmetals.blocks.ModBlocks;
 import mmd.orespawn.api.OreSpawnAPI;
 import mmd.orespawn.api.SpawnLogic;
 

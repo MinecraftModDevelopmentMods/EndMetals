@@ -1,4 +1,4 @@
-package endmetals.crafting;
+package mmd.endmetals.crafting;
 
 import modernmetals.init.Blocks;
 

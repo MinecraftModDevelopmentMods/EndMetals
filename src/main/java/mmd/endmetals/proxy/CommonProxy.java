@@ -1,11 +1,10 @@
-package endmetals.proxy;
-
-import endmetals.blocks.ModBlocks;
-import endmetals.crafting.ModCrafting;
-import endmetals.world.WorldGen;
+package mmd.endmetals.proxy;
 
 import org.apache.logging.log4j.Logger;
 
+import mmd.endmetals.blocks.ModBlocks;
+import mmd.endmetals.crafting.ModCrafting;
+import mmd.endmetals.world.WorldGen;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

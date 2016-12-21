@@ -1,4 +1,4 @@
-package endmetals;
+package mmd.endmetals;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -7,8 +7,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
-import endmetals.data.DataConstants;
-import endmetals.proxy.CommonProxy;
+import mmd.endmetals.data.DataConstants;
+import mmd.endmetals.proxy.CommonProxy;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Loader;

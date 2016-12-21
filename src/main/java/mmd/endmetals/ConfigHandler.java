@@ -1,4 +1,4 @@
-package endmetals;
+package mmd.endmetals;
 
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;

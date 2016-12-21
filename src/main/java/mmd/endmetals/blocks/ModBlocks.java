@@ -1,10 +1,9 @@
-package endmetals.blocks;
+package mmd.endmetals.blocks;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import endmetals.Main;
-
+import mmd.endmetals.Main;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;

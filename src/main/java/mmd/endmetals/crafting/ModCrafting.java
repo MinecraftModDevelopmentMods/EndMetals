@@ -1,9 +1,8 @@
-package endmetals.crafting;
+package mmd.endmetals.crafting;
 
 import cyano.basemetals.registry.CrusherRecipeRegistry;
 import dank.modularity.framework.common.init.FrameworkContent;
-import endmetals.blocks.ModBlocks;
-
+import mmd.endmetals.blocks.ModBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
