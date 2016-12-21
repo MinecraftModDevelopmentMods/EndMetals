@@ -1,4 +1,4 @@
-###End Metals
+###End Metals [![Build Status](https://travis-ci.org/jriwanek/End-Metals.svg?branch=master)](https://travis-ci.org/jriwanek/End-Metals)
 
 #### ( Info ) :
 
