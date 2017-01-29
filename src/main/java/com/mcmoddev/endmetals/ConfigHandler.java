@@ -1,14 +1,15 @@
-package mmd.endmetals;
+package com.mcmoddev.endmetals;
 
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ConfigHandler {
 
 	public static Configuration config;
 
-	private static final String COMMENTS = Main.MODNAME + " Config\n For " + Main.MODNAME + " \n"
-			+ " For " + Main.MODNAME + " " + Main.VERSION;
+	private static final String COMMENTS = EndMetals.NAME + " Config\n For " + EndMetals.NAME + " \n"
+			+ " For " + EndMetals.NAME + " " + EndMetals.VERSION;
 
 	private static final String ORE_SPAWN_PROB_COMMENT = "Spawn Probability\nSet to zero to disable ore spawning of this type";
 
@@ -44,19 +45,15 @@ public class ConfigHandler {
 			goldOreSpawnProb = config.get(Configuration.CATEGORY_GENERAL,     "EndGoldOreSpawnProb",      8, ORE_SPAWN_PROB_COMMENT).getInt();
 			coalOreSpawnProb = config.get(Configuration.CATEGORY_GENERAL,     "EndCoalOreSpawnProb",     16, ORE_SPAWN_PROB_COMMENT).getInt();
 
-
-
-
-
-			config.get(Configuration.CATEGORY_GENERAL, "EndIronOreSpawnProb",     14, ORE_SPAWN_PROB_COMMENT).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "EndDiamondOreSpawnProb",   5, ORE_SPAWN_PROB_COMMENT).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "EndRedstoneOreSpawnProb", 12, ORE_SPAWN_PROB_COMMENT).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "EndEmeraldOreSpawnProb",   5, ORE_SPAWN_PROB_COMMENT).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "EndGoldOreSpawnProb",      8, ORE_SPAWN_PROB_COMMENT).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "EndLapisOreSpawnProb",     8, ORE_SPAWN_PROB_COMMENT).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "EndCoalOreSpawnProb",     16, ORE_SPAWN_PROB_COMMENT).getInt();
+//			config.get(Configuration.CATEGORY_GENERAL, "EndIronOreSpawnProb",     14, ORE_SPAWN_PROB_COMMENT).getInt();
+//			config.get(Configuration.CATEGORY_GENERAL, "EndDiamondOreSpawnProb",   5, ORE_SPAWN_PROB_COMMENT).getInt();
+//			config.get(Configuration.CATEGORY_GENERAL, "EndRedstoneOreSpawnProb", 12, ORE_SPAWN_PROB_COMMENT).getInt();
+//			config.get(Configuration.CATEGORY_GENERAL, "EndEmeraldOreSpawnProb",   5, ORE_SPAWN_PROB_COMMENT).getInt();
+//			config.get(Configuration.CATEGORY_GENERAL, "EndGoldOreSpawnProb",      8, ORE_SPAWN_PROB_COMMENT).getInt();
+//			config.get(Configuration.CATEGORY_GENERAL, "EndLapisOreSpawnProb",     8, ORE_SPAWN_PROB_COMMENT).getInt();
+//			config.get(Configuration.CATEGORY_GENERAL, "EndCoalOreSpawnProb",     16, ORE_SPAWN_PROB_COMMENT).getInt();
 		} catch (Exception e) {
-			Main.proxy.info("failed to load or read the config file");
+			FMLLog.info("failed to load or read the config file");
 		} finally {
 			if (config.hasChanged()) {
 				config.save();

@@ -1,4 +1,4 @@
-package mmd.endmetals.blocks;
+package com.mcmoddev.endmetals.blocks;
 
 import net.minecraft.block.BlockOre;
 import net.minecraft.creativetab.CreativeTabs;

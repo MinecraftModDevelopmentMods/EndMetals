@@ -1,4 +1,4 @@
-package mmd.endmetals;
+package com.mcmoddev.endmetals.proxy;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -7,41 +7,25 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
-import mmd.endmetals.data.DataConstants;
-import mmd.endmetals.proxy.CommonProxy;
+import com.mcmoddev.endmetals.ConfigHandler;
+import com.mcmoddev.endmetals.EndMetals;
+import com.mcmoddev.endmetals.blocks.ModBlocks;
+import com.mcmoddev.endmetals.crafting.ModCrafting;
+import com.mcmoddev.endmetals.data.DataConstants;
+import com.mcmoddev.endmetals.world.WorldGen;
+
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION,
-		dependencies = "required-after:Forge;after:modularity;after:modernmetals;after:basemetals",
-		acceptedMinecraftVersions = "1.10.2,)",
-		updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/EndMetals/master/update.json")
+public class CommonProxy {
 
-public class Main {
-
-	@Instance
-	public static Main INSTANCE = null;
-
-	public static final String MODID = "endmetals";
-	public static final String MODNAME = "End Metals";
-	public static final String VERSION = "1.2.0";
-
-	/** All ore-spawn files discovered in the ore-spawn folder */
-	// public static final List<Path> oreSpawnConfigFiles = new LinkedList<>();
-
-	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		INSTANCE = this;
-
 		// vanilla config loader
 		ConfigHandler.startConfig(event);
 
@@ -53,26 +37,26 @@ public class Main {
 		if (ConfigHandler.requireOreSpawn) {
 			// Base Metals
 			if (Loader.isModLoaded("basemetals")) {
-				final Path bmoreSpawnFile = Paths.get(oreSpawnFolder.toString(), MODID + "-bmores" + ".json");
+				final Path bmoreSpawnFile = Paths.get(oreSpawnFolder.toString(), EndMetals.MODID + "-bmores" + ".json");
 				if (!Files.exists(bmoreSpawnFile)) {
 					try {
 						Files.createDirectories(bmoreSpawnFile.getParent());
 						Files.write(bmoreSpawnFile, Arrays.asList(DataConstants.BM_ORESPAWN_JSON.split("\n")), Charset.forName("UTF-8"));
 					} catch (IOException e) {
-						FMLLog.severe(MODID + ": Error: Failed to write file " + bmoreSpawnFile);
+						FMLLog.severe(EndMetals.MODID + ": Error: Failed to write file " + bmoreSpawnFile);
 					}
 				}
 			}
 
 			// Modern Metals
 			if (Loader.isModLoaded("modernmetals")) {
-				final Path mmoreSpawnFile = Paths.get(oreSpawnFolder.toString(), MODID + "-mmores" + ".json");
+				final Path mmoreSpawnFile = Paths.get(oreSpawnFolder.toString(), EndMetals.MODID + "-mmores" + ".json");
 				if (!Files.exists(mmoreSpawnFile)) {
 					try {
 						Files.createDirectories(mmoreSpawnFile.getParent());
 						Files.write(mmoreSpawnFile, Arrays.asList(DataConstants.MM_ORESPAWN_JSON.split("\n")), Charset.forName("UTF-8"));
 					} catch (IOException e) {
-						FMLLog.severe(MODID + ": Error: Failed to write file " + mmoreSpawnFile);
+						FMLLog.severe(EndMetals.MODID + ": Error: Failed to write file " + mmoreSpawnFile);
 					}
 				}
 			}
@@ -80,21 +64,26 @@ public class Main {
 
 		config.save();
 
-		FMLInterModComms.sendFunctionMessage("orespawn", "api", "mmd.orespawn.EndMetalsOreSpawn");
-		
-		Main.proxy.preInit(event);
+		FMLInterModComms.sendFunctionMessage("orespawn", "api", "com.mcmoddev.orespawn.EndMetalsOreSpawn");
+
+		ModBlocks.createBlocks();
 	}
 
-	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		Main.proxy.init(event);
+		ModCrafting.initCrafting();
+		GameRegistry.registerWorldGenerator(new WorldGen(), 0);
 	}
 
-	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		Main.proxy.postInit(event);
+		//
+	}
+/*
+	public void info(String s) {
+		logger.info(s);
 	}
 
-	@SidedProxy(clientSide="endmetals.ClientProxy", serverSide="endmetals.ServerProxy")
-	public static CommonProxy proxy;
+	public void error(String s) {
+		logger.error(s);
+	}
+	*/
 }

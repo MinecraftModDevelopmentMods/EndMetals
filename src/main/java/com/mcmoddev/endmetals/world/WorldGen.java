@@ -1,9 +1,10 @@
-package mmd.endmetals.world;
+package com.mcmoddev.endmetals.world;
 
 import java.util.Random;
 
-import mmd.endmetals.ConfigHandler;
-import mmd.endmetals.blocks.ModBlocks;
+import com.mcmoddev.endmetals.ConfigHandler;
+import com.mcmoddev.endmetals.blocks.ModBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;

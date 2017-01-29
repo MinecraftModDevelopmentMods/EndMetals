@@ -1,4 +1,4 @@
-package mmd.endmetals.world;
+package com.mcmoddev.endmetals.world;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package mmd.endmetals.data;
+package com.mcmoddev.endmetals.data;
 
 public class DataConstants {
 	public static final String BM_ORESPAWN_JSON = "{"

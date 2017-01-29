@@ -1,4 +1,4 @@
-package mmd.endmetals.proxy;
+package com.mcmoddev.endmetals.proxy;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
