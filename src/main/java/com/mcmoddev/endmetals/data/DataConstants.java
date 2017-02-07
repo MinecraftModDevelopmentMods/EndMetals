@@ -219,4 +219,8 @@ public class DataConstants {
 + "\n		}"
 + "\n	]"
 + "\n}";
+
+	private DataConstants() {
+		throw new IllegalAccessError("Not a instantiable class");
+	}
 }
