@@ -2,6 +2,7 @@ package com.mcmoddev.endmetals;
 
 import com.mcmoddev.endmetals.proxy.CommonProxy;
 
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -52,4 +53,21 @@ public class EndMetals {
 	public void postInit(FMLPostInitializationEvent event) {
 		EndMetals.proxy.postInit(event);
 	}
+	
+    public static boolean hasMMDLib() {
+        return Loader.isModLoaded("mmdlib");
+    }
+        
+    public static boolean hasOreSpawn() {
+        return Loader.isModLoaded("orespawn");
+    }
+    public static boolean hasTinkers() {
+        return Loader.isModLoaded("tinkersconstruct");
+    }
+    public static boolean hasModernMetals() {
+        return Loader.isModLoaded("modernmetals");
+    }
+    public static boolean hasBaseMetals() {
+        return Loader.isModLoaded("basemetals");
+    }
 }

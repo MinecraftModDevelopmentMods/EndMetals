@@ -1,8 +1,8 @@
 package com.mcmoddev.endmetals.crafting;
 
+import com.mcmoddev.basemetals.registry.CrusherRecipeRegistry;
 import com.mcmoddev.endmetals.blocks.ModBlocks;
 import com.mcmoddev.lib.init.Materials;
-import com.mcmoddev.basemetals.registry.CrusherRecipeRegistry;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
