@@ -34,7 +34,7 @@ public class EndMetals {
 	 * increased whenever a change is made that has the potential to break
 	 * compatibility with other mods that depend on this one.
 	 */
-	public static final String VERSION = "1.2.0";
+	public static final String VERSION = "1.2.0-beta1";
 
 	@SidedProxy(clientSide="com.mcmoddev.endmetals.proxy.ClientProxy", serverSide="com.mcmoddev.endmetals.proxy.ServerProxy")
 	public static CommonProxy proxy;
