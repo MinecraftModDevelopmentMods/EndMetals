@@ -1,5 +1,8 @@
 package com.mcmoddev.endmetals;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.mcmoddev.endmetals.proxy.CommonProxy;
 
 import net.minecraftforge.fml.common.Loader;
@@ -36,22 +39,26 @@ public class EndMetals {
 	 */
 	public static final String VERSION = "1.2.0-beta1";
 
+	public static Logger logger;
+
 	@SidedProxy(clientSide="com.mcmoddev.endmetals.proxy.ClientProxy", serverSide="com.mcmoddev.endmetals.proxy.ServerProxy")
 	public static CommonProxy proxy;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		EndMetals.proxy.preInit(event);
+		logger = LogManager.getFormatterLogger(MODID);
+//		logger.setParent(FMLLog.getLogger());
+		proxy.preInit(event);
 	}
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		EndMetals.proxy.init(event);
+		proxy.init(event);
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		EndMetals.proxy.postInit(event);
+		proxy.postInit(event);
 	}
 	
     public static boolean hasMMDLib() {

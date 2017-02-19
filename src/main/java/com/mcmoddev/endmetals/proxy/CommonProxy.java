@@ -1,10 +1,12 @@
 package com.mcmoddev.endmetals.proxy;
 
+import com.mcmoddev.endmetals.init.Blocks;
+import com.mcmoddev.endmetals.init.Recipes;
 import com.mcmoddev.endmetals.util.Config;
-import com.mcmoddev.endmetals.blocks.ModBlocks;
-import com.mcmoddev.endmetals.crafting.ModCrafting;
+import com.mcmoddev.endmetals.util.CreativeTabEMe;
+import com.mcmoddev.lib.init.Materials;
 
-import net.minecraftforge.common.MinecraftForge;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -13,15 +15,14 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
-		// vanilla config loader
 		Config.init();
-//		ConfigHandler.startConfig(event);
+		Materials.init();
+//		ItemGroups.init();
+		CreativeTabs tab = new CreativeTabEMe();
+		Blocks.init();
+		FMLInterModComms.sendFunctionMessage("orespawn", "api", "com.mcmoddev.orespawn.EndMetalsOreSpawn");
 
 /*
-		// load config
-		final Configuration config = new Configuration(event.getSuggestedConfigurationFile());
-		config.load();
-
 		final Path oreSpawnFolder = Paths.get(event.getSuggestedConfigurationFile().toPath().getParent().toString(), "orespawn");
 		if (ConfigHandler.requireOreSpawn) {
 			// Base Metals
@@ -50,20 +51,14 @@ public class CommonProxy {
 				}
 			}
 		}
-
-		config.save();
 */
-
-		FMLInterModComms.sendFunctionMessage("orespawn", "api", "com.mcmoddev.orespawn.EndMetalsOreSpawn");
-
-		ModBlocks.createBlocks();
 	}
 
 	public void init(FMLInitializationEvent event) {
-		ModCrafting.initCrafting();
-//		GameRegistry.registerWorldGenerator(new WorldGen(), 0);
+		Recipes.init();
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {
+		Config.postInit();
 	}
 }
