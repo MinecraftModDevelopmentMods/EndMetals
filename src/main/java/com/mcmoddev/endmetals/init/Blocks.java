@@ -65,15 +65,12 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 
 	private static void createEndOreWrapper(boolean enabled, MetalMaterial material) {
 		if (enabled) {
-			EndMetals.logger.error("material was enabled");
 			if (material != null) {
 				EndMetals.logger.error("Creating End Ore for: " + material.getName());
 				createEndOre(material);				
 			} else {
 				EndMetals.logger.error("material was null!");
 			}
-		} else {
-			EndMetals.logger.error("material was disabled");
 		}
 	}
 }
