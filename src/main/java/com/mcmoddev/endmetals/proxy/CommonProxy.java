@@ -1,5 +1,6 @@
 package com.mcmoddev.endmetals.proxy;
 
+import com.mcmoddev.baseminerals.integration.IntegrationManager;
 import com.mcmoddev.endmetals.init.Blocks;
 import com.mcmoddev.endmetals.init.Recipes;
 import com.mcmoddev.endmetals.util.Config;
@@ -21,6 +22,8 @@ public class CommonProxy {
 		CreativeTabs tab = new CreativeTabEMe();
 		Blocks.init();
 		FMLInterModComms.sendFunctionMessage("orespawn", "api", "com.mcmoddev.orespawn.EndMetalsOreSpawn");
+
+		IntegrationManager.INSTANCE.preInit(event);
 
 /*
 		final Path oreSpawnFolder = Paths.get(event.getSuggestedConfigurationFile().toPath().getParent().toString(), "orespawn");
