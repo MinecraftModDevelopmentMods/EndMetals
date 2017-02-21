@@ -1,8 +1,9 @@
 package com.mcmoddev.endmetals.integration.plugins;
 
-import com.mcmoddev.endmetals.integration.EndMetalsPlugin;
+import com.mcmoddev.endmetals.EndMetals;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.integration.IIntegration;
+import com.mcmoddev.lib.integration.MMDPlugin;
 import com.mcmoddev.lib.material.MetalMaterial;
 
 /**
@@ -10,7 +11,7 @@ import com.mcmoddev.lib.material.MetalMaterial;
  * @author Jasmine Iwanek
  *
  */
-@EndMetalsPlugin(TinkersConstruct.PLUGIN_MODID)
+@MMDPlugin(addonId = EndMetals.MODID, pluginId = TinkersConstruct.PLUGIN_MODID)
 public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.TinkersConstruct implements IIntegration {
 
 	private static boolean initDone = false;
