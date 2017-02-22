@@ -1,11 +1,10 @@
 package com.mcmoddev.endmetals.util;
 
 import java.io.*;
-import java.nio.file.*;
 import java.util.*;
 
 import com.mcmoddev.endmetals.EndMetals;
-import com.mcmoddev.basemetals.registry.CrusherRecipeRegistry;
+import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
