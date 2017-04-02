@@ -3,7 +3,7 @@ package com.mcmoddev.endmetals.init;
 import com.mcmoddev.endmetals.EndMetals;
 import com.mcmoddev.endmetals.util.Config.Options;
 import com.mcmoddev.lib.init.Materials;
-import com.mcmoddev.lib.material.MetalMaterial;
+import com.mcmoddev.lib.material.MMDMaterial;
 
 /**
  * This class initializes all blocks in End Metals.
@@ -63,7 +63,7 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 		initDone = true;
 	}
 
-	private static void createEndOreWrapper(boolean enabled, MetalMaterial material) {
+	private static void createEndOreWrapper(boolean enabled, MMDMaterial material) {
 		if (enabled) {
 			if (material != null) {
 				createEndOre(material);				
