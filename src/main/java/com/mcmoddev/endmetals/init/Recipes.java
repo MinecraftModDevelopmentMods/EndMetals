@@ -3,7 +3,7 @@ package com.mcmoddev.endmetals.init;
 import com.mcmoddev.endmetals.EndMetals;
 import com.mcmoddev.endmetals.util.Config.Options;
 import com.mcmoddev.lib.init.Materials;
-import com.mcmoddev.lib.material.MetalMaterial;
+import com.mcmoddev.lib.material.MMDMaterial;
 import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
 
 import net.minecraft.item.ItemStack;
@@ -81,7 +81,7 @@ public final class Recipes {
 		}
 	}
 
-	private static void recipeWrapper(boolean enabled, MetalMaterial material) {
+	private static void recipeWrapper(boolean enabled, MMDMaterial material) {
 		if (enabled) {
 			if (material != null) {
 				if (material.oreEnd != null) {
