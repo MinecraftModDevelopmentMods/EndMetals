@@ -1,5 +1,6 @@
 package com.mcmoddev.endmetals.util;
 
+import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.init.Materials;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -13,6 +14,6 @@ public class CreativeTabEMe extends CreativeTabs {
 
 	@Override
 	public Item getTabIconItem () {
-		return Item.getItemFromBlock(Materials.getMaterialByName("lead").oreEnd) ;
+		return Item.getItemFromBlock(Materials.getMaterialByName("lead").getBlock(Names.ENDORE)) ;
 	}
 }

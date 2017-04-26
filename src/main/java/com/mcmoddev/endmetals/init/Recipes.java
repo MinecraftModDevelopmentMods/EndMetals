@@ -2,6 +2,7 @@ package com.mcmoddev.endmetals.init;
 
 import com.mcmoddev.endmetals.EndMetals;
 import com.mcmoddev.endmetals.util.Config.Options;
+import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.material.MMDMaterial;
 import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
@@ -84,33 +85,33 @@ public final class Recipes {
 	private static void recipeWrapper(boolean enabled, MMDMaterial material) {
 		if (enabled) {
 			if (material != null) {
-				if (material.oreEnd != null) {
+				if (material.getBlock(Names.ENDORE) != null) {
 					boolean makeDusts = false;
 					boolean smeltToIngots = false;
 					if (Options.enableFurnaceSmelting) {
 						if (smeltToIngots == true) {
-							if (material.ingot != null) {
-								GameRegistry.addSmelting(material.oreEnd, new ItemStack(material.ingot, 2), 1.0f);
+							if (material.getItem(Names.INGOT) != null) {
+								GameRegistry.addSmelting(material.getBlock(Names.ENDORE), new ItemStack(material.getItem(Names.INGOT), 2), 1.0f);
 							} else {
 								EndMetals.logger.error("ingot was null for material " + material.getName());
 							}
 						} else {
-							if (material.ore != null) {
-								GameRegistry.addSmelting(material.oreEnd, new ItemStack(material.ore, 2), 1.0f);
+							if (material.getBlock(Names.ORE) != null) {
+								GameRegistry.addSmelting(material.getBlock(Names.ENDORE), new ItemStack(material.getBlock(Names.ORE), 2), 1.0f);
 							} else {
 								EndMetals.logger.error("ore was null for material " + material.getName());
 							}
 						}
 					}
 					if (makeDusts == true) {
-						if (material.powder != null) {
-						CrusherRecipeRegistry.addNewCrusherRecipe(material.oreEnd, new ItemStack(material.powder, 4));
+						if (material.getItem(Names.POWDER) != null) {
+						CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(Names.ENDORE), new ItemStack(material.getItem(Names.POWDER), 4));
 						} else {
 							EndMetals.logger.error("powder was null for material " + material.getName());
 						}
 					} else {
-						if (material.ore != null) {
-							CrusherRecipeRegistry.addNewCrusherRecipe(material.oreEnd, new ItemStack(material.ore, 2));
+						if (material.getBlock(Names.ORE) != null) {
+							CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(Names.ENDORE), new ItemStack(material.getBlock(Names.ORE), 2));
 						} else {
 							EndMetals.logger.error("ore was null" + material.getName());
 						}
