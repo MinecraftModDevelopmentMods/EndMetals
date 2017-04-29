@@ -1,13 +1,12 @@
 package com.mcmoddev.endmetals.proxy;
 
+import com.mcmoddev.basemetals.init.ItemGroups;
 import com.mcmoddev.endmetals.init.Blocks;
 import com.mcmoddev.endmetals.init.Recipes;
 import com.mcmoddev.endmetals.util.Config;
-import com.mcmoddev.endmetals.util.CreativeTabEMe;
 import com.mcmoddev.lib.integration.IntegrationManager;
 import com.mcmoddev.lib.init.Materials;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -18,9 +17,10 @@ public class CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
 		Config.init();
 		Materials.init();
-//		ItemGroups.init();
-		CreativeTabs tab = new CreativeTabEMe();
+		ItemGroups.init();
 		Blocks.init();
+		ItemGroups.setupIcons();
+		
 		FMLInterModComms.sendFunctionMessage("orespawn", "api", "com.mcmoddev.orespawn.EndMetalsOreSpawn");
 
 		IntegrationManager.INSTANCE.preInit(event);

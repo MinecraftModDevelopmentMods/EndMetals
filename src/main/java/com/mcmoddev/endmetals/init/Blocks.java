@@ -66,7 +66,7 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 	private static void createEndOreWrapper(boolean enabled, MMDMaterial material) {
 		if (enabled) {
 			if (material != null) {
-				createEndOre(material);				
+				createEndOre(material, ItemGroups.blocksTab);				
 			} else {
 				EndMetals.logger.error("material was null!");
 			}
