@@ -1,5 +1,12 @@
 package com.mcmoddev.endmetals.init;
 
+import com.mcmoddev.basemetals.data.MaterialNames;
+import com.mcmoddev.lib.data.Names;
+import com.mcmoddev.lib.init.MMDCreativeTab;
+import com.mcmoddev.modernmetals.init.Materials;
+
+import net.minecraft.item.Item;
+
 /**
  * This class initializes all item groups in End Metals.
  *
@@ -9,6 +16,8 @@ package com.mcmoddev.endmetals.init;
 public class ItemGroups extends com.mcmoddev.lib.init.ItemGroups {
 
 	private static boolean initDone = false;
+	private static final int blocksTabId  = addTab("blocks", true );;
+	public static final MMDCreativeTab blocksTab = getTab(blocksTabId);
 
 	private ItemGroups() {
 		throw new IllegalAccessError("Not a instantiable class");
@@ -24,4 +33,11 @@ public class ItemGroups extends com.mcmoddev.lib.init.ItemGroups {
 
 		initDone = true;
 	}
+	
+	public static void setupIcons() {
+		Item blocksTabIconItem = Item.getItemFromBlock(Materials.getMaterialByName(MaterialNames.LAPIS).getBlock(Names.ENDORE));
+
+		blocksTab.setTabIconItem(blocksTabIconItem);
+	}
+
 }
