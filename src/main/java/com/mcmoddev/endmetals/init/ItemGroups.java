@@ -6,6 +6,7 @@ import com.mcmoddev.lib.init.MMDCreativeTab;
 import com.mcmoddev.modernmetals.init.Materials;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 /**
  * This class initializes all item groups in End Metals.
@@ -37,7 +38,7 @@ public class ItemGroups extends com.mcmoddev.lib.init.ItemGroups {
 	public static void setupIcons() {
 		Item blocksTabIconItem = Item.getItemFromBlock(Materials.getMaterialByName(MaterialNames.LAPIS).getBlock(Names.ENDORE));
 
-		blocksTab.setTabIconItem(blocksTabIconItem);
+		blocksTab.setTabIconItem(new ItemStack(blocksTabIconItem));
 	}
 
 }
