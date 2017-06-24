@@ -8,6 +8,10 @@ buildscript {
             url = "http://files.minecraftforge.net/maven"
         }
         maven {
+            name = "gradle"
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven {
             name = "sonatype"
             url = "https://oss.sonatype.org/content/groups/public"
         }
@@ -18,8 +22,8 @@ buildscript {
     }
     dependencies {
         classpath "net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT"
-        classpath "com.matthewprenger:CurseGradle:1.0-SNAPSHOT"
-        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.2.1"
+        classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.0.9"
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.5"
     }
 }
 
@@ -78,8 +82,8 @@ minecraft {
 
 repositories {
     maven {
-        name = 'sponge'
-        url = 'http://repo.spongepowered.org/maven'
+        name "SpongePowered"
+        url 'https://repo.spongepowered.org/maven'
     }
     maven { // Mantle, TCon, JEI
         name "DVS1 Maven FS"
@@ -128,7 +132,7 @@ repositories {
 }
 
 dependencies {
-    compile "com.mcmoddev:OreSpawn:${mc_version}-${orespawn_version}:dev"
+    compile "com.mcmoddev:OreSpawn:${mc_version}-${orespawn_version}:deobf"
     compile "com.mcmoddev:BaseMetals:${mc_version}-${bme_version}:deobf"
     compile "com.mcmoddev:BaseMinerals:${mc_version}-${bmi_version}:deobf"
     compile "com.mcmoddev:ModernMetals:${mc_version}-${mme_version}:deobf"
