@@ -20,7 +20,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
  * @author Jasmine Iwanek
  *
  */
-@Mod(modid = EndMetals.MODID, name = EndMetals.NAME, version = EndMetals.VERSION, dependencies = "required-after:Forge@[12.18.3.2185,);after:basemetals;after:baseminerals;after:modernmetals", acceptedMinecraftVersions = "[1.10.2,)", updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/EndMetals/master/update.json")
+@Mod(modid = EndMetals.MODID, name = EndMetals.NAME, version = EndMetals.VERSION, dependencies = "required-after:forge@[13.20.0.2228,);after:basemetals;after:baseminerals;after:modernmetals", acceptedMinecraftVersions = "[1.11.2,)", updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/EndMetals/master/update.json")
 public class EndMetals {
 
 	@Instance
