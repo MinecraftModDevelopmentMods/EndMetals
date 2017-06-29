@@ -23,7 +23,6 @@ public class Config {
 
 	private static Configuration configuration;
 	private static final String CONFIG_FILE = "config/EndMetals.cfg";
-//	private static final String ORESPAWN_CFG_PATH = "orespawn";
 	private static final String ORESPAWN = "OreSpawn";
 	private static final String ENDORE = "End Ores";
 	private static final String COMPAT = "Mod Compat";
@@ -99,19 +98,9 @@ public class Config {
 		if (Options.requireMMDOreSpawn) {
 			if (!Loader.isModLoaded("orespawn")) {
 				final HashSet<ArtifactVersion> orespawnMod = new HashSet<>();
-				orespawnMod.add(new DefaultArtifactVersion("1.1.0"));
+				orespawnMod.add(new DefaultArtifactVersion("3.0.0"));
 				throw new MissingModsException(orespawnMod, "orespawn", "MMD Ore Spawn Mod");
 			}
-/*
-			final Path oreSpawnFile = Paths.get(ORESPAWN_CFG_PATH, EndMetals.MODID + ".json");
-			if (!(oreSpawnFile.toFile().exists())) {
-				try {
-					Files.createDirectories(oreSpawnFile.getParent());
-				} catch (final IOException ex) {
-					//EndMetals.logger.error("Failed to write file " + oreSpawnFile, ex);
-				}
-			}
-*/
 		}
 	}
 
