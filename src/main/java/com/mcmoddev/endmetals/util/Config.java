@@ -45,6 +45,8 @@ public class Config {
 
 		//General
 		Options.enableFurnaceSmelting = configuration.getBoolean("enableFurnaceSmelting", GENERAL, true, "EnableFurnaceSmelting");
+		Options.smeltToIngots = configuration.getBoolean("smeltToIngots", GENERAL, false, "By default nether ores smelt to 2 standard ores - with this option you get 2 ingots");
+		Options.makeDusts = configuration.getBoolean("makeDusts", GENERAL, false, "Normally hitting a Nether Ore with a Crackhammer gives you 2 normal ores. With this option you get 4 dusts");
 /*
 		Options.explosionChance = configuration.get("mean", "OreExplosionChance", 2, "Explosion Percentage Chance\nSet to 0 to not explode").getInt();
 		Options.angerPigmenRange = configuration.get("mean", "PigmenAngerRange", 20, "Anger Pigmen Range\nRequires PigmenAnger").getInt();
@@ -115,6 +117,8 @@ public class Config {
 
 	public static class Options {
 
+		public static boolean makeDusts;
+		public static boolean smeltToIngots;
 		public static boolean requireMMDLib = false;
 		public static boolean requireMMDOreSpawn = true;
 		public static boolean enableTinkersConstruct = false;
