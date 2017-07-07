@@ -8,7 +8,6 @@ import com.mcmoddev.lib.integration.IntegrationManager;
 import com.mcmoddev.lib.init.Materials;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -21,8 +20,6 @@ public class CommonProxy {
 		Blocks.init();
 		ItemGroups.setupIcons();
 		
-		FMLInterModComms.sendFunctionMessage("orespawn", "api", "com.mcmoddev.orespawn.EndMetalsOreSpawn");
-
 		IntegrationManager.INSTANCE.preInit(event);
 
 /*
