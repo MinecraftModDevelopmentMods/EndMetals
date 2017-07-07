@@ -1,7 +1,7 @@
 package com.mcmoddev.endmetals.init;
 
 import com.mcmoddev.endmetals.EndMetals;
-import com.mcmoddev.endmetals.util.Config.Options;
+import com.mcmoddev.lib.util.ConfigBase.Options;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.material.MMDMaterial;
 
@@ -26,39 +26,39 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 		Materials.init();
 //		ItemGroups.init();
 
-		createEndOreWrapper(Options.enableCoalEndOre, Materials.getMaterialByName("coal"));
-		createEndOreWrapper(Options.enableDiamondEndOre, Materials.getMaterialByName("diamond"));
-		createEndOreWrapper(Options.enableEmeraldEndOre, Materials.getMaterialByName("emerald"));
-		createEndOreWrapper(Options.enableGoldEndOre, Materials.getMaterialByName("gold"));
-		createEndOreWrapper(Options.enableIronEndOre, Materials.getMaterialByName("iron"));
-		createEndOreWrapper(Options.enableLapisEndOre, Materials.getMaterialByName("lapis"));
-		createEndOreWrapper(Options.enableRedstoneEndOre, Materials.getMaterialByName("redstone"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableCoalEndOre"), Materials.getMaterialByName("coal"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableDiamondEndOre"), Materials.getMaterialByName("diamond"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableEmeraldEndOre"), Materials.getMaterialByName("emerald"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableGoldEndOre"), Materials.getMaterialByName("gold"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableIronEndOre"), Materials.getMaterialByName("iron"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableLapisEndOre"), Materials.getMaterialByName("lapis"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableRedstoneEndOre"), Materials.getMaterialByName("redstone"));
 
-		createEndOreWrapper(Options.enableAntimonyEndOre, Materials.getMaterialByName("antimony"));
-		createEndOreWrapper(Options.enableBismuthEndOre, Materials.getMaterialByName("bismuth"));
-		createEndOreWrapper(Options.enableCopperEndOre, Materials.getMaterialByName("copper"));
-		createEndOreWrapper(Options.enableLeadEndOre, Materials.getMaterialByName("lead"));
-		createEndOreWrapper(Options.enableMercuryEndOre, Materials.getMaterialByName("mercury"));
-		createEndOreWrapper(Options.enableNickelEndOre, Materials.getMaterialByName("nickel"));
-		createEndOreWrapper(Options.enablePlatinumEndOre, Materials.getMaterialByName("platinum"));
-		createEndOreWrapper(Options.enableSilverEndOre, Materials.getMaterialByName("silver"));
-		createEndOreWrapper(Options.enableTinEndOre, Materials.getMaterialByName("tin"));
-		createEndOreWrapper(Options.enableZincEndOre, Materials.getMaterialByName("zinc"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableAntimonyEndOre"), Materials.getMaterialByName("antimony"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableBismuthEndOre"), Materials.getMaterialByName("bismuth"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableCopperEndOre"), Materials.getMaterialByName("copper"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableLeadEndOre"), Materials.getMaterialByName("lead"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableMercuryEndOre"), Materials.getMaterialByName("mercury"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableNickelEndOre"), Materials.getMaterialByName("nickel"));
+		createEndOreWrapper(Options.isMaterialEnabled("enablePlatinumEndOre"), Materials.getMaterialByName("platinum"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableSilverEndOre"), Materials.getMaterialByName("silver"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableTinEndOre"), Materials.getMaterialByName("tin"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableZincEndOre"), Materials.getMaterialByName("zinc"));
 
-		createEndOreWrapper(Options.enableAluminumEndOre, Materials.getMaterialByName("aluminum"));
-		createEndOreWrapper(Options.enableCadmiumEndOre, Materials.getMaterialByName("cadmium"));
-		createEndOreWrapper(Options.enableChromiumEndOre, Materials.getMaterialByName("chromium"));
-		createEndOreWrapper(Options.enableIridiumEndOre, Materials.getMaterialByName("iridium"));
-		createEndOreWrapper(Options.enableMagnesiumEndOre, Materials.getMaterialByName("magnesium"));
-		createEndOreWrapper(Options.enableManganeseEndOre, Materials.getMaterialByName("manganese"));
-		createEndOreWrapper(Options.enableOsmiumEndOre, Materials.getMaterialByName("osmium"));
-		createEndOreWrapper(Options.enablePlutoniumEndOre, Materials.getMaterialByName("plutonium"));
-		createEndOreWrapper(Options.enableRutileEndOre, Materials.getMaterialByName("rutile"));
-		createEndOreWrapper(Options.enableTantalumEndOre, Materials.getMaterialByName("tantalum"));
-		createEndOreWrapper(Options.enableTitaniumEndOre, Materials.getMaterialByName("titanium"));
-		createEndOreWrapper(Options.enableTungstenEndOre, Materials.getMaterialByName("tungsten"));
-		createEndOreWrapper(Options.enableUraniumEndOre, Materials.getMaterialByName("uranium"));
-		createEndOreWrapper(Options.enableZirconiumEndOre, Materials.getMaterialByName("zirconium"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableAluminumEndOre"), Materials.getMaterialByName("aluminum"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableCadmiumEndOre"), Materials.getMaterialByName("cadmium"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableChromiumEndOre"), Materials.getMaterialByName("chromium"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableIridiumEndOre"), Materials.getMaterialByName("iridium"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableMagnesiumEndOre"), Materials.getMaterialByName("magnesium"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableManganeseEndOre"), Materials.getMaterialByName("manganese"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableOsmiumEndOre"), Materials.getMaterialByName("osmium"));
+		createEndOreWrapper(Options.isMaterialEnabled("enablePlutoniumEndOre"), Materials.getMaterialByName("plutonium"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableRutileEndOre"), Materials.getMaterialByName("rutile"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableTantalumEndOre"), Materials.getMaterialByName("tantalum"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableTitaniumEndOre"), Materials.getMaterialByName("titanium"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableTungstenEndOre"), Materials.getMaterialByName("tungsten"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableUraniumEndOre"), Materials.getMaterialByName("uranium"));
+		createEndOreWrapper(Options.isMaterialEnabled("enableZirconiumEndOre"), Materials.getMaterialByName("zirconium"));
 
 		initDone = true;
 	}
