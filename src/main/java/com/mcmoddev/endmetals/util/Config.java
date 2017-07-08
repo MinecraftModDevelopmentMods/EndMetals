@@ -56,10 +56,10 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 		Options.materialEnabled("enableCoalEndOre", configuration.getBoolean("enableCoalEndOre", ENDORE, true, "Enable Coal End Ore"));
 		Options.materialEnabled("enableDiamondEndOre", configuration.getBoolean("enableDiamondEndOre", ENDORE, true, "Enable Diamond End Ore"));
 		Options.materialEnabled("enableEmeraldEndOre", configuration.getBoolean("enableEmeraldEndOre", ENDORE, true, "Enable Emerald End Ore"));
-		Options.materialEnabled("Options.enableGoldEndOre", configuration.getBoolean("enableGoldEndOre", ENDORE, true, "Enable Gold End Ore"));
-		Options.materialEnabled("Options.enableIronEndOre", configuration.getBoolean("enableIronEndOre", ENDORE, true, "Enable Iron End Ore"));
-		Options.materialEnabled("Options.enableLapisEndOre", configuration.getBoolean("enableLapisEndOre", ENDORE, true, "Enable Lapis End Ore"));
-		Options.materialEnabled("Options.enableRedstoneEndOre", configuration.getBoolean("enableRedstoneEndOre", ENDORE, true, "Enable Redstone End Ore"));
+		Options.materialEnabled("enableGoldEndOre", configuration.getBoolean("enableGoldEndOre", ENDORE, true, "Enable Gold End Ore"));
+		Options.materialEnabled("enableIronEndOre", configuration.getBoolean("enableIronEndOre", ENDORE, true, "Enable Iron End Ore"));
+		Options.materialEnabled("enableLapisEndOre", configuration.getBoolean("enableLapisEndOre", ENDORE, true, "Enable Lapis End Ore"));
+		Options.materialEnabled("enableRedstoneEndOre", configuration.getBoolean("enableRedstoneEndOre", ENDORE, true, "Enable Redstone End Ore"));
 
 		Options.materialEnabled("enableAntimonyEndOre", configuration.getBoolean("enableAntimonyEndOre", ENDORE, true, "Enable Antimony End Ore"));
 		Options.materialEnabled("enableBismuthEndOre", configuration.getBoolean("enableBismuthEndOre", ENDORE, true, "Enable Bismuth End Ore"));
