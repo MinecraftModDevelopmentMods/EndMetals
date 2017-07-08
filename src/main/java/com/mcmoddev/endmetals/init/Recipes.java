@@ -1,5 +1,6 @@
 package com.mcmoddev.endmetals.init;
 
+import com.mcmoddev.basemetals.data.MaterialNames;
 import com.mcmoddev.endmetals.EndMetals;
 import com.mcmoddev.lib.util.ConfigBase.Options;
 import com.mcmoddev.lib.data.Names;
@@ -18,15 +19,16 @@ public final class Recipes {
 	}
 
 	public static void init() {
-
+		Materials.init();
+		Blocks.init(); // make sure our blocks are initialized
 		// Vanilla
-		recipeWrapper(true, Materials.getMaterialByName("coal"));
-		recipeWrapper(true, Materials.getMaterialByName("diamond"));
-		recipeWrapper(true, Materials.getMaterialByName("emerald"));
-		recipeWrapper(true, Materials.getMaterialByName("gold"));
-		recipeWrapper(true, Materials.getMaterialByName("iron"));
-		recipeWrapper(true, Materials.getMaterialByName("lapis"));
-		recipeWrapper(true, Materials.getMaterialByName("redstone"));
+		recipeWrapper(true, Materials.getMaterialByName(MaterialNames.COAL));
+		recipeWrapper(true, Materials.getMaterialByName(MaterialNames.DIAMOND));
+		recipeWrapper(true, Materials.getMaterialByName(MaterialNames.EMERALD));
+		recipeWrapper(true, Materials.getMaterialByName(MaterialNames.GOLD));
+		recipeWrapper(true, Materials.getMaterialByName(MaterialNames.IRON));
+		recipeWrapper(true, Materials.getMaterialByName(MaterialNames.LAPIS));
+		recipeWrapper(true, Materials.getMaterialByName(MaterialNames.REDSTONE));
 
 		// Base Metals
 		if (Loader.isModLoaded("basemetals")) {

@@ -1,7 +1,9 @@
 package com.mcmoddev.endmetals.init;
 
+import com.mcmoddev.basemetals.data.MaterialNames;
 import com.mcmoddev.endmetals.EndMetals;
 import com.mcmoddev.lib.util.ConfigBase.Options;
+import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.material.MMDMaterial;
 
@@ -25,14 +27,14 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 
 		Materials.init();
 //		ItemGroups.init();
-
-		createEndOreWrapper(Options.isMaterialEnabled("enableCoalEndOre"), Materials.getMaterialByName("coal"));
-		createEndOreWrapper(Options.isMaterialEnabled("enableDiamondEndOre"), Materials.getMaterialByName("diamond"));
-		createEndOreWrapper(Options.isMaterialEnabled("enableEmeraldEndOre"), Materials.getMaterialByName("emerald"));
-		createEndOreWrapper(Options.isMaterialEnabled("enableGoldEndOre"), Materials.getMaterialByName("gold"));
-		createEndOreWrapper(Options.isMaterialEnabled("enableIronEndOre"), Materials.getMaterialByName("iron"));
-		createEndOreWrapper(Options.isMaterialEnabled("enableLapisEndOre"), Materials.getMaterialByName("lapis"));
-		createEndOreWrapper(Options.isMaterialEnabled("enableRedstoneEndOre"), Materials.getMaterialByName("redstone"));
+		
+		createEndOreWrapper(Options.isMaterialEnabled("enableCoalEndOre"), Materials.getMaterialByName(MaterialNames.COAL));
+		createEndOreWrapper(Options.isMaterialEnabled("enableDiamondEndOre"), Materials.getMaterialByName(MaterialNames.DIAMOND));
+		createEndOreWrapper(Options.isMaterialEnabled("enableEmeraldEndOre"), Materials.getMaterialByName(MaterialNames.EMERALD));
+		createEndOreWrapper(Options.isMaterialEnabled("enableGoldEndOre"), Materials.getMaterialByName(MaterialNames.GOLD));
+		createEndOreWrapper(Options.isMaterialEnabled("enableIronEndOre"), Materials.getMaterialByName(MaterialNames.IRON));
+		createEndOreWrapper(Options.isMaterialEnabled("enableLapisEndOre"), Materials.getMaterialByName(MaterialNames.LAPIS));
+		createEndOreWrapper(Options.isMaterialEnabled("enableRedstoneEndOre"), Materials.getMaterialByName(MaterialNames.REDSTONE));
 
 		createEndOreWrapper(Options.isMaterialEnabled("enableAntimonyEndOre"), Materials.getMaterialByName("antimony"));
 		createEndOreWrapper(Options.isMaterialEnabled("enableBismuthEndOre"), Materials.getMaterialByName("bismuth"));
@@ -66,7 +68,7 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 	private static void createEndOreWrapper(boolean enabled, MMDMaterial material) {
 		if (enabled) {
 			if (material != null) {
-				createEndOre(material, ItemGroups.blocksTab);				
+				create(Names.ENDORE, material, ItemGroups.blocksTab);
 			} else {
 				EndMetals.logger.error("material was null!");
 			}

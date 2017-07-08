@@ -1,6 +1,6 @@
 package com.mcmoddev.endmetals.proxy;
 
-import com.mcmoddev.basemetals.init.ItemGroups;
+import com.mcmoddev.endmetals.init.ItemGroups;
 import com.mcmoddev.endmetals.init.Blocks;
 import com.mcmoddev.endmetals.init.Recipes;
 import com.mcmoddev.endmetals.util.Config;
