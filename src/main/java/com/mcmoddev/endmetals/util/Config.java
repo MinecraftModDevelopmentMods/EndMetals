@@ -27,7 +27,6 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 	private static final String ENDORE = "End Ores";
 	private static final String COMPAT = "Mod Compat";
 	private static final String GENERAL = "General";
-	private static final String MMDLIB = "MMD Lib";
 
 	@SubscribeEvent
 	public void onConfigChange(ConfigChangedEvent.OnConfigChangedEvent e) {
@@ -87,7 +86,6 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 		Options.materialEnabled("enableZirconiumEndOre", configuration.getBoolean("enableZirconiumEndOre", ENDORE, true, "Enable Zirconium End Ore"));
 
 		//Mod Compat
-		Options.thingEnabled("requireMMDLib", configuration.getBoolean("requireMMDLib", MMDLIB, false, "Require MMD Lib"));
 		Options.thingEnabled("requireMMDOreSpawn", configuration.getBoolean("requireMMDOreSpawn", ORESPAWN, true, "Require MMD OreSpawn"));
 		Options.modEnabled("enableVeinminer", configuration.getBoolean("enableVeinminer", COMPAT, true, "Enable Veinminer Support"));
 		Options.modEnabled("enableTinkersConstruct", configuration.getBoolean("enableTinkersConstruct", COMPAT, false, "Enable Tinkers Construct Support"));
@@ -99,7 +97,7 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 		if (Options.isThingEnabled("requireMMDOreSpawn")) {
 			if (!Loader.isModLoaded("orespawn")) {
 				final HashSet<ArtifactVersion> orespawnMod = new HashSet<>();
-				orespawnMod.add(new DefaultArtifactVersion("3.0.0"));
+				orespawnMod.add(new DefaultArtifactVersion("3.1.0"));
 				throw new MissingModsException(orespawnMod, "orespawn", "MMD Ore Spawn Mod");
 			}
 		}
