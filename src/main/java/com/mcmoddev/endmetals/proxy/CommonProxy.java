@@ -7,6 +7,7 @@ import com.mcmoddev.endmetals.init.Recipes;
 import com.mcmoddev.endmetals.util.Config;
 import com.mcmoddev.lib.integration.IntegrationManager;
 import com.mcmoddev.lib.material.MMDMaterial;
+import com.mcmoddev.lib.util.Oredicts;
 import com.mcmoddev.lib.block.BlockMMDNetherOre;
 import com.mcmoddev.lib.init.Materials;
 
@@ -53,6 +54,8 @@ public class CommonProxy {
 				}
 			}
 		}
+		Oredicts.registerItemOreDictionaryEntries();
+		Oredicts.registerBlockOreDictionaryEntries();
 	}
 	
 	@SubscribeEvent
