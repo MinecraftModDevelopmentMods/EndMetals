@@ -8,13 +8,13 @@ import com.mcmoddev.endmetals.util.Config;
 import com.mcmoddev.lib.integration.IntegrationManager;
 import com.mcmoddev.lib.material.MMDMaterial;
 import com.mcmoddev.lib.util.Oredicts;
-import com.mcmoddev.lib.block.BlockMMDNetherOre;
 import com.mcmoddev.lib.init.Materials;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -30,6 +30,7 @@ public class CommonProxy {
 		ItemGroups.setupIcons();
 		
 		IntegrationManager.INSTANCE.preInit(event);
+		IntegrationManager.INSTANCE.runCallbacks("preInit");
 
 		MinecraftForge.EVENT_BUS.register(this);
 	}

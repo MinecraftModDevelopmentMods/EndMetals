@@ -2,7 +2,6 @@ package com.mcmoddev.endmetals.integration.plugins;
 
 import com.mcmoddev.endmetals.EndMetals;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.common.MinecraftForge;

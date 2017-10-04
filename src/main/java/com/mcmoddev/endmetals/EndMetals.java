@@ -20,7 +20,12 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
  * @author Jasmine Iwanek
  *
  */
-@Mod(modid = EndMetals.MODID, name = EndMetals.NAME, version = EndMetals.VERSION, dependencies = "required-after:forge@[13.20.0.2228,);after:basemetals;after:baseminerals;after:modernmetals", acceptedMinecraftVersions = "[1.11.2,)", updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/EndMetals/master/update.json")
+@Mod(modid = EndMetals.MODID,
+     name = EndMetals.NAME,
+     version = EndMetals.VERSION,
+     dependencies = "required-after:forge@[14.21.0.2327,);after:basemetals;after:baseminerals;after:modernmetals",
+     acceptedMinecraftVersions = "[1.12,)", 
+     updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/EndMetals/master/update.json")
 public class EndMetals {
 
 	@Instance
@@ -47,7 +52,6 @@ public class EndMetals {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		logger = LogManager.getFormatterLogger(MODID);
-//		logger.setParent(FMLLog.getLogger());
 		proxy.preInit(event);
 	}
 
