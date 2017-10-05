@@ -32,6 +32,7 @@ import net.minecraftforge.fml.common.versioning.DefaultArtifactVersion;
 public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
+		Config.init();
 		if ((Options.requireMMDOreSpawn()) && (!Loader.isModLoaded("orespawn"))) {
 			if(Options.fallbackOrespawn()) {
 				GameRegistry.registerWorldGenerator(new FallbackGenerator(), 0);
@@ -42,7 +43,6 @@ public class CommonProxy {
 			}
 		}
 		
-		Config.init();
 		Materials.init();
 		ItemGroups.init();
 		Blocks.init();
