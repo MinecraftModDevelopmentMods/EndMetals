@@ -22,49 +22,50 @@ public final class Recipes {
 		Materials.init();
 		Blocks.init(); // make sure our blocks are initialized
 		// Vanilla
-		recipeWrapper(true, Materials.getMaterialByName(MaterialNames.COAL));
-		recipeWrapper(true, Materials.getMaterialByName(MaterialNames.DIAMOND));
-		recipeWrapper(true, Materials.getMaterialByName(MaterialNames.EMERALD));
-		recipeWrapper(true, Materials.getMaterialByName(MaterialNames.GOLD));
-		recipeWrapper(true, Materials.getMaterialByName(MaterialNames.IRON));
-		recipeWrapper(true, Materials.getMaterialByName(MaterialNames.LAPIS));
-		recipeWrapper(true, Materials.getMaterialByName(MaterialNames.REDSTONE));
+		recipeWrapper(true, MaterialNames.COAL);
+		recipeWrapper(true, MaterialNames.DIAMOND);
+		recipeWrapper(true, MaterialNames.EMERALD);
+		recipeWrapper(true, MaterialNames.GOLD);
+		recipeWrapper(true, MaterialNames.IRON);
+		recipeWrapper(true, MaterialNames.LAPIS);
+		recipeWrapper(true, MaterialNames.REDSTONE);
 
 		// Base Metals
 		if (Loader.isModLoaded("basemetals")) {
-			recipeWrapper(true, Materials.getMaterialByName("antimony"));
-			recipeWrapper(true, Materials.getMaterialByName("bismuth"));
-			recipeWrapper(true, Materials.getMaterialByName("copper"));
-			recipeWrapper(true, Materials.getMaterialByName("lead"));
-			recipeWrapper(true, Materials.getMaterialByName("mercury"));
-			recipeWrapper(true, Materials.getMaterialByName("nickel"));
-			recipeWrapper(true, Materials.getMaterialByName("platinum"));
-			recipeWrapper(true, Materials.getMaterialByName("silver"));
-			recipeWrapper(true, Materials.getMaterialByName("tin"));
-			recipeWrapper(true, Materials.getMaterialByName("zinc"));
+			recipeWrapper(true, "antimony");
+			recipeWrapper(true, "bismuth");
+			recipeWrapper(true, "copper");
+			recipeWrapper(true, "lead");
+			recipeWrapper(true, "mercury");
+			recipeWrapper(true, "nickel");
+			recipeWrapper(true, "platinum");
+			recipeWrapper(true, "silver");
+			recipeWrapper(true, "tin");
+			recipeWrapper(true, "zinc");
 		}
 
 		// Modern Metals
 		if (Loader.isModLoaded("modernmetals")) {
-			recipeWrapper(true, Materials.getMaterialByName("aluminum"));
-			recipeWrapper(true, Materials.getMaterialByName("cadmium"));
-			recipeWrapper(true, Materials.getMaterialByName("chromium"));
-			recipeWrapper(true, Materials.getMaterialByName("iridium"));
-			recipeWrapper(true, Materials.getMaterialByName("magnesium"));
-			recipeWrapper(true, Materials.getMaterialByName("manganese"));
-			recipeWrapper(true, Materials.getMaterialByName("osmium"));
-			recipeWrapper(true, Materials.getMaterialByName("plutonium"));
-			recipeWrapper(true, Materials.getMaterialByName("rutile"));
-			recipeWrapper(true, Materials.getMaterialByName("tantalum"));
-			recipeWrapper(true, Materials.getMaterialByName("titanium"));
-			recipeWrapper(true, Materials.getMaterialByName("tungsten"));
-			recipeWrapper(true, Materials.getMaterialByName("uranium"));
-			recipeWrapper(true, Materials.getMaterialByName("zirconium"));
+			recipeWrapper(true, "aluminum");
+			recipeWrapper(true, "cadmium");
+			recipeWrapper(true, "chromium");
+			recipeWrapper(true, "iridium");
+			recipeWrapper(true, "magnesium");
+			recipeWrapper(true, "manganese");
+			recipeWrapper(true, "osmium");
+			recipeWrapper(true, "plutonium");
+			recipeWrapper(true, "rutile");
+			recipeWrapper(true, "tantalum");
+			recipeWrapper(true, "titanium");
+			recipeWrapper(true, "tungsten");
+			recipeWrapper(true, "uranium");
+			recipeWrapper(true, "zirconium");
 		}
 	}
 
-	private static void recipeWrapper(boolean enabled, MMDMaterial material) {
-		if (enabled && material != null) {
+	private static void recipeWrapper(boolean enabled, String materialName ) {
+		if (enabled && Materials.hasMaterial(materialName)) {
+			MMDMaterial material = Materials.getMaterialByName(materialName);
 			if (material.getBlock(Names.ENDORE) != null) {
 				boolean makeDusts = Options.isThingEnabled("makeDusts");
 				boolean smeltToIngots = Options.isThingEnabled("smeltToIngots");
