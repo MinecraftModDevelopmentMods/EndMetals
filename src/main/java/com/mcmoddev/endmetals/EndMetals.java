@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLFingerprintViolationEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -25,7 +26,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
      version = EndMetals.VERSION,
      dependencies = "required-after:forge@[14.21.0.2327,);after:basemetals;after:baseminerals;after:modernmetals",
      acceptedMinecraftVersions = "[1.12,)", 
-     updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/EndMetals/master/update.json")
+	 certificateFingerprint = "@FINGERPRINT@",
+     updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopmentMods/EndMetals/master/update.json")
 public class EndMetals {
 
 	@Instance
@@ -48,6 +50,11 @@ public class EndMetals {
 
 	@SidedProxy(clientSide="com.mcmoddev.endmetals.proxy.ClientProxy", serverSide="com.mcmoddev.endmetals.proxy.ServerProxy")
 	public static CommonProxy proxy;
+
+	@EventHandler
+	public void onFingerprintViolation(FMLFingerprintViolationEvent event) {
+		logger.warn("Invalid fingerprint detected!");
+	}
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
