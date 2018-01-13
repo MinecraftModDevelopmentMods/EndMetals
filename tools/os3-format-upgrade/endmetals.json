@@ -1,0 +1,382 @@
+{
+  "version": 1,
+  "dimensions": [
+    {
+      "dimension": 1,
+      "ores": [
+        {
+          "block": "endmetals:end_coal_ore",
+          "parameters": {
+            "size": 10,
+            "variation": 8,
+            "frequency": 12.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_diamond_ore",
+          "parameters": {
+            "size": 2,
+            "variation": 8,
+            "frequency": 12.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_emerald_ore",
+          "parameters": {
+            "size": 4,
+            "variation": 8,
+            "frequency": 12.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_gold_ore",
+          "parameters": {
+            "size": 5,
+            "variation": 8,
+            "frequency": 12.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_iron_ore",
+          "parameters": {
+            "size": 10,
+            "variation": 8,
+            "frequency": 12.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_lapis_ore",
+          "parameters": {
+            "size": 8,
+            "variation": 8,
+            "frequency": 12.0,
+            "minHeight": 0,
+            "maxHeight": 96
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_redstone_ore",
+          "parameters": {
+            "size": 8,
+            "variation": 8,
+            "frequency": 12.0,
+            "minHeight": 0,
+            "maxHeight": 96
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_antimony_ore",
+          "parameters": {
+            "size": 8,
+            "variation": 4,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_bismuth_ore",
+          "parameters": {
+            "size": 8,
+            "variation": 4,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_copper_ore",
+          "parameters": {
+            "size": 10,
+            "variation": 12,
+            "frequency": 20.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_lead_ore",
+          "parameters": {
+            "size": 8,
+            "variation": 12,
+            "frequency": 20.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_mercury_ore",
+          "parameters": {
+            "size": 4,
+            "variation": 4,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_nickel_ore",
+          "parameters": {
+            "size": 6,
+            "variation": 4,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_platinum_ore",
+          "parameters": {
+            "size": 2,
+            "variation": 4,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_silver_ore",
+          "parameters": {
+            "size": 8,
+            "variation": 8,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_tin_ore",
+          "parameters": {
+            "size": 10,
+            "variation": 12,
+            "frequency": 20.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_zinc_ore",
+          "parameters": {
+            "size": 6,
+            "variation": 8,
+            "frequency": 12.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_aluminum_ore",
+          "parameters": {
+            "size": 10,
+            "variation": 8,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_cadmium_ore",
+          "parameters": {
+            "size": 4,
+            "variation": 8,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_chromium_ore",
+          "parameters": {
+            "size": 4,
+            "variation": 8,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_iridium_ore",
+          "parameters": {
+            "size": 6,
+            "variation": 8,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_magnesium_ore",
+          "parameters": {
+            "size": 6,
+            "variation": 8,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_manganese_ore",
+          "parameters": {
+            "size": 6,
+            "variation": 8,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_osmium_ore",
+          "parameters": {
+            "size": 10,
+            "variation": 8,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_plutonium_ore",
+          "parameters": {
+            "size": 4,
+            "variation": 4,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_rutile_ore",
+          "parameters": {
+            "size": 8,
+            "variation": 8,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_tantalum_ore",
+          "parameters": {
+            "size": 8,
+            "variation": 8,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_titanium_ore",
+          "parameters": {
+            "size": 4,
+            "variation": 4,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_tungsten_ore",
+          "parameters": {
+            "size": 8,
+            "variation": 8,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_uranium_ore",
+          "parameters": {
+            "size": 2,
+            "variation": 4,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        },
+        {
+          "block": "endmetals:end_zirconium_ore",
+          "parameters": {
+            "size": 8,
+            "variation": 8,
+            "frequency": 10.0,
+            "minHeight": 0,
+            "maxHeight": 200
+          },
+          "feature": "default",
+          "replace_block": "default"
+        }
+      ]
+    }
+  ]
+}
