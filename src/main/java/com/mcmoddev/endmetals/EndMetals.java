@@ -54,7 +54,7 @@ public class EndMetals {
 
 	@EventHandler
 	public void onFingerprintViolation(FMLFingerprintViolationEvent event) {
-		logger.warn(SharedStrings.INVALID_FINGERPRINT);
+		logger.warn("Invalid fingerprint detected!");
 	}
 
 	@EventHandler
