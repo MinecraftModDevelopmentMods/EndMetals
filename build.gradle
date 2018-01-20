@@ -1,5 +1,3 @@
-def corePlugin = ''
-
 buildscript {
     repositories {
         jcenter()
@@ -88,6 +86,7 @@ version = mc_version + '-' + short_version
 if (System.getenv().BUILD_NUMBER) {
     version += '.' + System.getenv().BUILD_NUMBER
 }
+
 group = 'com.mcmoddev'
 archivesBaseName = 'EndMetals'
 sourceCompatibility = targetCompatibility = '1.8'
@@ -120,9 +119,6 @@ minecraft {
     version = '1.11.2-13.20.1.2386'
     runDir = 'run'
     mappings = 'stable_32'
-//  coreMod = corePlugin
-//  clientJvmArgs = ["-Dfml.coreMods.load=$corePlugin"]
-//  serverJvmArgs = ["-Dfml.coreMods.load=$corePlugin"]
 
     replace '@FINGERPRINT@', project.findProperty('signSHA1')
 }
@@ -209,9 +205,6 @@ processResources {
 
 jar {
     manifest {
-//      attributes 'FMLCorePluginContainsFMLMod': 'true'
-//      attributes 'FMLCorePlugin': corePlugin
-//      attributes 'FMLAT' : ''
     }
 }
 
