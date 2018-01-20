@@ -4,7 +4,7 @@ import com.mcmoddev.orespawn.api.os3.OS3API;
 import com.mcmoddev.orespawn.api.plugin.IOreSpawnPlugin;
 import com.mcmoddev.orespawn.api.plugin.OreSpawnPlugin;
 
-@OreSpawnPlugin( modid="endmetals", resourcePath="orespawn" )
+@OreSpawnPlugin(modid="endmetals", resourcePath="orespawn")
 public class EndMetalsOreSpawn implements IOreSpawnPlugin {
 
 	@Override

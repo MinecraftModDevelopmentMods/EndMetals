@@ -21,13 +21,14 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
  * @author Jasmine Iwanek
  *
  */
-@Mod(modid = EndMetals.MODID,
-     name = EndMetals.NAME,
-     version = EndMetals.VERSION,
-     dependencies = "required-after:forge@[14.21.0.2327,);after:basemetals;after:baseminerals;after:modernmetals",
-     acceptedMinecraftVersions = "[1.12,)", 
-	 certificateFingerprint = "@FINGERPRINT@",
-     updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopmentMods/EndMetals/master/update.json")
+@Mod(
+		modid = EndMetals.MODID,
+		name = EndMetals.NAME,
+		version = EndMetals.VERSION,
+		dependencies = "required-after:forge@[14.21.1.2387,);after:basemetals;after:baseminerals;after:modernmetals",
+		acceptedMinecraftVersions = "[1.12,)", 
+		certificateFingerprint = "@FINGERPRINT@",
+		updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopmentMods/EndMetals/master/update.json")
 public class EndMetals {
 
 	@Instance
