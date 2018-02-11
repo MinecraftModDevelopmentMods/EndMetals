@@ -1,5 +1,6 @@
 package com.mcmoddev.endmetals.init;
 
+import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.endmetals.EndMetals;
 import com.mcmoddev.endmetals.util.Config.Options;
 import com.mcmoddev.lib.init.Materials;
@@ -66,7 +67,7 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 	private static void createEndOreWrapper(boolean enabled, MMDMaterial material) {
 		if (enabled) {
 			if (material != null) {
-				createEndOre(material, ItemGroups.blocksTab);				
+				create(Names.ENDORE, material, ItemGroups.blocksTab);
 			} else {
 				EndMetals.logger.error("material was null!");
 			}
