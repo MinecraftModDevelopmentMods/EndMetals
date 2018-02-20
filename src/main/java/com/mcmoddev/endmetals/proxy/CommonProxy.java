@@ -1,6 +1,7 @@
 package com.mcmoddev.endmetals.proxy;
 
-import com.mcmoddev.basemetals.init.ItemGroups;
+import com.mcmoddev.basemetals.data.MaterialNames;
+import com.mcmoddev.endmetals.init.ItemGroups;
 import com.mcmoddev.endmetals.init.Blocks;
 import com.mcmoddev.endmetals.init.Recipes;
 import com.mcmoddev.endmetals.util.Config;
@@ -19,7 +20,7 @@ public class CommonProxy {
 		Materials.init();
 		ItemGroups.init();
 		Blocks.init();
-		ItemGroups.setupIcons();
+		ItemGroups.setupIcons(MaterialNames.LAPIS);
 		
 		FMLInterModComms.sendFunctionMessage("orespawn", "api", "com.mcmoddev.orespawn.EndMetalsOreSpawn");
 
