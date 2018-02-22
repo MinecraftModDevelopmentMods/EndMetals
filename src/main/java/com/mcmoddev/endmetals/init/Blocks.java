@@ -24,53 +24,49 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 			return;
 		}
 
-		Materials.init();
 //		ItemGroups.init();
 
-		createEndOreWrapper(Options.enableCoalEndOre, Materials.getMaterialByName("coal"));
-		createEndOreWrapper(Options.enableDiamondEndOre, Materials.getMaterialByName("diamond"));
-		createEndOreWrapper(Options.enableEmeraldEndOre, Materials.getMaterialByName("emerald"));
-		createEndOreWrapper(Options.enableGoldEndOre, Materials.getMaterialByName("gold"));
-		createEndOreWrapper(Options.enableIronEndOre, Materials.getMaterialByName("iron"));
-		createEndOreWrapper(Options.enableLapisEndOre, Materials.getMaterialByName("lapis"));
-		createEndOreWrapper(Options.enableRedstoneEndOre, Materials.getMaterialByName("redstone"));
+		createEndOreWrapper("coal");
+		createEndOreWrapper("diamond");
+		createEndOreWrapper("emerald");
+		createEndOreWrapper("gold");
+		createEndOreWrapper("iron");
+		createEndOreWrapper("lapis");
+		createEndOreWrapper("redstone");
 
-		createEndOreWrapper(Options.enableAntimonyEndOre, Materials.getMaterialByName("antimony"));
-		createEndOreWrapper(Options.enableBismuthEndOre, Materials.getMaterialByName("bismuth"));
-		createEndOreWrapper(Options.enableCopperEndOre, Materials.getMaterialByName("copper"));
-		createEndOreWrapper(Options.enableLeadEndOre, Materials.getMaterialByName("lead"));
-		createEndOreWrapper(Options.enableMercuryEndOre, Materials.getMaterialByName("mercury"));
-		createEndOreWrapper(Options.enableNickelEndOre, Materials.getMaterialByName("nickel"));
-		createEndOreWrapper(Options.enablePlatinumEndOre, Materials.getMaterialByName("platinum"));
-		createEndOreWrapper(Options.enableSilverEndOre, Materials.getMaterialByName("silver"));
-		createEndOreWrapper(Options.enableTinEndOre, Materials.getMaterialByName("tin"));
-		createEndOreWrapper(Options.enableZincEndOre, Materials.getMaterialByName("zinc"));
+		createEndOreWrapper("antimony");
+		createEndOreWrapper("bismuth");
+		createEndOreWrapper("copper");
+		createEndOreWrapper("lead");
+		createEndOreWrapper("mercury");
+		createEndOreWrapper("nickel");
+		createEndOreWrapper("platinum");
+		createEndOreWrapper("silver");
+		createEndOreWrapper("tin");
+		createEndOreWrapper("zinc");
 
-		createEndOreWrapper(Options.enableAluminumEndOre, Materials.getMaterialByName("aluminum"));
-		createEndOreWrapper(Options.enableCadmiumEndOre, Materials.getMaterialByName("cadmium"));
-		createEndOreWrapper(Options.enableChromiumEndOre, Materials.getMaterialByName("chromium"));
-		createEndOreWrapper(Options.enableIridiumEndOre, Materials.getMaterialByName("iridium"));
-		createEndOreWrapper(Options.enableMagnesiumEndOre, Materials.getMaterialByName("magnesium"));
-		createEndOreWrapper(Options.enableManganeseEndOre, Materials.getMaterialByName("manganese"));
-		createEndOreWrapper(Options.enableOsmiumEndOre, Materials.getMaterialByName("osmium"));
-		createEndOreWrapper(Options.enablePlutoniumEndOre, Materials.getMaterialByName("plutonium"));
-		createEndOreWrapper(Options.enableRutileEndOre, Materials.getMaterialByName("rutile"));
-		createEndOreWrapper(Options.enableTantalumEndOre, Materials.getMaterialByName("tantalum"));
-		createEndOreWrapper(Options.enableTitaniumEndOre, Materials.getMaterialByName("titanium"));
-		createEndOreWrapper(Options.enableTungstenEndOre, Materials.getMaterialByName("tungsten"));
-		createEndOreWrapper(Options.enableUraniumEndOre, Materials.getMaterialByName("uranium"));
-		createEndOreWrapper(Options.enableZirconiumEndOre, Materials.getMaterialByName("zirconium"));
+		createEndOreWrapper("aluminum");
+		createEndOreWrapper("cadmium");
+		createEndOreWrapper("chromium");
+		createEndOreWrapper("iridium");
+		createEndOreWrapper("magnesium");
+		createEndOreWrapper("manganese");
+		createEndOreWrapper("osmium");
+		createEndOreWrapper("plutonium");
+		createEndOreWrapper("rutile");
+		createEndOreWrapper("tantalum");
+		createEndOreWrapper("titanium");
+		createEndOreWrapper("tungsten");
+		createEndOreWrapper("uranium");
+		createEndOreWrapper("zirconium");
 
 		initDone = true;
 	}
 
-	private static void createEndOreWrapper(boolean enabled, MMDMaterial material) {
-		if (enabled) {
-			if (material != null) {
-				create(Names.ENDORE, material, ItemGroups.blocksTab);				
-			} else {
-				EndMetals.logger.error("material was null!");
-			}
+	private static void createEndOreWrapper(String materialName) {
+		if (Materials.hasMaterial(materialName)) {
+//			create(Names.ENDORE, Materials.getMaterialByName(materialName));
+			create(Names.ENDORE, materialName);
 		}
 	}
 }
