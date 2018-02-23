@@ -1,1 +1,1 @@
-
+Fixed a silly bug in the last release causing end ores for vanilla mats not to generate
