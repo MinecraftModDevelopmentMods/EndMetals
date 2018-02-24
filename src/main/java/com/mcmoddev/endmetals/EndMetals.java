@@ -59,8 +59,6 @@ public class EndMetals {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		logger = LogManager.getFormatterLogger(MODID);
-//		logger.setParent(FMLLog.getLogger());
 		proxy.preInit(event);
 	}
 

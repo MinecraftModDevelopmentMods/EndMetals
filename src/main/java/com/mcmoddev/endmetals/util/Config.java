@@ -79,7 +79,7 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 		Options.materialEnabled("enableUraniumEndOre", configuration.getBoolean("enableUraniumEndOre", ENDORE, true, "Enable Uranium End Ore"));
 		Options.materialEnabled("enableZirconiumEndOre", configuration.getBoolean("enableZirconiumEndOre", ENDORE, true, "Enable Zirconium End Ore"));
 		Options.thingEnabled("requireMMDLib", configuration.getBoolean("requireMMDLib", MMDLIB, false, "Require MMD Lib"));
-		Options.thingEnabled("requireMMDOreSpawn", configuration.getBoolean("requireMMDOreSpawn", ORESPAWN, true, "Require MMD OreSpawn"));
+		Options.thingEnabled(REQUIRE_MMD_ORE_SPAWN, configuration.getBoolean("requireMMDOreSpawn", ORESPAWN, true, "Require MMD OreSpawn"));
 		Options.modEnabled("enableVeinminer", configuration.getBoolean("enableVeinminer", COMPAT, true, "Enable Veinminer Support"));
 		Options.modEnabled("enableTinkersConstruct", configuration.getBoolean("enableTinkersConstruct", COMPAT, false, "Enable Tinkers Construct Support"));
 
@@ -88,12 +88,11 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 		}
 
 
-		if (Options.isThingEnabled(REQUIRE_MMD_ORE_SPAWN)) {
-			if (!Loader.isModLoaded("orespawn")) {
-				final HashSet<ArtifactVersion> orespawnMod = new HashSet<>();
-				orespawnMod.add(new DefaultArtifactVersion("3.0.0"));
-				throw new MissingModsException(orespawnMod, "orespawn", "MMD Ore Spawn Mod");
-			}
+		if ((Options.isThingEnabled(REQUIRE_MMD_ORE_SPAWN)) &&
+				(!Loader.isModLoaded("orespawn"))) {
+			final HashSet<ArtifactVersion> orespawnMod = new HashSet<>();
+			orespawnMod.add(new DefaultArtifactVersion("3.2.0"));
+			throw new MissingModsException(orespawnMod, "orespawn", "MMD Ore Spawn Mod");
 		}
 	}
 
