@@ -79,7 +79,7 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 		Options.materialEnabled("enableUraniumEndOre", configuration.getBoolean("enableUraniumEndOre", ENDORE, true, "Enable Uranium End Ore"));
 		Options.materialEnabled("enableZirconiumEndOre", configuration.getBoolean("enableZirconiumEndOre", ENDORE, true, "Enable Zirconium End Ore"));
 		Options.thingEnabled("requireMMDLib", configuration.getBoolean("requireMMDLib", MMDLIB, false, "Require MMD Lib"));
-		Options.thingEnabled(REQUIRE_MMD_ORE_SPAWN, configuration.getBoolean("requireMMDOreSpawn", ORESPAWN, true, "Require MMD OreSpawn"));
+		Options.thingEnabled(REQUIRE_MMD_ORE_SPAWN, configuration.getBoolean(REQUIRE_MMD_ORE_SPAWN, ORESPAWN, true, "Require MMD OreSpawn"));
 		Options.modEnabled("enableVeinminer", configuration.getBoolean("enableVeinminer", COMPAT, true, "Enable Veinminer Support"));
 		Options.modEnabled("enableTinkersConstruct", configuration.getBoolean("enableTinkersConstruct", COMPAT, false, "Enable Tinkers Construct Support"));
 
