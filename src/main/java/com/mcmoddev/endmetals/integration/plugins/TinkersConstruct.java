@@ -4,6 +4,7 @@ import com.mcmoddev.endmetals.EndMetals;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.integration.IIntegration;
 import com.mcmoddev.lib.integration.MMDPlugin;
+import com.mcmoddev.lib.util.ConfigBase.Options;
 
 /**
  *
@@ -13,11 +14,9 @@ import com.mcmoddev.lib.integration.MMDPlugin;
 @MMDPlugin(addonId = EndMetals.MODID, pluginId = TinkersConstruct.PLUGIN_MODID)
 public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.TinkersConstructBase implements IIntegration {
 
-	private static boolean initDone = false;
-
 	@Override
 	public void init() {
-		if (initDone || !com.mcmoddev.basemetals.util.Config.Options.isModEnabled("tinkersconstruct")) {
+		if (!Options.isModEnabled(PLUGIN_MODID)) {
 			return;
 		}
 
@@ -54,8 +53,6 @@ public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.Tinke
 		registerExtraMeltingWrapper("tungsten");
 		registerExtraMeltingWrapper("uranium");
 		registerExtraMeltingWrapper("zirconium");
-
-		initDone = true;
 	}
 
 	private static void registerExtraMeltingWrapper(String materialName) {

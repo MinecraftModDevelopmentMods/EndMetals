@@ -27,8 +27,6 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 			return;
 		}
 
-//		ItemGroups.init();
-
 		createVanillaEndOreWrapper("coal");
 		createVanillaEndOreWrapper("diamond");
 		createVanillaEndOreWrapper("emerald");
@@ -78,7 +76,6 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 
 	private static void createEndOreWrapper(String materialName) {
 		if (Materials.hasMaterial(materialName)) {
-//			create(Names.ENDORE, Materials.getMaterialByName(materialName));
 			create(Names.ENDORE, materialName);
 		}
 	}
