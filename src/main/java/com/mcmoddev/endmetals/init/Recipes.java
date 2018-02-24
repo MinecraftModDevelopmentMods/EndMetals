@@ -1,7 +1,6 @@
 package com.mcmoddev.endmetals.init;
 
-import com.mcmoddev.endmetals.EndMetals;
-import com.mcmoddev.endmetals.util.Config.Options;
+import com.mcmoddev.lib.util.ConfigBase.Options;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.material.MMDMaterial;
@@ -20,105 +19,71 @@ public final class Recipes {
 	public static void init() {
 
 		// Vanilla
-		recipeWrapper(true, Materials.getMaterialByName("coal"));
-		recipeWrapper(true, Materials.getMaterialByName("diamond"));
-		recipeWrapper(true, Materials.getMaterialByName("emerald"));
-		recipeWrapper(true, Materials.getMaterialByName("gold"));
-		recipeWrapper(true, Materials.getMaterialByName("iron"));
-		recipeWrapper(true, Materials.getMaterialByName("lapis"));
-		recipeWrapper(true, Materials.getMaterialByName("redstone"));
-
-		/*
-		GameRegistry.addSmelting(Materials.getMaterialByName("coal").oreEnd, new ItemStack(Blocks.COAL_ORE, 2), 1.0f);
-		GameRegistry.addSmelting(Materials.getMaterialByName("diamond").oreEnd, new ItemStack(Blocks.DIAMOND_ORE, 2), 1.0f);
-		GameRegistry.addSmelting(Materials.getMaterialByName("emerald").oreEnd, new ItemStack(Blocks.EMERALD_ORE, 2), 1.0f);
-		GameRegistry.addSmelting(Materials.getMaterialByName("gold").oreEnd, new ItemStack(Blocks.GOLD_ORE, 2), 1.0f);
-		GameRegistry.addSmelting(Materials.getMaterialByName("iron").oreEnd, new ItemStack(Blocks.IRON_ORE, 2), 1.0f);
-		GameRegistry.addSmelting(Materials.getMaterialByName("lapis").oreEnd, new ItemStack(Blocks.LAPIS_ORE, 2), 1.0f);
-		GameRegistry.addSmelting(Materials.getMaterialByName("redstone").oreEnd, new ItemStack(Blocks.REDSTONE_ORE, 2), 1.0f);
-
-		// Vanilla BM Hammer Compat
-		if (Loader.isModLoaded("basemetals")) {
-			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("coal").oreEnd, new ItemStack(Blocks.COAL_ORE, 2));
-			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("diamond").oreEnd, new ItemStack(Blocks.DIAMOND_ORE, 2));
-			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("emerald").oreEnd, new ItemStack(Blocks.EMERALD_ORE, 2));
-			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("gold").oreEnd, new ItemStack(Blocks.GOLD_ORE, 2));
-			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("iron").oreEnd, new ItemStack(Blocks.IRON_ORE, 2));
-			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("lapis").oreEnd, new ItemStack(Blocks.LAPIS_ORE, 2));
-			CrusherRecipeRegistry.addNewCrusherRecipe(Materials.getMaterialByName("redstone").oreEnd, new ItemStack(Blocks.REDSTONE_ORE, 2));
-		}
-		*/
+		recipeWrapper(true, "coal");
+		recipeWrapper(true, "diamond");
+		recipeWrapper(true, "emerald");
+		recipeWrapper(true, "gold");
+		recipeWrapper(true, "iron");
+		recipeWrapper(true, "lapis");
+		recipeWrapper(true, "redstone");
 
 		// Base Metals
 		if (Loader.isModLoaded("basemetals")) {
-			recipeWrapper(true, Materials.getMaterialByName("antimony"));
-			recipeWrapper(true, Materials.getMaterialByName("bismuth"));
-			recipeWrapper(true, Materials.getMaterialByName("copper"));
-			recipeWrapper(true, Materials.getMaterialByName("lead"));
-			recipeWrapper(true, Materials.getMaterialByName("mercury"));
-			recipeWrapper(true, Materials.getMaterialByName("nickel"));
-			recipeWrapper(true, Materials.getMaterialByName("platinum"));
-			recipeWrapper(true, Materials.getMaterialByName("silver"));
-			recipeWrapper(true, Materials.getMaterialByName("tin"));
-			recipeWrapper(true, Materials.getMaterialByName("zinc"));
+			recipeWrapper(true, "antimony");
+			recipeWrapper(true, "bismuth");
+			recipeWrapper(true, "copper");
+			recipeWrapper(true, "lead");
+			recipeWrapper(true, "mercury");
+			recipeWrapper(true, "nickel");
+			recipeWrapper(true, "platinum");
+			recipeWrapper(true, "silver");
+			recipeWrapper(true, "tin");
+			recipeWrapper(true, "zinc");
 		}
 
 		// Modern Metals
 		if (Loader.isModLoaded("modernmetals")) {
-			recipeWrapper(true, Materials.getMaterialByName("aluminum"));
-			recipeWrapper(true, Materials.getMaterialByName("cadmium"));
-			recipeWrapper(true, Materials.getMaterialByName("chromium"));
-			recipeWrapper(true, Materials.getMaterialByName("iridium"));
-			recipeWrapper(true, Materials.getMaterialByName("magnesium"));
-			recipeWrapper(true, Materials.getMaterialByName("manganese"));
-			recipeWrapper(true, Materials.getMaterialByName("osmium"));
-			recipeWrapper(true, Materials.getMaterialByName("plutonium"));
-			recipeWrapper(true, Materials.getMaterialByName("rutile"));
-			recipeWrapper(true, Materials.getMaterialByName("tantalum"));
-			recipeWrapper(true, Materials.getMaterialByName("titanium"));
-			recipeWrapper(true, Materials.getMaterialByName("tungsten"));
-			recipeWrapper(true, Materials.getMaterialByName("uranium"));
-			recipeWrapper(true, Materials.getMaterialByName("zirconium"));
+			recipeWrapper(true, "aluminum");
+			recipeWrapper(true, "cadmium");
+			recipeWrapper(true, "chromium");
+			recipeWrapper(true, "iridium");
+			recipeWrapper(true, "magnesium");
+			recipeWrapper(true, "manganese");
+			recipeWrapper(true, "osmium");
+			recipeWrapper(true, "plutonium");
+			recipeWrapper(true, "rutile");
+			recipeWrapper(true, "tantalum");
+			recipeWrapper(true, "titanium");
+			recipeWrapper(true, "tungsten");
+			recipeWrapper(true, "uranium");
+			recipeWrapper(true, "zirconium");
 		}
 	}
 
-	private static void recipeWrapper(boolean enabled, MMDMaterial material) {
-		if (enabled) {
-			if (material != null) {
-				if (material.getBlock(Names.ENDORE) != null) {
-					boolean makeDusts = false;
-					boolean smeltToIngots = false;
-					if (Options.enableFurnaceSmelting) {
-						if (smeltToIngots == true) {
-							if (material.getItem(Names.INGOT) != null) {
-								GameRegistry.addSmelting(material.getBlock(Names.ENDORE), new ItemStack(material.getItem(Names.INGOT), 2), 1.0f);
-							} else {
-								EndMetals.logger.error("ingot was null for material " + material.getName());
-							}
-						} else {
-							if (material.getBlock(Names.ORE) != null) {
-								GameRegistry.addSmelting(material.getBlock(Names.ENDORE), new ItemStack(material.getBlock(Names.ORE), 2), 1.0f);
-							} else {
-								EndMetals.logger.error("ore was null for material " + material.getName());
-							}
-						}
-					}
-					if (makeDusts == true) {
-						if (material.getItem(Names.POWDER) != null) {
-						CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(Names.ENDORE), new ItemStack(material.getItem(Names.POWDER), 4));
-						} else {
-							EndMetals.logger.error("powder was null for material " + material.getName());
-						}
-					} else {
-						if (material.getBlock(Names.ORE) != null) {
-							CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(Names.ENDORE), new ItemStack(material.getBlock(Names.ORE), 2));
-						} else {
-							EndMetals.logger.error("ore was null" + material.getName());
-						}
-					}
-				} else {
-					EndMetals.logger.error("oreEnd was null");
-				}
+	private static void recipeWrapper(boolean enabled, String materialName) {
+		if (enabled && Materials.hasMaterial(materialName)) {
+			MMDMaterial material = Materials.getMaterialByName(materialName);
+			if (!(material.getBlockItemStack(Names.ENDORE).isEmpty())) {
+				doFurnaceSmelting(material);
+				doMakeDusts(material);
+			}
+		}
+	}
+
+	private static void doMakeDusts(MMDMaterial material) {
+		if ((Options.isThingEnabled("makeDusts")) && (!material.getItemStack(Names.POWDER).isEmpty())) {
+			CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(Names.ENDORE), new ItemStack(material.getItem(Names.POWDER), 4));
+		} else if (!(material.getBlockItemStack(Names.ORE).isEmpty())) {
+			CrusherRecipeRegistry.addNewCrusherRecipe(material.getBlock(Names.ENDORE), new ItemStack(material.getBlock(Names.ORE), 2));
+		}
+	}
+
+	private static void doFurnaceSmelting(MMDMaterial material) {
+		if (Options.isThingEnabled("enableFurnaceSmelting")) {
+			if ((Options.isThingEnabled("smeltToIngots")) && (!material.getItemStack(Names.INGOT).isEmpty())) {
+				GameRegistry.addSmelting(material.getBlock(Names.ENDORE), new ItemStack(material.getItem(Names.INGOT), 2), 1.0f);
+			} else if (!(material.getBlockItemStack(Names.ORE).isEmpty())) {
+				GameRegistry.addSmelting(material.getBlock(Names.ENDORE), new ItemStack(material.getBlock(Names.ORE), 2), 1.0f);
 			}
 		}
 	}
