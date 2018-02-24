@@ -1,7 +1,5 @@
 package com.mcmoddev.endmetals.init;
 
-import com.mcmoddev.endmetals.EndMetals;
-import com.mcmoddev.endmetals.util.Config.Options;
 import com.mcmoddev.lib.block.*;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.data.SharedStrings;
