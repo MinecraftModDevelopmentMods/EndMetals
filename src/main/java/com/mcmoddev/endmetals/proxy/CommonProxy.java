@@ -66,7 +66,6 @@ public class CommonProxy {
 			for( Block block : mat.getBlocks() ) {
 				if( block.getRegistryName().getResourceDomain().equals(EndMetals.MODID) ) {
 					event.getRegistry().register(block);
-					EndMetals.logger.fatal("registered block %s", block.getRegistryName());
 				}
 			}
 		}
