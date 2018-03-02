@@ -19,9 +19,6 @@ import net.minecraft.block.Block;
  *
  */
 public class Blocks extends com.mcmoddev.lib.init.Blocks {
-
-	private static boolean initDone = false;
-
 	/**
 	 *
 	 */
