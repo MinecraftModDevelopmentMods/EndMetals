@@ -1,5 +1,8 @@
 package com.mcmoddev.endmetals.init;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.mcmoddev.lib.block.*;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.data.SharedStrings;
@@ -16,54 +19,29 @@ import net.minecraft.block.Block;
  *
  */
 public class Blocks extends com.mcmoddev.lib.init.Blocks {
-
-	private static boolean initDone = false;
-
 	/**
 	 *
 	 */
 	public static void init() {
-		if (initDone) {
-			return;
-		}
-
-		createVanillaEndOreWrapper("coal");
-		createVanillaEndOreWrapper("diamond");
-		createVanillaEndOreWrapper("emerald");
-		createVanillaEndOreWrapper("gold");
-		createVanillaEndOreWrapper("iron");
-		createVanillaEndOreWrapper("lapis");
-		createVanillaEndOreWrapper("redstone");
-
-		createEndOreWrapper("antimony");
-		createEndOreWrapper("bismuth");
-		createEndOreWrapper("copper");
-		createEndOreWrapper("lead");
-		createEndOreWrapper("mercury");
-		createEndOreWrapper("nickel");
-		createEndOreWrapper("platinum");
-		createEndOreWrapper("silver");
-		createEndOreWrapper("tin");
-		createEndOreWrapper("zinc");
-
-		createEndOreWrapper("aluminum");
-		createEndOreWrapper("cadmium");
-		createEndOreWrapper("chromium");
-		createEndOreWrapper("iridium");
-		createEndOreWrapper("magnesium");
-		createEndOreWrapper("manganese");
-		createEndOreWrapper("osmium");
-		createEndOreWrapper("plutonium");
-		createEndOreWrapper("rutile");
-		createEndOreWrapper("tantalum");
-		createEndOreWrapper("titanium");
-		createEndOreWrapper("tungsten");
-		createEndOreWrapper("uranium");
-		createEndOreWrapper("zirconium");
-
-		initDone = true;
+		List<String> knownMaterials = Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis",
+				"redstone", "antimony", "bismuth", "copper", "lead", "mercury", "nickel", "platinum",
+				"silver", "tin", "zinc", "aluminum", "cadmium", "chromium", "iridium", "magnesium",
+				"manganese", "osmium", "plutonium", "rutile", "tantalum", "titanium", "tungsten",
+				"uranium", "zirconium");
+		Materials.getAllMaterials().stream()
+		.map(mat -> mat.getName())
+		.filter(knownMaterials::contains)
+		.forEach(Blocks::createEndOreWrapper);
 	}
 
+	private static void createEndOreWrapper(String materialName) {
+		List<String> vanillaMats = Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis", "redstone");
+		if (vanillaMats.contains(materialName))
+			createVanillaEndOreWrapper(materialName);
+		else
+			createEndOreWrapperBasic(materialName);
+	}
+	
 	private static void createVanillaEndOreWrapper(String materialName) {
 		final MMDMaterial material = Materials.getMaterialByName(materialName);
 			material.addNewBlock(Names.ENDORE, addBlock(new BlockMMDEndOre(material), Names.ENDORE.toString(), material, ItemGroups.getTab(SharedStrings.TAB_BLOCKS)));
@@ -74,7 +52,7 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 			}
 	}
 
-	private static void createEndOreWrapper(String materialName) {
+	private static void createEndOreWrapperBasic(String materialName) {
 		if (Materials.hasMaterial(materialName)) {
 			create(Names.ENDORE, materialName);
 		}
