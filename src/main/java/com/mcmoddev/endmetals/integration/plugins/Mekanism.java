@@ -1,7 +1,11 @@
 package com.mcmoddev.endmetals.integration.plugins;
 
+import java.util.Arrays;
+import java.util.List;
+
 import javax.annotation.Nonnull;
 
+import com.mcmoddev.basemetals.data.MaterialNames;
 import com.mcmoddev.endmetals.EndMetals;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.init.Materials;
@@ -13,11 +17,13 @@ import com.mcmoddev.lib.util.ConfigBase.Options;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
-@MMDPlugin(addonId=EndMetals.MODID, pluginId = Mekanism.PLUGIN_MODID)
+@MMDPlugin(addonId = EndMetals.MODID, pluginId = Mekanism.PLUGIN_MODID)
 public class Mekanism extends MekanismBase implements IIntegration {
 	@Override
 	public void init() {
@@ -27,39 +33,63 @@ public class Mekanism extends MekanismBase implements IIntegration {
 
 		MinecraftForge.EVENT_BUS.register(this);
 	}
-	
+
 	@SubscribeEvent
 	public void regCallback(RegistryEvent.Register<IRecipe> event) {
+		final List<String> mekProvides = Arrays.asList(MaterialNames.IRON, MaterialNames.GOLD, 
+				com.mcmoddev.modernmetals.data.MaterialNames.OSMIUM,
+				MaterialNames.COPPER, MaterialNames.TIN, MaterialNames.SILVER, MaterialNames.LEAD);
+
+		mekProvides.stream()
+		.map(Materials::getMaterialByName)
+		.filter(mat -> !mat.isEmpty())
+		.filter(mat -> gasExists(mat.getName()))
+		.forEach( mat -> {
+			final ItemStack clump = new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("mekanism", "clump")),
+					6, mekProvides.indexOf(mat.getName()));
+			final ItemStack dust = new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("mekanism", "dust")),
+					4, mekProvides.indexOf(mat.getName()));
+			final ItemStack shard = new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("mekanism", "shard")),
+					8, mekProvides.indexOf(mat.getName()));
+			final ItemStack netherOre = mat.getBlockItemStack(Names.NETHERORE);
+
+			addEnrichmentChamberRecipe(netherOre, dust);
+			addPurificationChamberRecipe(netherOre, clump);
+			addChemicalInjectionChamberRecipe(netherOre, shard);
+			addChemicalDissolutionChamberRecipe(netherOre, mat.getName(), 2000);
+		});
+
 		Materials.getAllMaterials().stream()
-		.filter(material -> material.hasBlock(Names.ENDORE) && material.hasItem(Names.POWDER))
+		.filter(material -> material.hasBlock(Names.ENDORE))
 		.filter(material -> gasExists(material.getName()))
+		.filter(material -> !mekProvides.contains(material.getName()))
 		.forEach(this::addMultRecipe);
 
-		if (Materials.hasMaterial("lapis")) {
-			final MMDMaterial material = Materials.getMaterialByName("lapis");
+		if (Materials.hasMaterial(MaterialNames.LAPIS)) {
+			final MMDMaterial material = Materials.getMaterialByName(MaterialNames.LAPIS);
 			addEnrichmentChamberRecipe(material.getBlockItemStack(Names.ENDORE), new ItemStack(net.minecraft.init.Items.DYE, 24, 4));
 		}
 
-		if (Materials.hasMaterial("redstone")) {
-			final MMDMaterial material = Materials.getMaterialByName("redstone");
+		if (Materials.hasMaterial(MaterialNames.REDSTONE)) {
+			final MMDMaterial material = Materials.getMaterialByName(MaterialNames.REDSTONE);
 			addEnrichmentChamberRecipe(material.getBlockItemStack(Names.ENDORE), new ItemStack(net.minecraft.init.Items.REDSTONE, 24));
 		}
 
-		if (Materials.hasMaterial("coal")) {
-			final MMDMaterial material = Materials.getMaterialByName("coal");
+		if (Materials.hasMaterial(MaterialNames.COAL)) {
+			final MMDMaterial material = Materials.getMaterialByName(MaterialNames.COAL);
 			addEnrichmentChamberRecipe(material.getBlockItemStack(Names.ENDORE), new ItemStack(net.minecraft.init.Items.COAL, 4, 0));
 		}
 
-		if (Materials.hasMaterial("diamond")) {
-			final MMDMaterial material = Materials.getMaterialByName("diamond");
+		if (Materials.hasMaterial(MaterialNames.DIAMOND)) {
+			final MMDMaterial material = Materials.getMaterialByName(MaterialNames.DIAMOND);
 			addEnrichmentChamberRecipe(material.getBlockItemStack(Names.ENDORE), new ItemStack(net.minecraft.init.Items.DIAMOND, 4));
 		}
-		if (Materials.hasMaterial("emerald")) {
-			final MMDMaterial material = Materials.getMaterialByName("emerald");
+		if (Materials.hasMaterial(MaterialNames.EMERALD)) {
+			final MMDMaterial material = Materials.getMaterialByName(MaterialNames.EMERALD);
 			addEnrichmentChamberRecipe(material.getBlockItemStack(Names.ENDORE), new ItemStack(net.minecraft.init.Items.EMERALD, 4));
 		}
 	}
-	
+
 	private void addMultRecipe(@Nonnull final MMDMaterial material) {
 		final ItemStack endOre = material.getBlockItemStack(Names.ENDORE);
 
