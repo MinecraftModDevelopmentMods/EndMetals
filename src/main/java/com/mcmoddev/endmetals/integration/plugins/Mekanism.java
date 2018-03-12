@@ -51,12 +51,12 @@ public class Mekanism extends MekanismBase implements IIntegration {
 					4, mekProvides.indexOf(mat.getName()));
 			final ItemStack shard = new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("mekanism", "shard")),
 					8, mekProvides.indexOf(mat.getName()));
-			final ItemStack netherOre = mat.getBlockItemStack(Names.NETHERORE);
+			final ItemStack endOre = mat.getBlockItemStack(Names.ENDORE);
 
-			addEnrichmentChamberRecipe(netherOre, dust);
-			addPurificationChamberRecipe(netherOre, clump);
-			addChemicalInjectionChamberRecipe(netherOre, shard);
-			addChemicalDissolutionChamberRecipe(netherOre, mat.getName(), 2000);
+			addEnrichmentChamberRecipe(endOre, dust);
+			addPurificationChamberRecipe(endOre, clump);
+			addChemicalInjectionChamberRecipe(endOre, shard);
+			addChemicalDissolutionChamberRecipe(endOre, mat.getName(), 2000);
 		});
 
 		Materials.getAllMaterials().stream()
