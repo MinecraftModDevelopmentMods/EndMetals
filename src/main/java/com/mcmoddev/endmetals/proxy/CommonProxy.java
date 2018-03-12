@@ -32,7 +32,6 @@ public class CommonProxy {
 		Materials.init();
 		ItemGroups.init();
 		Blocks.init();
-		ItemGroups.setupIcons(MaterialNames.LAPIS);
 		
 		MinecraftForge.EVENT_BUS.register(this);
 		IntegrationManager.INSTANCE.preInit(event);
@@ -41,6 +40,8 @@ public class CommonProxy {
 
 	public void init(FMLInitializationEvent event) {
 		Recipes.init();
+
+		ItemGroups.setupIcons(MaterialNames.LAPIS);
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {
