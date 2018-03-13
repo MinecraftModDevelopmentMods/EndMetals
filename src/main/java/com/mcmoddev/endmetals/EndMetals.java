@@ -25,7 +25,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 		modid = EndMetals.MODID,
 		name = EndMetals.NAME,
 		version = EndMetals.VERSION,
-		dependencies = "required-after:forge@[13.20.0.2228,);after:basemetals;after:baseminerals;after:modernmetals",
+		dependencies = "required-after:forge@[13.20.0.2386,);after:basemetals;after:baseminerals;after:modernmetals",
 		acceptedMinecraftVersions = "[1.11.2,)",
 		certificateFingerprint = "@FINGERPRINT@",
 		updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/EndMetals/master/update.json")
