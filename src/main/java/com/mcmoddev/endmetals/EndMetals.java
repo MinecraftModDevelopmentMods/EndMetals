@@ -25,7 +25,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 		modid = EndMetals.MODID,
 		name = EndMetals.NAME,
 		version = EndMetals.VERSION,
-		dependencies = "required-after:Forge@[12.18.3.2185,);after:basemetals;after:baseminerals;after:modernmetals",
+		dependencies = "required-after:forge@[12.18.3.2185,);after:basemetals;after:baseminerals;after:modernmetals",
 		acceptedMinecraftVersions = "[1.10.2,)",
 		certificateFingerprint = "@FINGERPRINT@",
 		updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/EndMetals/master/update.json")
@@ -45,7 +45,7 @@ public class EndMetals {
 	 * increased whenever a change is made that has the potential to break
 	 * compatibility with other mods that depend on this one.
 	 */
-	public static final String VERSION = "1.2.0-beta1";
+	public static final String VERSION = "1.2.0-beta2";
 
 	public static Logger logger;
 
