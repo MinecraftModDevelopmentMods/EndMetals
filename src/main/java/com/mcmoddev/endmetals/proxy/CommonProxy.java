@@ -2,8 +2,6 @@ package com.mcmoddev.endmetals.proxy;
 
 import java.util.HashSet;
 
-import com.mcmoddev.basemetals.data.MaterialNames;
-import com.mcmoddev.endmetals.init.ItemGroups;
 import com.mcmoddev.endmetals.init.EndBlocks;
 import com.mcmoddev.endmetals.init.Recipes;
 import com.mcmoddev.lib.data.SharedStrings;
@@ -48,7 +46,7 @@ public class CommonProxy {
 		Recipes.init();
 
 		// TODO: Broken currently
-		// ItemGroups.setupIcons(MaterialNames.LAPIS);
+		// ItemGroups.setupIcons(MaterialNames.LAPIS)
 	}
 
 	/**
