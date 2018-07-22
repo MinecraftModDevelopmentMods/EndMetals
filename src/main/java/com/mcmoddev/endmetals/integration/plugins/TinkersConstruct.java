@@ -6,20 +6,21 @@ import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.integration.IIntegration;
 import com.mcmoddev.lib.integration.MMDPlugin;
 import com.mcmoddev.lib.material.MMDMaterial;
+import com.mcmoddev.lib.util.ConfigBase.Options;
+import com.mcmoddev.lib.integration.plugins.TinkersConstructBase;
 
 /**
  *
  * @author Jasmine Iwanek
  *
  */
-@MMDPlugin(addonId = EndMetals.MODID, pluginId = TinkersConstruct.PLUGIN_MODID)
-public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.TinkersConstructBase implements IIntegration {
-
-	private static boolean initDone = false;
+@MMDPlugin(addonId = EndMetals.MODID,
+pluginId = TinkersConstruct.PLUGIN_MODID)
+public final class TinkersConstruct extends TinkersConstructBase implements IIntegration {
 
 	@Override
 	public void init() {
-		if (initDone || !com.mcmoddev.lib.util.ConfigBase.Options.isModEnabled("tinkersconstruct")) {
+		if (!Options.isModEnabled(TinkersConstruct.PLUGIN_MODID)) {
 			return;
 		}
 
@@ -57,10 +58,9 @@ public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.Tinke
 		registerExtraMeltingWrapper(Materials.getMaterialByName("uranium"), 144);
 		registerExtraMeltingWrapper(Materials.getMaterialByName("zirconium"), 144);
 
-		initDone = true;
 	}
-	
-	private static void registerExtraMeltingWrapper(MMDMaterial material, int quantity) {
+
+	private static void registerExtraMeltingWrapper(final MMDMaterial material, final int quantity) {
 		registerExtraMelting(material, material.getBlock(Names.ENDORE), quantity);		
 	}
 }

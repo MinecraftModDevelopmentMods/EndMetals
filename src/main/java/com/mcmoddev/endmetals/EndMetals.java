@@ -4,12 +4,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.mcmoddev.endmetals.proxy.CommonProxy;
+import com.mcmoddev.endmetals.util.Config;
+import com.mcmoddev.lib.data.SharedStrings;
 
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLConstructionEvent;
 import net.minecraftforge.fml.common.event.FMLFingerprintViolationEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -28,16 +30,16 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 		dependencies = "required-after:forge@[13.20.0.2386,);after:basemetals;after:baseminerals;after:modernmetals",
 		acceptedMinecraftVersions = "[1.11.2,)",
 		certificateFingerprint = "@FINGERPRINT@",
-		updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/EndMetals/master/update.json")
-public class EndMetals {
+		updateJSON = SharedStrings.UPDATE_JSON_URL + "EndMetals/master/update.json")
+public final class EndMetals {
 
-	@Instance
+	@Instance(value = EndMetals.MODID)
 	public static EndMetals instance;
 
-	/** ID of this Mod */
+	/** ID of this Mod. */
 	public static final String MODID = "endmetals";
 
-	/** Display name of this Mod */
+	/** Display name of this Mod. */
 	public static final String NAME = "End Metals";
 
 	/**
@@ -45,49 +47,38 @@ public class EndMetals {
 	 * increased whenever a change is made that has the potential to break
 	 * compatibility with other mods that depend on this one.
 	 */
-	public static final String VERSION = "1.2.0-beta1";
+	public static final String VERSION = "1.2.0-beta3";
 
-	public static Logger logger;
+	public static final Logger LOGGER = LogManager.getFormatterLogger(EndMetals.MODID);
 
-	@SidedProxy(clientSide="com.mcmoddev.endmetals.proxy.ClientProxy", serverSide="com.mcmoddev.endmetals.proxy.ServerProxy")
+	private static final String PROXY_BASE = SharedStrings.MMD_PROXY_GROUP + MODID + SharedStrings.DOT_PROXY_DOT;
+
+	@SidedProxy(clientSide = PROXY_BASE + SharedStrings.CLIENTPROXY, serverSide = PROXY_BASE
+			+ SharedStrings.SERVERPROXY)
 	public static CommonProxy proxy;
 
 	@EventHandler
-	public void onFingerprintViolation(FMLFingerprintViolationEvent event) {
-		logger.warn("Invalid fingerprint detected!");
+	public void onFingerprintViolation(final FMLFingerprintViolationEvent event) {
+		LOGGER.warn(SharedStrings.INVALID_FINGERPRINT);
 	}
 
 	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		logger = LogManager.getFormatterLogger(MODID);
-//		logger.setParent(FMLLog.getLogger());
+	public void constructing(final FMLConstructionEvent event) {
+		Config.init();
+	}
+
+	@EventHandler
+	public void preInit(final FMLPreInitializationEvent event) {
 		proxy.preInit(event);
 	}
 
 	@EventHandler
-	public void init(FMLInitializationEvent event) {
+	public void init(final FMLInitializationEvent event) {
 		proxy.init(event);
 	}
 
 	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
+	public void postInit(final FMLPostInitializationEvent event) {
 		proxy.postInit(event);
 	}
-	
-    public static boolean hasMMDLib() {
-        return Loader.isModLoaded("mmdlib");
-    }
-        
-    public static boolean hasOreSpawn() {
-        return Loader.isModLoaded("orespawn");
-    }
-    public static boolean hasTinkers() {
-        return Loader.isModLoaded("tinkersconstruct");
-    }
-    public static boolean hasModernMetals() {
-        return Loader.isModLoaded("modernmetals");
-    }
-    public static boolean hasBaseMetals() {
-        return Loader.isModLoaded("basemetals");
-    }
 }

@@ -1,34 +1,61 @@
 package com.mcmoddev.endmetals.proxy;
 
-import com.mcmoddev.endmetals.init.ItemGroups;
-import com.mcmoddev.endmetals.init.Blocks;
-import com.mcmoddev.endmetals.init.Recipes;
-import com.mcmoddev.endmetals.util.Config;
-import com.mcmoddev.lib.integration.IntegrationManager;
-import com.mcmoddev.lib.init.Materials;
+import java.util.HashSet;
 
+import com.mcmoddev.basemetals.data.MaterialNames;
+import com.mcmoddev.endmetals.init.ItemGroups;
+import com.mcmoddev.endmetals.init.EndBlocks;
+import com.mcmoddev.endmetals.init.Recipes;
+import com.mcmoddev.lib.data.SharedStrings;
+import com.mcmoddev.lib.oregen.FallbackGenerator;
+import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
+import com.mcmoddev.lib.util.ConfigBase.Options;
+
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.MissingModsException;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.versioning.ArtifactVersion;
+import net.minecraftforge.fml.common.versioning.DefaultArtifactVersion;
 
 public class CommonProxy {
 
-	public void preInit(FMLPreInitializationEvent event) {
-		Config.init();
-		Materials.init();
-		ItemGroups.init();
-		Blocks.init();
-		
-		IntegrationManager.INSTANCE.preInit(event);
+	/**
+	 *
+	 * @param event The Event.
+	 */
+	public void preInit(final FMLPreInitializationEvent event) {
+		if ((Options.requireMMDOreSpawn()) && (!Loader.isModLoaded(SharedStrings.ORESPAWN_MODID))) {
+			if (Options.fallbackOrespawn()) {
+				GameRegistry.registerWorldGenerator(new FallbackGenerator(), 0);
+			} else {
+				final HashSet<ArtifactVersion> orespawnMod = new HashSet<>();
+				orespawnMod.add(new DefaultArtifactVersion(SharedStrings.ORESPAWN_VERSION));
+				throw new MissingModsException(orespawnMod, SharedStrings.ORESPAWN_MODID,
+						SharedStrings.ORESPAWN_MISSING_TEXT);
+			}
+		}
+		EndBlocks.init();
 	}
 
-	public void init(FMLInitializationEvent event) {
+	/**
+	 *
+	 * @param event The Event.
+	 */
+	public void init(final FMLInitializationEvent event) {
 		Recipes.init();
 
-		ItemGroups.setupIcons("lapis");
+		// TODO: Broken currently
+		// ItemGroups.setupIcons(MaterialNames.LAPIS);
 	}
 
-	public void postInit(FMLPostInitializationEvent event) {
-		Config.postInit();
+	/**
+	 *
+	 * @param event The Event.
+	 */
+	public void postInit(final FMLPostInitializationEvent event) {
+		CrusherRecipeRegistry.getInstance().clearCache();
 	}
 }
