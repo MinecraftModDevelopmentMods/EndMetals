@@ -14,8 +14,13 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@MMDPlugin(addonId=EndMetals.MODID, pluginId=ThermalExpansion.PLUGIN_MODID)
-public class ThermalExpansion extends ThermalExpansionBase implements IIntegration {
+@MMDPlugin(addonId = EndMetals.MODID, pluginId = ThermalExpansion.PLUGIN_MODID,
+           versions = ThermalExpansion.PLUGIN_MODID + "@(,5.3.12.17];")
+public final class ThermalExpansion extends ThermalExpansionBase implements IIntegration {
+
+	/**
+	 *
+	 */
 	@Override
 	public void init() {
 		if (!Options.isModEnabled(PLUGIN_MODID)) {
@@ -25,6 +30,10 @@ public class ThermalExpansion extends ThermalExpansionBase implements IIntegrati
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
+	/**
+	 *
+	 * @param event The Event.
+	 */
 	@SubscribeEvent
 	public void regCallback(final RegistryEvent.Register<IRecipe> event) {
 		Materials.getAllMaterials().stream()
@@ -33,8 +42,9 @@ public class ThermalExpansion extends ThermalExpansionBase implements IIntegrati
 		.forEach(material -> {
 			final ItemStack ore = material.getBlockItemStack(Names.ENDORE, 1);
 			final ItemStack powder = material.getItemStack(Names.POWDER, 4);
-			if (!((ore.isEmpty()) || (powder.isEmpty())))
-				addPulverizerRecipe( 4000, ore, powder);
+			if (!((ore.isEmpty()) || (powder.isEmpty()))) {
+				addPulverizerRecipe(4000, ore, powder);
+			}
 		});
 	}
 }

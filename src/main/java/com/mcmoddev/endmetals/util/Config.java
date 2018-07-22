@@ -1,9 +1,8 @@
 package com.mcmoddev.endmetals.util;
 
-import java.io.*;
+import java.io.File;
 
 import com.mcmoddev.endmetals.EndMetals;
-import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -21,6 +20,10 @@ public final class Config extends com.mcmoddev.lib.util.ConfigBase {
 	private static final String ENDORE = "End Ores";
 	private static final String GENERAL = "General";
 
+	/**
+	 *
+	 * @param event The Event.
+	 */
 	@SubscribeEvent
 	public void onConfigChange(final ConfigChangedEvent.OnConfigChangedEvent event) {
 		if (event.getModID().equals(EndMetals.MODID)) {
@@ -28,16 +31,21 @@ public final class Config extends com.mcmoddev.lib.util.ConfigBase {
 		}
 	}
 
+	/**
+	 *
+	 */
 	public static void init() {
 		if (configuration == null) {
 			configuration = new Configuration(new File(CONFIG_FILE));
 			MinecraftForge.EVENT_BUS.register(new Config());
 		}
 
+		// General
 		Options.thingEnabled("enableFurnaceSmelting", configuration.getBoolean("enableFurnaceSmelting", GENERAL, true, "Enable Furnace Smelting"));
 		Options.thingEnabled("smeltToIngots", configuration.getBoolean("smeltToIngots", GENERAL, false, "By default nether ores smelt to 2 standard ores - with this option you get 2 ingots"));
 		Options.thingEnabled("makeDusts", configuration.getBoolean("makeDusts", GENERAL, false, "Normally hitting a Nether Ore with a Crackhammer gives you 2 normal ores. With this option you get 4 dusts"));
 
+		// End Ores
 		Options.materialEnabled("enableCoalEndOre", configuration.getBoolean("enableCoalEndOre", ENDORE, true, "Enable Coal End Ore"));
 		Options.materialEnabled("enableDiamondEndOre", configuration.getBoolean("enableDiamondEndOre", ENDORE, true, "Enable Diamond End Ore"));
 		Options.materialEnabled("enableEmeraldEndOre", configuration.getBoolean("enableEmeraldEndOre", ENDORE, true, "Enable Emerald End Ore"));
@@ -45,6 +53,7 @@ public final class Config extends com.mcmoddev.lib.util.ConfigBase {
 		Options.materialEnabled("enableIronEndOre", configuration.getBoolean("enableIronEndOre", ENDORE, true, "Enable Iron End Ore"));
 		Options.materialEnabled("enableLapisEndOre", configuration.getBoolean("enableLapisEndOre", ENDORE, true, "Enable Lapis End Ore"));
 		Options.materialEnabled("enableRedstoneEndOre", configuration.getBoolean("enableRedstoneEndOre", ENDORE, true, "Enable Redstone End Ore"));
+
 		Options.materialEnabled("enableAntimonyEndOre", configuration.getBoolean("enableAntimonyEndOre", ENDORE, true, "Enable Antimony End Ore"));
 		Options.materialEnabled("enableBismuthEndOre", configuration.getBoolean("enableBismuthEndOre", ENDORE, true, "Enable Bismuth End Ore"));
 		Options.materialEnabled("enableCopperEndOre", configuration.getBoolean("enableCopperEndOre", ENDORE, true, "Enable Copper End Ore"));
@@ -73,9 +82,5 @@ public final class Config extends com.mcmoddev.lib.util.ConfigBase {
 		if (configuration.hasChanged()) {
 			configuration.save();
 		}
-	}
-
-	public static void postInit() {
-		CrusherRecipeRegistry.getInstance().clearCache();
 	}
 }

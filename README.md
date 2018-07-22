@@ -53,7 +53,7 @@ This mod can make use of Modern Metals (By: jriwanek) http://minecraft.curseforg
 End Ores spawn only in the End
 
 #### ( Github ):
-Check us on Github: https://github.com/MinecraftModDevelopment/EndMetals
+Check us on Github: https://github.com/MinecraftModDevelopmentMods/EndMetals
 
 #### ( Discord ):
 We have a Discord server!  You can join with the following invite link: https://discord.gg/0zDmvoH5AXIG1hgU

@@ -27,19 +27,19 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 		modid = EndMetals.MODID,
 		name = EndMetals.NAME,
 		version = EndMetals.VERSION,
-		dependencies = "required-after:forge@[12.18.3.2185,);after:basemetals;after:baseminerals;after:modernmetals",
+		dependencies = "required-after:forge@[14.21.0.2327,);after:basemetals;after:baseminerals;after:modernmetals",
 		acceptedMinecraftVersions = "[1.12,)",
 		certificateFingerprint = "@FINGERPRINT@",
 		updateJSON = SharedStrings.UPDATE_JSON_URL + "EndMetals/master/update.json")
-public class EndMetals {
+public final class EndMetals {
 
 	@Instance(value = EndMetals.MODID)
 	public static EndMetals instance;
 
-	/** ID of this Mod */
+	/** ID of this Mod. */
 	public static final String MODID = "endmetals";
 
-	/** Display name of this Mod */
+	/** Display name of this Mod. */
 	public static final String NAME = "End Metals";
 
 	/**
@@ -49,7 +49,7 @@ public class EndMetals {
 	 */
 	public static final String VERSION = "1.2.0-beta3";
 
-	public static final Logger logger = LogManager.getFormatterLogger(EndMetals.MODID);
+	public static final Logger LOGGER = LogManager.getFormatterLogger(EndMetals.MODID);
 
 	private static final String PROXY_BASE = SharedStrings.MMD_PROXY_GROUP + MODID + SharedStrings.DOT_PROXY_DOT;
 
@@ -58,15 +58,15 @@ public class EndMetals {
 	public static CommonProxy proxy;
 
 	@EventHandler
-	public void onFingerprintViolation(FMLFingerprintViolationEvent event) {
-		logger.warn(SharedStrings.INVALID_FINGERPRINT);
+	public void onFingerprintViolation(final FMLFingerprintViolationEvent event) {
+		LOGGER.warn(SharedStrings.INVALID_FINGERPRINT);
 	}
 
 	@EventHandler
 	public void constructing(final FMLConstructionEvent event) {
 		Config.init();
 	}
-	
+
 	@EventHandler
 	public void preInit(final FMLPreInitializationEvent event) {
 		proxy.preInit(event);

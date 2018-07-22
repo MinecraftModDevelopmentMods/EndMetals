@@ -2,7 +2,6 @@ package com.mcmoddev.endmetals.proxy;
 
 import com.mcmoddev.lib.client.registrations.RegistrationHelper;
 import com.mcmoddev.lib.init.Blocks;
-import com.mcmoddev.lib.init.Items;
 
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -28,10 +27,6 @@ public final class ClientProxy extends CommonProxy {
 	 */
 	@SubscribeEvent
 	public void modelRegistry(final ModelRegistryEvent event) {
-		for (final String name : Items.getItemRegistry().keySet()) {
-			RegistrationHelper.registerItemRender(name);
-		}
-
 		for (final String name : Blocks.getBlockRegistry().keySet()) {
 			RegistrationHelper.registerBlockRender(name);
 		}

@@ -3,7 +3,7 @@ package com.mcmoddev.endmetals.init;
 import java.util.Arrays;
 import java.util.List;
 
-import com.mcmoddev.lib.block.*;
+import com.mcmoddev.lib.block.BlockMMDEndOre;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.data.SharedStrings;
 import com.mcmoddev.lib.init.Materials;
@@ -18,7 +18,8 @@ import net.minecraft.block.Block;
  * @author Jasmine Iwanek
  *
  */
-public final class Blocks extends com.mcmoddev.lib.init.Blocks {
+public final class EndBlocks extends com.mcmoddev.lib.init.Blocks {
+
 	/**
 	 *
 	 */
@@ -32,19 +33,20 @@ public final class Blocks extends com.mcmoddev.lib.init.Blocks {
 		.map(material -> material.getName())
 		.filter(knownMaterials::contains)
 		.filter(Materials::hasMaterial)
-		.forEach(Blocks::createEndOreWrapper);
+		.forEach(EndBlocks::createOreWrapper);
 	}
 
-	private static void createEndOreWrapper(final String materialName) {
+	private static void createOreWrapper(final String materialName) {
 		final List<String> vanillaMats = Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis", "redstone");
+
 		if (vanillaMats.contains(materialName)) {
-			createVanillaEndOreWrapper(materialName);
+			createVanillaOreWrapper(materialName);
 		} else {
 			create(Names.ENDORE, materialName);
 		}
 	}
 
-	private static void createVanillaEndOreWrapper(final String materialName) {
+	private static void createVanillaOreWrapper(final String materialName) {
 		final MMDMaterial material = Materials.getMaterialByName(materialName);
 		material.addNewBlock(Names.ENDORE, addBlock(new BlockMMDEndOre(material), Names.ENDORE.toString(), material, ItemGroups.getTab(SharedStrings.TAB_BLOCKS)));
 		final Block block = material.getBlock(Names.ENDORE);

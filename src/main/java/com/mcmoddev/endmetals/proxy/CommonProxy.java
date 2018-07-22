@@ -5,9 +5,9 @@ import java.util.HashSet;
 import com.mcmoddev.basemetals.data.MaterialNames;
 import com.mcmoddev.endmetals.init.ItemGroups;
 import com.mcmoddev.endmetals.init.Recipes;
-import com.mcmoddev.endmetals.util.Config;
 import com.mcmoddev.lib.data.SharedStrings;
 import com.mcmoddev.lib.oregen.FallbackGenerator;
+import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
 import com.mcmoddev.lib.util.ConfigBase.Options;
 
 import net.minecraftforge.fml.common.Loader;
@@ -21,6 +21,10 @@ import net.minecraftforge.fml.common.versioning.DefaultArtifactVersion;
 
 public class CommonProxy {
 
+	/**
+	 *
+	 * @param event The Event.
+	 */
 	@SuppressWarnings("deprecation")
 	public void preInit(final FMLPreInitializationEvent event) {
 		if ((Options.requireMMDOreSpawn()) && (!Loader.isModLoaded(SharedStrings.ORESPAWN_MODID))) {
@@ -35,13 +39,21 @@ public class CommonProxy {
 		}
 	}
 
+	/**
+	 *
+	 * @param event The Event.
+	 */
 	public void init(final FMLInitializationEvent event) {
 		Recipes.init();
 
 		ItemGroups.setupIcons(MaterialNames.LAPIS);
 	}
 
+	/**
+	 *
+	 * @param event The Event.
+	 */
 	public void postInit(final FMLPostInitializationEvent event) {
-		Config.postInit();
+		CrusherRecipeRegistry.getInstance().clearCache();
 	}
 }

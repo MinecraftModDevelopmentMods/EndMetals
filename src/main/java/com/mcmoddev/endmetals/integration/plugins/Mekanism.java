@@ -24,7 +24,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 @MMDPlugin(addonId = EndMetals.MODID, pluginId = Mekanism.PLUGIN_MODID)
-public class Mekanism extends MekanismBase implements IIntegration {
+public final class Mekanism extends MekanismBase implements IIntegration {
+
+	/**
+	 *
+	 */
 	@Override
 	public void init() {
 		if (!Options.isModEnabled(PLUGIN_MODID)) {
@@ -34,9 +38,13 @@ public class Mekanism extends MekanismBase implements IIntegration {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
+	/**
+	 *
+	 * @param event The Event.
+	 */
 	@SubscribeEvent
 	public void regCallback(final RegistryEvent.Register<IRecipe> event) {
-		final List<String> mekProvides = Arrays.asList(MaterialNames.IRON, MaterialNames.GOLD, 
+		final List<String> mekProvides = Arrays.asList(MaterialNames.IRON, MaterialNames.GOLD,
 				com.mcmoddev.modernmetals.data.MaterialNames.OSMIUM,
 				MaterialNames.COPPER, MaterialNames.TIN, MaterialNames.SILVER, MaterialNames.LEAD);
 
@@ -44,19 +52,19 @@ public class Mekanism extends MekanismBase implements IIntegration {
 		.map(Materials::getMaterialByName)
 		.filter(mat -> !mat.isEmpty())
 		.filter(mat -> gasExists(mat.getName()))
-		.forEach( mat -> {
+		.forEach(mat -> {
 			final ItemStack clump = new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(PLUGIN_MODID, Names.CLUMP.toString())),
 					6, mekProvides.indexOf(mat.getName()));
 			final ItemStack dust = new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(PLUGIN_MODID, "dust")),
 					4, mekProvides.indexOf(mat.getName()));
 			final ItemStack shard = new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(PLUGIN_MODID, Names.SHARD.toString())),
 					8, mekProvides.indexOf(mat.getName()));
-			final ItemStack endOre = mat.getBlockItemStack(Names.ENDORE);
+			final ItemStack ore = mat.getBlockItemStack(Names.ENDORE);
 
-			addEnrichmentChamberRecipe(endOre, dust);
-			addPurificationChamberRecipe(endOre, clump);
-			addChemicalInjectionChamberRecipe(endOre, shard);
-			addChemicalDissolutionChamberRecipe(endOre, mat.getName(), 2000);
+			addEnrichmentChamberRecipe(ore, dust);
+			addPurificationChamberRecipe(ore, clump);
+			addChemicalInjectionChamberRecipe(ore, shard);
+			addChemicalDissolutionChamberRecipe(ore, mat.getName(), 2000);
 		});
 
 		Materials.getAllMaterials().stream()
@@ -91,17 +99,17 @@ public class Mekanism extends MekanismBase implements IIntegration {
 	}
 
 	private void addMultRecipe(@Nonnull final MMDMaterial material) {
-		final ItemStack endOre = material.getBlockItemStack(Names.ENDORE);
+		final ItemStack ore = material.getBlockItemStack(Names.ENDORE);
 
 		if (material.hasItem(Names.POWDER)) {
-			addEnrichmentChamberRecipe(endOre, material.getItemStack(Names.POWDER, 4));
+			addEnrichmentChamberRecipe(ore, material.getItemStack(Names.POWDER, 4));
 		}
 		if (material.hasItem(Names.CLUMP)) {
-			addPurificationChamberRecipe(endOre, material.getItemStack(Names.CLUMP, 6));
+			addPurificationChamberRecipe(ore, material.getItemStack(Names.CLUMP, 6));
 		}
 		if (material.hasItem(Names.SHARD)) {
-			addChemicalInjectionChamberRecipe(endOre, material.getItemStack(Names.SHARD, 8));
+			addChemicalInjectionChamberRecipe(ore, material.getItemStack(Names.SHARD, 8));
 		}
-		addChemicalDissolutionChamberRecipe(endOre, material.getName(), 2000);
+		addChemicalDissolutionChamberRecipe(ore, material.getName(), 2000);
 	}
 }

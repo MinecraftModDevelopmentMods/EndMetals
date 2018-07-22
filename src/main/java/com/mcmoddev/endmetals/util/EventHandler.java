@@ -5,7 +5,7 @@ import com.mcmoddev.lib.events.MMDLibRegisterBlocks;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.util.Oredicts;
 import com.mcmoddev.endmetals.EndMetals;
-import com.mcmoddev.endmetals.init.Blocks;
+import com.mcmoddev.endmetals.init.EndBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -25,9 +25,13 @@ public final class EventHandler {
 	@SubscribeEvent
 	public static void mmdlibRegisterBlocks(final MMDLibRegisterBlocks event) {
 		event.setActive(EndMetals.MODID);
-		Blocks.init();
+		EndBlocks.init();
 	}
 
+	/**
+	 *
+	 * @param event The Event.
+	 */
 	@SubscribeEvent
 	public static void onRemapBlock(final RegistryEvent.MissingMappings<Block> event) {
 		for (final RegistryEvent.MissingMappings.Mapping<Block> mapping : event.getAllMappings()) {
@@ -37,6 +41,10 @@ public final class EventHandler {
 		}
 	}
 
+	/**
+	 *
+	 * @param event The Event.
+	 */
 	@SubscribeEvent
 	public static void onRemapItem(final RegistryEvent.MissingMappings<Item> event) {
 		for (final RegistryEvent.MissingMappings.Mapping<Item> mapping : event.getAllMappings()) {
@@ -46,10 +54,14 @@ public final class EventHandler {
 		}
 	}
 
+	/**
+	 *
+	 * @param event The Event.
+	 */
 	@SubscribeEvent
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
 		Materials.getAllMaterials().stream()
-		.forEach( mat ->
+		.forEach(mat ->
 			mat.getItems().stream()
 			.map(itemStack -> itemStack.getItem())
 			.filter(EventHandler::itemFilterFunc)
@@ -64,10 +76,14 @@ public final class EventHandler {
 		return matchModId(item.getRegistryName());
 	}
 
+	/**
+	 *
+	 * @param event The Event.
+	 */
 	@SubscribeEvent
 	public static void registerBlocks(final RegistryEvent.Register<Block> event) {
 		Materials.getAllMaterials().stream()
-		.forEach( mat ->
+		.forEach(mat ->
 			mat.getBlocks().stream()
 			.filter(EventHandler::blockFilterFunc)
 			.forEach(event.getRegistry()::register)
