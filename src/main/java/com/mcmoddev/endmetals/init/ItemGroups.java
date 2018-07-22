@@ -3,7 +3,6 @@ package com.mcmoddev.endmetals.init;
 import com.mcmoddev.endmetals.EndMetals;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.data.SharedStrings;
-import com.mcmoddev.lib.init.MMDCreativeTab;
 import com.mcmoddev.lib.material.MMDMaterial;
 import com.mcmoddev.lib.init.Materials;
 
@@ -13,31 +12,25 @@ import com.mcmoddev.lib.init.Materials;
  * @author Jasmine Iwanek
  *
  */
-public class ItemGroups extends com.mcmoddev.lib.init.ItemGroups {
-
-	private static boolean initDone = false;
+public final class ItemGroups extends com.mcmoddev.lib.init.ItemGroups {
 
 	private ItemGroups() {
-		throw new IllegalAccessError("Not a instantiable class");
+		throw new IllegalAccessError(SharedStrings.NOT_INSTANTIABLE);
 	}
 
 	/**
 	 *
 	 */
 	public static void init() {
-		if (initDone) {
-			return;
-		}
-
-		initDone = true;
+		// Unused
 	}
 
-	public static void setupIcons(String materialName) {
+	public static void setupIcons(final String materialName) {
 		if (Materials.hasMaterial(materialName)) {
 			final MMDMaterial material = Materials.getMaterialByName(materialName);
 
 			if (material.hasBlock(Names.ENDORE)) {
-				getTab(EndMetals.MODID,SharedStrings.TAB_BLOCKS).setTabIconItem(material.getBlock(Names.ENDORE));
+				getTab(EndMetals.MODID, SharedStrings.TAB_BLOCKS).setTabIconItem(material.getBlock(Names.ENDORE));
 			}
 		}
 	}

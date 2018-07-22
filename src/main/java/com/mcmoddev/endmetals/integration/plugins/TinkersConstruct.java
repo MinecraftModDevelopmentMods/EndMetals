@@ -26,7 +26,7 @@ import slimeknights.mantle.util.RecipeMatch;
 @MMDPlugin(addonId = EndMetals.MODID, 
 pluginId = TinkersConstruct.PLUGIN_MODID, 
 versions=TinkersConstruct.PLUGIN_MODID+"@[1.12.2-2.7.4.0,);")
-public class TinkersConstruct extends TinkersConstructBase implements IIntegration {
+public final class TinkersConstruct extends TinkersConstructBase implements IIntegration {
 
 	@Override
 	public void init() {
@@ -36,29 +36,29 @@ public class TinkersConstruct extends TinkersConstructBase implements IIntegrati
 
 		MinecraftForge.EVENT_BUS.register(this);
 	}
-	
+
 	@SubscribeEvent
-	public void registerExtraMelting(IntegrationInitEvent ev) {
+	public void registerExtraMelting(final IntegrationInitEvent event) {
 		Materials.getAllMaterials().stream()
 		.filter(this::isMaterialEmpty)
 		.filter(this::hasEndOre)
 		.filter(this::hasFluid)
-		.forEach(mat -> {
-			RecipeMatch input = RecipeMatch.of(Oredicts.ORE_END + mat.getCapitalizedName(), 576);
-			MeltingRecipe rec = new MeltingRecipe(input, FluidRegistry.getFluid(mat.getName()));
-			TinkerRegistry.registerMelting(rec);
+		.forEach(material -> {
+			final RecipeMatch input = RecipeMatch.of(Oredicts.ORE_END + material.getCapitalizedName(), 576);
+			final MeltingRecipe recipe = new MeltingRecipe(input, FluidRegistry.getFluid(material.getName()));
+			TinkerRegistry.registerMelting(recipe);
 		});
 	}
-	
-	private boolean hasFluid(MMDMaterial mat) {
-		return FluidRegistry.getFluid(mat.getName()) != null;
+
+	private boolean hasFluid(final MMDMaterial material) {
+		return FluidRegistry.getFluid(material.getName()) != null;
 	}
-	
-	private boolean hasEndOre(MMDMaterial mat) {
-		return mat.hasBlock(Names.ENDORE);
+
+	private boolean hasEndOre(final MMDMaterial material) {
+		return material.hasBlock(Names.ENDORE);
 	}
-	
-	private boolean isMaterialEmpty(MMDMaterial mat) {
-		return !mat.isEmpty();
+
+	private boolean isMaterialEmpty(final MMDMaterial material) {
+		return !material.isEmpty();
 	}	
 }

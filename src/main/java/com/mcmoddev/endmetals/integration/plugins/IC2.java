@@ -33,21 +33,21 @@ public class IC2 extends IC2Base implements IIntegration {
 	}
 
 	@SubscribeEvent
-	public void regCallback(RegistryEvent.Register<IRecipe> ev) {
-		List<MMDMaterial> myMats = new ArrayList<>();
+	public void regCallback(RegistryEvent.Register<IRecipe> event) {
+		final List<MMDMaterial> materials = new ArrayList<>();
 
-		Materials.getAllMaterials().stream().filter((mat) -> mat.hasBlock(Names.ENDORE)).forEach(myMats::add);
-		for( MMDMaterial mat : myMats ) {
+		Materials.getAllMaterials().stream().filter(material -> material.hasBlock(Names.ENDORE)).forEach(materials::add);
+		for (final MMDMaterial material : materials) {
 			ItemStack output;
-			if( mat.hasItem(Names.CRUSHED)) {
-				output = new ItemStack( mat.getItem(Names.CRUSHED), 4 );
-			} else if( mat.hasItem(Names.POWDER) ) {
-				output = new ItemStack( mat.getItem(Names.POWDER), 4);
+			if (material.hasItem(Names.CRUSHED)) {
+				output = material.getItemStack(Names.CRUSHED, 4);
+			} else if (material.hasItem(Names.POWDER)) {
+				output = material.getItemStack(Names.POWDER, 4);
 			} else {
 				continue;
 			}
 
-			addMaceratorRecipe(Oredicts.ORE_END+mat.getCapitalizedName(), output);
+			addMaceratorRecipe(Oredicts.ORE_END + material.getCapitalizedName(), output);
 		}
 	}
 }

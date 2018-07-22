@@ -21,18 +21,19 @@ public class ThermalExpansion extends ThermalExpansionBase implements IIntegrati
 		if (!Options.isModEnabled(PLUGIN_MODID)) {
 			return;
 		}
+
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@SubscribeEvent
-	public void regShit(RegistryEvent.Register<IRecipe> event) {
+	public void regCallback(final RegistryEvent.Register<IRecipe> event) {
 		Materials.getAllMaterials().stream()
-		.filter(mat->mat.hasBlock(Names.ENDORE))
-		.filter(mat->mat.hasItem(Names.POWDER))
-		.forEach(mat -> {
-			ItemStack ore = mat.getBlockItemStack(Names.ENDORE, 1);
-			ItemStack powder = mat.getItemStack(Names.POWDER, 4);
-			if( !((ore.isEmpty()) || (powder.isEmpty())))
+		.filter(material -> material.hasBlock(Names.ENDORE))
+		.filter(material -> material.hasItem(Names.POWDER))
+		.forEach(material -> {
+			final ItemStack ore = material.getBlockItemStack(Names.ENDORE, 1);
+			final ItemStack powder = material.getItemStack(Names.POWDER, 4);
+			if (!((ore.isEmpty()) || (powder.isEmpty())))
 				addPulverizerRecipe( 4000, ore, powder);
 		});
 	}

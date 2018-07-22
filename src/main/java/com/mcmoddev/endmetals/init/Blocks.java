@@ -18,43 +18,39 @@ import net.minecraft.block.Block;
  * @author Jasmine Iwanek
  *
  */
-public class Blocks extends com.mcmoddev.lib.init.Blocks {
+public final class Blocks extends com.mcmoddev.lib.init.Blocks {
 	/**
 	 *
 	 */
 	public static void init() {
-		List<String> knownMaterials = Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis",
+		final List<String> knownMaterials = Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis",
 				"redstone", "antimony", "bismuth", "copper", "lead", "mercury", "nickel", "platinum",
 				"silver", "tin", "zinc", "aluminum", "cadmium", "chromium", "iridium", "magnesium",
 				"manganese", "osmium", "plutonium", "rutile", "tantalum", "titanium", "tungsten",
 				"uranium", "zirconium");
 		Materials.getAllMaterials().stream()
-		.map(mat -> mat.getName())
+		.map(material -> material.getName())
 		.filter(knownMaterials::contains)
+		.filter(Materials::hasMaterial)
 		.forEach(Blocks::createEndOreWrapper);
 	}
 
-	private static void createEndOreWrapper(String materialName) {
-		List<String> vanillaMats = Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis", "redstone");
-		if (vanillaMats.contains(materialName))
+	private static void createEndOreWrapper(final String materialName) {
+		final List<String> vanillaMats = Arrays.asList("coal", "diamond", "emerald", "gold", "iron", "lapis", "redstone");
+		if (vanillaMats.contains(materialName)) {
 			createVanillaEndOreWrapper(materialName);
-		else
-			createEndOreWrapperBasic(materialName);
-	}
-	
-	private static void createVanillaEndOreWrapper(String materialName) {
-		final MMDMaterial material = Materials.getMaterialByName(materialName);
-			material.addNewBlock(Names.ENDORE, addBlock(new BlockMMDEndOre(material), Names.ENDORE.toString(), material, ItemGroups.getTab(SharedStrings.TAB_BLOCKS)));
-			final Block b = material.getBlock(Names.ENDORE);
-			final String oredict = getOredictFromName(Names.ENDORE);
-			if ((oredict != null) && (b != null)) {
-				Oredicts.registerOre(oredict + material.getCapitalizedName(), b);
-			}
+		} else {
+			create(Names.ENDORE, materialName);
+		}
 	}
 
-	private static void createEndOreWrapperBasic(String materialName) {
-		if (Materials.hasMaterial(materialName)) {
-			create(Names.ENDORE, materialName);
+	private static void createVanillaEndOreWrapper(final String materialName) {
+		final MMDMaterial material = Materials.getMaterialByName(materialName);
+		material.addNewBlock(Names.ENDORE, addBlock(new BlockMMDEndOre(material), Names.ENDORE.toString(), material, ItemGroups.getTab(SharedStrings.TAB_BLOCKS)));
+		final Block block = material.getBlock(Names.ENDORE);
+		final String oredict = getOredictFromName(Names.ENDORE);
+		if ((oredict != null) && (block != null)) {
+			Oredicts.registerOre(oredict + material.getCapitalizedName(), block);
 		}
 	}
 }

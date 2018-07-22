@@ -1,7 +1,6 @@
 package com.mcmoddev.endmetals.util;
 
 import java.io.*;
-import java.util.*;
 
 import com.mcmoddev.endmetals.EndMetals;
 import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
@@ -9,30 +8,22 @@ import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
-import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.MissingModsException;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.versioning.ArtifactVersion;
-import net.minecraftforge.fml.common.versioning.DefaultArtifactVersion;
 
 /**
  * @author Jasmine Iwanek
  *
  */
-public class Config extends com.mcmoddev.lib.util.ConfigBase {
+public final class Config extends com.mcmoddev.lib.util.ConfigBase {
 
 	private static Configuration configuration;
 	private static final String CONFIG_FILE = "config/EndMetals.cfg";
-	private static final String ORESPAWN = "OreSpawn";
 	private static final String ENDORE = "End Ores";
-	private static final String COMPAT = "Mod Compat";
 	private static final String GENERAL = "General";
-	private static final String MMDLIB = "MMD Lib";
-	private static final String REQUIRE_MMD_ORE_SPAWN = "requireMMDOreSpawn";
 
 	@SubscribeEvent
-	public void onConfigChange(ConfigChangedEvent.OnConfigChangedEvent e) {
-		if (e.getModID().equals(EndMetals.MODID)) {
+	public void onConfigChange(final ConfigChangedEvent.OnConfigChangedEvent event) {
+		if (event.getModID().equals(EndMetals.MODID)) {
 			init();
 		}
 	}
@@ -43,7 +34,7 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 			MinecraftForge.EVENT_BUS.register(new Config());
 		}
 
-		Options.thingEnabled("enableFurnaceSmelting", configuration.getBoolean("enableFurnaceSmelting", GENERAL, true, "EnableFurnaceSmelting"));
+		Options.thingEnabled("enableFurnaceSmelting", configuration.getBoolean("enableFurnaceSmelting", GENERAL, true, "Enable Furnace Smelting"));
 		Options.thingEnabled("smeltToIngots", configuration.getBoolean("smeltToIngots", GENERAL, false, "By default nether ores smelt to 2 standard ores - with this option you get 2 ingots"));
 		Options.thingEnabled("makeDusts", configuration.getBoolean("makeDusts", GENERAL, false, "Normally hitting a Nether Ore with a Crackhammer gives you 2 normal ores. With this option you get 4 dusts"));
 
@@ -78,21 +69,9 @@ public class Config extends com.mcmoddev.lib.util.ConfigBase {
 		Options.materialEnabled("enableTungstenEndOre", configuration.getBoolean("enableTungstenEndOre", ENDORE, true, "Enable Tungsten End Ore"));
 		Options.materialEnabled("enableUraniumEndOre", configuration.getBoolean("enableUraniumEndOre", ENDORE, true, "Enable Uranium End Ore"));
 		Options.materialEnabled("enableZirconiumEndOre", configuration.getBoolean("enableZirconiumEndOre", ENDORE, true, "Enable Zirconium End Ore"));
-		Options.thingEnabled("requireMMDLib", configuration.getBoolean("requireMMDLib", MMDLIB, false, "Require MMD Lib"));
-		Options.thingEnabled(REQUIRE_MMD_ORE_SPAWN, configuration.getBoolean(REQUIRE_MMD_ORE_SPAWN, ORESPAWN, true, "Require MMD OreSpawn"));
-		Options.modEnabled("enableVeinminer", configuration.getBoolean("enableVeinminer", COMPAT, true, "Enable Veinminer Support"));
-		Options.modEnabled("enableTinkersConstruct", configuration.getBoolean("enableTinkersConstruct", COMPAT, false, "Enable Tinkers Construct Support"));
 
 		if (configuration.hasChanged()) {
 			configuration.save();
-		}
-
-
-		if ((Options.isThingEnabled(REQUIRE_MMD_ORE_SPAWN)) &&
-				(!Loader.isModLoaded("orespawn"))) {
-			final HashSet<ArtifactVersion> orespawnMod = new HashSet<>();
-			orespawnMod.add(new DefaultArtifactVersion("3.2.0"));
-			throw new MissingModsException(orespawnMod, "orespawn", "MMD Ore Spawn Mod");
 		}
 	}
 
