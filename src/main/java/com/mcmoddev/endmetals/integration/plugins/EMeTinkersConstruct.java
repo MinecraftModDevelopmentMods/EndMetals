@@ -6,9 +6,9 @@ import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.integration.IIntegration;
 import com.mcmoddev.lib.integration.MMDPlugin;
 import com.mcmoddev.lib.material.MMDMaterial;
-import com.mcmoddev.lib.util.ConfigBase.Options;
+import com.mcmoddev.lib.util.Config.Options;
 import com.mcmoddev.lib.util.Oredicts;
-import com.mcmoddev.lib.integration.plugins.TinkersConstructBase;
+import com.mcmoddev.lib.integration.plugins.TinkersConstruct;
 import com.mcmoddev.lib.integration.plugins.tinkers.events.TinkersExtraMeltingsEvent;
 
 import net.minecraftforge.common.MinecraftForge;
@@ -24,20 +24,20 @@ import slimeknights.mantle.util.RecipeMatch;
  *
  */
 @MMDPlugin(addonId = EndMetals.MODID,
-pluginId = TinkersConstruct.PLUGIN_MODID,
-versions = TinkersConstruct.PLUGIN_MODID + "@[1.12.2-2.7.4.0,);")
-public final class TinkersConstruct implements IIntegration {
+pluginId = EMeTinkersConstruct.PLUGIN_MODID,
+versions = EMeTinkersConstruct.PLUGIN_MODID + "@[1.12.2-2.7.4.0,);")
+public final class EMeTinkersConstruct implements IIntegration {
 
-	public static final String PLUGIN_MODID = TinkersConstructBase.PLUGIN_MODID;
+	public static final String PLUGIN_MODID = TinkersConstruct.PLUGIN_MODID;
 
-	public TinkersConstruct() {
+	public EMeTinkersConstruct() {
 		// do nothing
 	}
 
 	@Override
 	public void init() {
-		TinkersConstructBase.INSTANCE.init();
-		if (!Options.isModEnabled(TinkersConstruct.PLUGIN_MODID)) {
+		TinkersConstruct.INSTANCE.init();
+		if (!Options.isModEnabled(EMeTinkersConstruct.PLUGIN_MODID)) {
 			return;
 		}
 

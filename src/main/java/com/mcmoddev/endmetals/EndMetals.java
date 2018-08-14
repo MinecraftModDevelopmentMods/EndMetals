@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.mcmoddev.endmetals.proxy.CommonProxy;
-import com.mcmoddev.endmetals.util.Config;
+import com.mcmoddev.endmetals.util.EMeConfig;
 import com.mcmoddev.lib.data.SharedStrings;
 
 import net.minecraftforge.fml.common.Mod;
@@ -64,7 +64,7 @@ public final class EndMetals {
 
 	@EventHandler
 	public void constructing(final FMLConstructionEvent event) {
-		Config.init();
+		EMeConfig.init();
 	}
 
 	@EventHandler
