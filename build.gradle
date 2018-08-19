@@ -7,6 +7,10 @@ buildscript {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
         }
+        maven {
+            name = 'gradle'
+            url 'https://plugins.gradle.org/m2/'
+        }
 		maven {
 			name = "sonatype"
 			url = 'https://oss.sonatype.org/content/groups/public'
@@ -14,7 +18,7 @@ buildscript {
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
-		classpath 'com.matthewprenger:CurseGradle:1.0-SNAPSHOT'
+		classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.0.11'
     }
 }
 
