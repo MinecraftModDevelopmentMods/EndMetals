@@ -33,7 +33,7 @@ javadoc {
 }
 
 def mod_file = getModFile()
-def mc_version = "1.9"
+def mc_version = "1.9.4"
 def short_version = getVersion("VERSION", mod_file)
 version = mc_version + "-" + short_version
 if (System.getenv().BUILD_NUMBER) {
@@ -68,9 +68,9 @@ if (secretFile.exists()) {
 }
 
 minecraft {
-    version = "1.9-12.16.1.1938-1.9.0"
+    version = "1.9.4-12.17.0.1976"
     runDir = "run"
-    mappings = "stable_24"
+    mappings = "stable_26"
 //  coreMod = corePlugin
 //  clientJvmArgs = ["-Dfml.coreMods.load=$corePlugin"]
 //  serverJvmArgs = ["-Dfml.coreMods.load=$corePlugin"]
