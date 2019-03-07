@@ -3,7 +3,7 @@ package com.mcmoddev.endmetals.integration.plugins;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mcmoddev.basemetals.init.Materials;
+import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.endmetals.EndMetals;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.integration.IIntegration;
