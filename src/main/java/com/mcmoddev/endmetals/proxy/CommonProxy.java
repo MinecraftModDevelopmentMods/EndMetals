@@ -2,7 +2,7 @@ package com.mcmoddev.endmetals.proxy;
 
 import java.util.HashSet;
 
-import com.mcmoddev.basemetals.data.MaterialNames;
+import com.mcmoddev.lib.data.VanillaMaterialNames;
 import com.mcmoddev.endmetals.init.ItemGroups;
 import com.mcmoddev.endmetals.init.Recipes;
 import com.mcmoddev.lib.data.SharedStrings;
@@ -46,7 +46,7 @@ public class CommonProxy {
 	public void init(final FMLInitializationEvent event) {
 		Recipes.init();
 
-		ItemGroups.setupIcons(MaterialNames.LAPIS);
+		ItemGroups.setupIcons(VanillaMaterialNames.LAPIS);
 	}
 
 	/**
