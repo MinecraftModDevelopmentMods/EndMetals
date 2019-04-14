@@ -373,8 +373,9 @@ curseforge {
       mainArtifact(jar) {
         displayName = "$project.description $display_version"
         relations {
-          requiredLibrary 'mmd-orespawn'
-          requiredLibrary 'base-metals'
+	  requiredLibrary 'mmd-orespawn'
+	  requiredLibrary 'mmdlib'
+          optionalLibrary 'base-metals'
           optionalLibrary 'base-minerals'
           optionalLibrary 'modern-metals'
         }
