@@ -1,1 +1,3 @@
+Addendum: The config should be re-generated, as the entire 'general' category has been moved to MMDLib as it replicated settings that apply to NetherMetals as well, so they have been merged to the common provider.
+
 *Metals family wide bug-fixes and updates. No longer requires BaseMetals - only MMDLib and MMD OreSpawn.
