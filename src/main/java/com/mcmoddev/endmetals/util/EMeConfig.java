@@ -18,7 +18,6 @@ public final class EMeConfig extends com.mcmoddev.lib.util.Config {
 	private static Configuration configuration;
 	private static final String CONFIG_FILE = "config/EndMetals.cfg";
 	private static final String ENDORE = "End Ores";
-	private static final String GENERAL = "General";
 
 	/**
 	 *
@@ -39,11 +38,6 @@ public final class EMeConfig extends com.mcmoddev.lib.util.Config {
 			configuration = new Configuration(new File(CONFIG_FILE));
 			MinecraftForge.EVENT_BUS.register(new EMeConfig());
 		}
-
-		// General
-		Options.thingEnabled("enableFurnaceSmelting", configuration.getBoolean("enableFurnaceSmelting", GENERAL, true, "Enable Furnace Smelting"));
-		Options.thingEnabled("smeltToIngots", configuration.getBoolean("smeltToIngots", GENERAL, false, "By default nether ores smelt to 2 standard ores - with this option you get 2 ingots"));
-		Options.thingEnabled("makeDusts", configuration.getBoolean("makeDusts", GENERAL, false, "Normally hitting a Nether Ore with a Crackhammer gives you 2 normal ores. With this option you get 4 dusts"));
 
 		// End Ores
 		Options.materialEnabled("enableCoalEndOre", configuration.getBoolean("enableCoalEndOre", ENDORE, true, "Enable Coal End Ore"));
