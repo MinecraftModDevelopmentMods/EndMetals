@@ -30,6 +30,13 @@ public final class EndBlocks extends com.mcmoddev.lib.init.Blocks {
 				"manganese", "osmium", "plutonium", "rutile", "tantalum", "titanium", "tungsten",
 				"uranium", "zirconium");
 		Materials.getAllMaterials().stream()
+		.filter(MMDMaterial::isVanilla)
+		.map(material -> material.getName())
+		.filter(knownMaterials::contains)
+		.filter(Materials::hasMaterial)
+		.forEach(EndBlocks::createOreWrapper);
+		Materials.getAllMaterials().stream()
+		.filter(mat -> !mat.isVanilla())
 		.map(material -> material.getName())
 		.filter(knownMaterials::contains)
 		.filter(Materials::hasMaterial)
