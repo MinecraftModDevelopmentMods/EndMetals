@@ -1,16 +1,18 @@
-###End Metals [![Build Status](https://travis-ci.org/jriwanek/End-Metals.svg?branch=master)](https://travis-ci.org/jriwanek/End-Metals)
+[![](https://img.shields.io/badge/Discord-MMD-green.svg?style=flat&logo=Discord)](https://discord.mcmoddev.com)
+[![](http://cf.way2muchnoise.eu/full_mmd-orespawn_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/end-metals)
+[![](http://cf.way2muchnoise.eu/versions/Minecraft_mmd-orespawn_all.svg)](https://www.curseforge.com/minecraft/mc-mods/end-metals)
+[![Build Status](https://travis-ci.org/jriwanek/End-Metals.svg?branch=master)](https://travis-ci.org/jriwanek/End-Metals)
 
-#### ( Info ) :
-
+### End Metals
 End Metals is an Addon for the mod Base Metals, it expands it to bring its ores to the End dimension.
 
 It can fit perfectly in skyblock modpacks
 
-This mod can make use of Base Metals (By: DrCyano) http://minecraft.curseforge.com/projects/base-metals
-This mod can make use of Modern Metals (By: jriwanek) http://minecraft.curseforge.com/projects/modern-metals
+This mod can make use of Base Metals (By: DrCyano) https://www.curseforge.com/minecraft/mc-mods/base-metals
+
+This mod can make use of Modern Metals (By: jriwanek) https://www.curseforge.com/minecraft/mc-mods/modern-metals
 
 #### ( Vanilla Ores ):
-
    1.  End Iron Ore
    2.  End Lapis Ore
    3.  End Redstone Ore
@@ -20,7 +22,6 @@ This mod can make use of Modern Metals (By: jriwanek) http://minecraft.curseforg
    7.  End Emerald Ore
 
 #### ( Base Metals Ores ):
-
    1.  End Copper Ore
    2.  End Tin Ore
    3.  End Lead Ore
@@ -33,7 +34,6 @@ This mod can make use of Modern Metals (By: jriwanek) http://minecraft.curseforg
    10.  End Bismuth Ore
    
 #### ( Modern Metals Ores ):
-
    1.  End Aluminum Ore
    2.  End Cadmium Ore
    3.  End Chromium Ore
